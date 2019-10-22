@@ -1,0 +1,64 @@
+body {
+    background-image: url("resources/background.jpg");
+}
+
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+.navbar li{
+    float: left;
+}
+
+.navbar li a{
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: blue;
+  }
+
+.column{
+    float: left;
+    width: 33.33%;
+}
+
+.row:after{
+    content:"";
+    display:table;
+    clear:both;
+}
+
+.content {
+    background-color: black;
+    color: gray;
+    text-align: center;
+}
+
+.column img{
+    width:100%;
+    height: 700px;
+}
+
+.gamewindow{
+    width: 1280px;
+    height: 720px;
+    border: solid black 5px;
+    background-color: white;
+    margin: auto;
+}
