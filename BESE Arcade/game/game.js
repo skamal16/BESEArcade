@@ -11,14 +11,15 @@ const Game = function() {
   };
   Game.prototype = { constructor : Game };
   
-  Game.Animator = function(frame_set, delay) {
+  // Made the default animation type "loop":
+  Game.Animator = function(frame_set, delay, mode = "loop") {
   
    this.count       = 0;
    this.delay       = (delay >= 1) ? delay : 1;
    this.frame_set   = frame_set;
    this.frame_index = 0;
    this.frame_value = frame_set[0];
-   this.mode        = "pause";
+   this.mode        = mode;
   
   };
   Game.Animator.prototype = {
@@ -167,7 +168,8 @@ const Game = function() {
   
    };
   
-  Game.Frame = function(x, y, width, height, offset_x, offset_y) {
+  // Added default values of 0 for offset_x and offset_y
+  Game.Frame = function(x, y, width, height, offset_x = 0, offset_y = 0) {
   
     this.x        = x;
     this.y        = y;
@@ -187,10 +189,34 @@ const Game = function() {
    this.y      = y;
   
   };
-  /* I added getCenterX, getCenterY, setCenterX, and setCenterY */
   Game.Object.prototype = {
   
     constructor:Game.Object,
+  
+    /* Now does rectangular collision detection. */
+    collideObject:function(object) {
+  
+      if (this.getRight()  < object.getLeft()  ||
+          this.getBottom() < object.getTop()   ||
+          this.getLeft()   > object.getRight() ||
+          this.getTop()    > object.getBottom()) return false;
+  
+      return true;
+  
+    },
+  
+    /* Does rectangular collision detection with the center of the object. */
+    collideObjectCenter:function(object) {
+  
+      let center_x = object.getCenterX();
+      let center_y = object.getCenterY();
+  
+      if (center_x < this.getLeft() || center_x > this.getRight() ||
+          center_y < this.getTop()  || center_y > this.getBottom()) return false;
+  
+      return true;
+  
+    },
   
     getBottom : function()  { return this.y + this.height;       },
     getCenterX: function()  { return this.x + this.width  * 0.5; },
@@ -239,6 +265,61 @@ const Game = function() {
   Object.assign(Game.MovingObject.prototype, Game.Object.prototype);
   Game.MovingObject.prototype.constructor = Game.MovingObject;
   
+  /* The carrot class extends Game.Object and Game.Animation. */
+  Game.Carrot = function(x, y) {
+  
+    Game.Object.call(this, x, y, 7, 14);
+    Game.Animator.call(this, Game.Carrot.prototype.frame_sets["twirl"], 15);
+  
+    this.frame_index = Math.floor(Math.random() * 2);
+  
+    /* base_x and base_y are the point around which the carrot revolves. position_x
+    and y are used to track the vector facing away from the base point to give the carrot
+    the floating effect. */
+    this.base_x     = x;
+    this.base_y     = y;
+    this.position_x = Math.random() * Math.PI * 2;
+    this.position_y = this.position_x * 2;
+  
+  };
+  Game.Carrot.prototype = {
+  
+    frame_sets: { "twirl":[12, 13] },
+  
+    updatePosition:function() {
+  
+      this.position_x += 0.1;
+      this.position_y += 0.2;
+  
+      this.x = this.base_x + Math.cos(this.position_x) * 2;
+      this.y = this.base_y + Math.sin(this.position_y);
+  
+    }
+  
+  };
+  Object.assign(Game.Carrot.prototype, Game.Animator.prototype);
+  Object.assign(Game.Carrot.prototype, Game.Object.prototype);
+  Game.Carrot.prototype.constructor = Game.Carrot;
+  
+  Game.Grass = function(x, y) {
+  
+    Game.Animator.call(this, Game.Grass.prototype.frame_sets["wave"], 25);
+  
+    this.x = x;
+    this.y = y;
+  
+  };
+  Game.Grass.prototype = {
+  
+    frame_sets: {
+  
+      "wave":[14, 15, 16, 15]
+  
+    }
+  
+  };
+  Object.assign(Game.Grass.prototype, Game.Animator.prototype);
+  
   Game.Door = function(door) {
   
    Game.Object.call(this, door.x, door.y, door.width, door.height);
@@ -248,28 +329,14 @@ const Game = function() {
    this.destination_zone = door.destination_zone;
   
   };
-  Game.Door.prototype = {
-  
-   /* Tests for collision between this door object and a MovingObject. */
-   collideObject(object) {
-  
-     let center_x = object.getCenterX();
-     let center_y = object.getCenterY();
-  
-     if (center_x < this.getLeft() || center_x > this.getRight() ||
-         center_y < this.getTop()  || center_y > this.getBottom()) return false;
-  
-     return true;
-  
-   }
-  
-  };
+  Game.Door.prototype = {};
   Object.assign(Game.Door.prototype, Game.Object.prototype);
   Game.Door.prototype.constructor = Game.Door;
   
   Game.Player = function(x, y) {
   
     Game.MovingObject.call(this, x, y, 7, 12);
+  
     Game.Animator.call(this, Game.Player.prototype.frame_sets["idle-left"], 10);
   
     this.jumping     = true;
@@ -377,7 +444,9 @@ const Game = function() {
                    new f(102,  96, 13, 16, 0, -4), new f(89, 96, 13, 16, 0, -4), new f(76, 96, 13, 16, 0, -4), new f(63, 96, 13, 16, 0, -4), // walk-left
                    new f(  0, 112, 13, 16, 0, -4), // idle-right
                    new f( 65, 112, 13, 16, 0, -4), // jump-right
-                   new f( 13, 112, 13, 16, 0, -4), new f(26, 112, 13, 16, 0, -4), new f(39, 112, 13, 16, 0, -4), new f(52, 112, 13, 16, 0, -4) // walk-right
+                   new f( 13, 112, 13, 16, 0, -4), new f(26, 112, 13, 16, 0, -4), new f(39, 112, 13, 16, 0, -4), new f(52, 112, 13, 16, 0, -4), // walk-right
+                   new f( 81, 112, 14, 16), new f(96, 112, 16, 16), // carrot
+                   new f(112, 115, 16,  4), new f(112, 124, 16, 4), new f(112, 119, 16, 4) // grass
                   ];
   
   };
@@ -385,24 +454,26 @@ const Game = function() {
   
   Game.World = function(friction = 0.85, gravity = 2) {
   
-    this.collider  = new Game.Collider();
+    this.collider     = new Game.Collider();
   
-    this.friction  = friction;
-    this.gravity   = gravity;
+    this.friction     = friction;
+    this.gravity      = gravity;
   
-    this.columns   = 12;
-    this.rows      = 9;
+    this.columns      = 12;
+    this.rows         = 9;
   
-    this.tile_set  = new Game.TileSet(8, 16);
-    this.player    = new Game.Player(32, 76);
+    this.tile_set     = new Game.TileSet(8, 16);
+    this.player       = new Game.Player(32, 76);
   
-    this.zone_id   = "00";// The current zone.
+    this.zone_id      = "00";
   
-    this.doors     = [];// The array of doors in the level.
-    this.door      = undefined; // If the player enters a door, the game will set this property to that door and the level will be loaded.
+    this.carrots      = [];// the array of carrots in this zone;
+    this.carrot_count = 0;// the number of carrots you have.
+    this.doors        = [];
+    this.door         = undefined;
   
-    this.height    = this.tile_set.tile_size * this.rows;
-    this.width     = this.tile_set.tile_size * this.columns;
+    this.height       = this.tile_set.tile_size * this.rows;
+    this.width        = this.tile_set.tile_size * this.columns;
   
   };
   Game.World.prototype = {
@@ -438,21 +509,24 @@ const Game = function() {
   
     },
   
-    /* The setup function takes a zone object generated from a zoneXX.json file. It
-    sets all the world values to values of zone. If the player just passed through a
-    door, it uses the this.door variable to change the player's location to wherever
-    that door's destination goes. */
     setup:function(zone) {
   
-      /* Get the new tile maps, the new zone, and reset the doors array. */
-      this.graphical_map      = zone.graphical_map;
+      this.carrots            = new Array();
+      this.doors              = new Array();
+      this.grass              = new Array();
       this.collision_map      = zone.collision_map;
+      this.graphical_map      = zone.graphical_map;
       this.columns            = zone.columns;
       this.rows               = zone.rows;
-      this.doors              = new Array();
       this.zone_id            = zone.id;
   
-      /* Generate new doors. */
+      for (let index = zone.carrots.length - 1; index > -1; -- index) {
+  
+        let carrot = zone.carrots[index];
+        this.carrots[index] = new Game.Carrot(carrot[0] * this.tile_set.tile_size + 5, carrot[1] * this.tile_set.tile_size - 2);
+  
+      }
+  
       for (let index = zone.doors.length - 1; index > -1; -- index) {
   
         let door = zone.doors[index];
@@ -460,13 +534,15 @@ const Game = function() {
   
       }
   
-      /* If the player entered into a door, this.door will reference that door. Here
-      it will be used to set the player's location to the door's destination. */
+      for (let index = zone.grass.length - 1; index > -1; -- index) {
+  
+        let grass = zone.grass[index];
+        this.grass[index] = new Game.Grass(grass[0] * this.tile_set.tile_size, grass[1] * this.tile_set.tile_size + 12);
+  
+      }
+  
       if (this.door) {
   
-        /* if a destination is equal to -1, that means it won't be used. Since each zone
-        spans from 0 to its width and height, any negative number would be invalid. If
-        a door's destination is -1, the player will keep his current position for that axis. */
         if (this.door.destination_x != -1) {
   
           this.player.setCenterX   (this.door.destination_x);
@@ -493,18 +569,39 @@ const Game = function() {
   
       this.collideObject(this.player);
   
-      /* Here we loop through all the doors in the current zone and check to see
-      if the player is colliding with any. If he does collide with one, we set the
-      world's door variable equal to that door, so we know to use it to load the next zone. */
+      for (let index = this.carrots.length - 1; index > -1; -- index) {
+  
+        let carrot = this.carrots[index];
+  
+        carrot.updatePosition();
+        carrot.animate();
+  
+        if (carrot.collideObject(this.player)) {
+  
+          this.carrots.splice(this.carrots.indexOf(carrot), 1);
+          this.carrot_count ++;
+  
+        }
+  
+      }
+  
       for(let index = this.doors.length - 1; index > -1; -- index) {
   
         let door = this.doors[index];
   
-        if (door.collideObject(this.player)) {
+        if (door.collideObjectCenter(this.player)) {
   
           this.door = door;
   
         };
+  
+      }
+  
+      for (let index = this.grass.length - 1; index > -1; -- index) {
+  
+        let grass = this.grass[index];
+  
+        grass.animate();
   
       }
   
