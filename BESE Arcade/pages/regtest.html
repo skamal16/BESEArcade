@@ -23,10 +23,12 @@
 			$('#fname').keyup(function(){
 				var regexp = /^[a-zA-Z ]+$/;
 				if (regexp.test($('#fname').val())){
-					$('#fname').closest('form-group').addClass('has-success');
+          $('#fname').closest('.form-group').removeClass('has-error');
+					$('#fname').closest('.form-group').addClass('has-success');
 				}
 				else{
-					$('#fname').closest('form-group').addClass('has-error');
+          $('#fname').closest('.form-group').removeClass('has-success');
+					$('#fname').closest('.form-group').addClass('has-error');
 				}
 			})
 		})
@@ -38,7 +40,7 @@
 <div class="container">
   Full name
   <div class="form-group has-success has-feedback">
-        <input type="text" class="form-control" id="fname">
+        <input type="text" class="form-control" id="fname" name="fname" placeholder="Full Name">
       <span class="glyphicon glyphicon-ok form-control-feedback"></span>
   </div>
   Gender <br>
