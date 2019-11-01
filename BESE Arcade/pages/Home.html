@@ -41,7 +41,71 @@
 
     
       .row.content {height:auto;} 
+
+    #logo {
+      margin-top: 85px; 
+      margin-left: 120px;
+    } 
+
+    #logo:hover {
+      animation: glitch 2s infinite;
     }
+
+    @keyframes glitch {
+      0% {
+    transform: none;
+    opacity: 1;
+  }
+  7% {
+    transform: skew(-2deg, -2deg);
+    opacity: 0.4;
+  }
+  10% {
+    transform: none;
+    opacity: 1;
+  }
+  27% {
+    transform: none;
+    opacity: 1;
+  }
+  30% {
+    transform: skew(2.5deg, -0.9deg);
+    opacity: 0.5;
+  }
+  35% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    transform: skew(-2deg, 0.4deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  72% {
+    transform: none;
+    opacity: 1;
+  }
+  75% {
+    transform: skew(4deg, 2deg);
+    opacity: 0.75;
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+    }
+
   </style>
 </head>
 <body background= "https://i.imgur.com/X3XyrsL.jpg">
@@ -62,7 +126,7 @@
 <div class="container">    
   <div class = "row-center" style="margin-left: 65px"><h1>WELCOME TO REDEMPTION</h1></div>
   <div class="row">
-    <div class="col-lg-4" style="margin-top: 85px; margin-left: 120px"> <img src="https://i.imgur.com/kk8VIfY.jpg"  style = "height: 350px; width: 350px;"></div>
+    <div class="col-lg-4" id = "logo"> <img src="https://i.imgur.com/kk8VIfY.jpg"  style = "height: 350px; width: 350px;"></div>
     <div class="col-lg-4" style="margin-top: 150px; margin-left: 100px; font-size: 20px;"> <p> Redemption is a story of recovery, of reawakening and of reclamation. Will you be able to help Bob get his life back together from the deepest, darkest depths of despair?</p>
       <a href="">Click here to start.</a></div>
   </div>
