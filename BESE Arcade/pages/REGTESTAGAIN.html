@@ -12,7 +12,6 @@
   border-style: solid;
   border-width: 8px;
   border-color: #8a1a1c; 
-  font-size: 20px;
   padding: 50px;
 }
   		.addon-diff-color{
@@ -34,19 +33,20 @@
     		var passcheck = /^(?=,*[0-9])(?=,*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     		var emailcheck = /^[a-zA-Z_]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z.]{2,6}$/;
     		var numcheck = /^[0-9]{11}$/;
+        var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
 
     		if(namecheck.test(fname)){
     			document.getElementById('errorname').innerHTML = "";
     		} else{
     			document.getElementById('errorname').innerHTML="Invalid name, please type again";
-    			return false;
+    			var f1 = false;
     		}
 
     		if(passcheck.test(pass)){
     			document.getElementById('errorpass').innerHTML = "";
     		} else{
     			document.getElementById('errorpass').innerHTML="Invalid password ";
-    			return false;
+    			var f2 = false;
     		}
 
     		if(pass.match(conpass)){
@@ -54,22 +54,31 @@
     		document.getElementById('errorcon').innerHTML = "";
     		} else{
     			document.getElementById('errorcon').innerHTML="Password does not match ";
-    			return false;
+    			var f3 = false;
     		}
 
     		if(emailcheck.test(email)){
     			document.getElementById('erroremail').innerHTML = "";
     		} else{
     			document.getElementById('erroremail').innerHTML="Invalid Email ";
-    			return false;
+    			var f4 = false;
     		}
 
     		if(numcheck.test(num)){
     			document.getElementById('errornum').innerHTML = "";
     		} else{
     			document.getElementById('errornum').innerHTML="Invalid number ";
-    			return false;
+    			var f5 = false;
     		}
+
+        if(nickcheck.test(nick)){
+          document.getElementById('errornick').innerHTML = "";
+        } else{
+          document.getElementById('errornick').innerHTML="Invalid nickname";
+          var f6 = false;
+        }
+
+        return f1,f2,f3,f4,f5,f6;
     	}
     </script>
 
@@ -81,31 +90,31 @@
 
   <div class="form-group">
     <label>Full Name </label>
-      <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
+      <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here" required>
       <span id="errorname" class="text-danger font-weight-bold"> </span>
     </div>
  
   <div class="form-group">
     <label>Email Address</label>
-      <input type="Email" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+      <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
       <span id="erroremail" class="text-danger font-weight-bold"> </span>
     </div>
   
   <div class="form-group">
     <label>Contact number</label>
-      <input type="numeric" class="form-control" id="num" name="contact" placeholder="00921234567"> 
+      <input type="numeric" class="form-control" id="num" name="contact" placeholder="00921234567" required> 
       <span id="errornum" class="text-danger font-weight-bold"> </span>
     </div>
 
   <div class="form-group">
     <label>Password</label>
-      <input type="Password" class="form-control" id="pass" name="pass" placeholder="Enter Password"> 
+      <input type="Password" class="form-control" id="pass" name="pass" placeholder="Enter Password" required=""> 
       <span id="errorpass" class="text-danger font-weight-bold"> </span>
     </div>
 
     <div class="form-group">
     <label>Confirm Password</label>
-      <input type="Password" class="form-control" id="conpass" name="conpass" placeholder="Enter Password Again"> 
+      <input type="Password" class="form-control" id="conpass" name="conpass" placeholder="Enter Password Again" required> 
       <span id="errorcon" class="text-danger font-weight-bold"> </span>
     </div>
 
@@ -115,7 +124,9 @@
       <span id="errornick" class="text-danger font-weight-bold"> </span>
     </div>
   
-    <input type="submit" class="btn btn-primary">
+       <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
   </form>
 </div>
 </body>

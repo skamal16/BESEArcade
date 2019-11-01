@@ -1,47 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="../stylesheet.css">
-	<title> Sign up </title>
-</head>
+  <title>REDEMPTION</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <style>
 
-<body>
-	<div class="header">
-		<h1>
-			Register Now
-		</h1>
-		<p>
-			Sign up
-		</p>
-		<ul class="navbar">
-			<li><a href="Home.html">Home</a></li>
-			<li><a href="About Us.html">About Us</a></li>
-			<li><a href="Play.html">Play</a></li>
-			<li><a href="Register.html">Register</a></li>
-		</ul>
-	</div>
-	
-	<h1 id="heading" style="text-align: center;"> Enter your details to sign up, it's that easy!</h1>
-<form>
-    <div class="form">
-	Full Name <br>
-	<input type="text" name="name" placeholder="Enter name here" required> <br>
-	Gender <br>
-	<input class="gender" type="radio" name="gender"> Male <br>
-	<input class="gender" type="radio" name="gender"> Female <br>
-	Email Address <br>
-	<input type="Email" name="email" placeholder="example@gmail.com" required> <br>
-	Contact Number <br>
-	<input type="numeric" name="contact" placeholder="00921234567"> <br>
-	Password <br>
-	<input type="Password" name="pass" placeholder="Enter Password" required> <br>
-	Nickname <br>
-	<input type="text" name="nick" required> <br>
-	 <div class="clearfix">
+    body {
+     background-repeat: no-repeat;
+     background-size: cover;
+     font-family: "felix titling";
+     height: 100%;
+     color: white;
+    }
+
+    li {
+      padding-top: 15px;
+      margin-left: 70px;
+    } 
+    .navbar {
+      font-size: 35px;
+    }
+    
+    
+    /* Set gray background color and 100% height */
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      width: 100%;
+      height: 50px;
+      margin-top: 100px;
+      bottom: 0;
+      background-color: #282828;
+      color: white;
+      padding-top: 12px;
+    }
+
+    
+      .row.content {height:auto;} 
+
+    #logo {
+      margin-top: 85px; 
+      margin-left: 120px;
+    } 
+
+    #logo:hover {
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+    transform: none;
+    opacity: 1;
+  }
+  7% {
+    transform: skew(-2deg, -2deg);
+    opacity: 0.4;
+  }
+  10% {
+    transform: none;
+    opacity: 1;
+  }
+  27% {
+    transform: none;
+    opacity: 1;
+  }
+  30% {
+    transform: skew(2.5deg, -0.9deg);
+    opacity: 0.5;
+  }
+  35% {
+    transform: none;
+    opacity: 1;
+  }
+  52% {
+    transform: none;
+    opacity: 1;
+  }
+  55% {
+    transform: skew(-2deg, 0.4deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  72% {
+    transform: none;
+    opacity: 1;
+  }
+  75% {
+    transform: skew(4deg, 2deg);
+    opacity: 0.75;
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+    }
+
+  .container{
+  width: 500px;
+  border-style: solid;
+  border-width: 8px;
+  border-color: #8a1a1c; 
+  font-size: 20px;
+  padding: 50px;
+
+  
+  }
+  input[type=text], input[type=password], input[type=email], input[type=numeric] {
+  width: 100%;
+  margin: 5px 0 22px 0;
+  border: solid;
+  background: #f1f1f1;
+  color: black;
+}
+  input[type=radio]{
+    margin-top: 10px;
+    margin-bottom: 22px;
+  }
+      
+  button {
+  
+  color: white;
+  padding: 14px  10px;
+  margin: 8px 0px;
+  border: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.signupbtn{
+  background-color: #8a1a1c;
+  float: left;
+  width: 45%;
+}
+
+.cancelbtn{
+  background-color: #9c9595;
+  float: right;
+  width: 45%;
+}
+ button:hover {
+  opacity: 1;
+ }
+
+ #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick{
+  font-size: 15px;
+  font-family: sans-serif;
+ }
+  </style>
+
+    <script type="text/javascript">
+      function validation(){
+
+        var fname = document.getElementById('fname').value;
+        var email = document.getElementById('email').value;
+        var num = document.getElementById('num').value;
+        var pass = document.getElementById('pass').value;
+        var conpass = document.getElementById('conpass').value;
+        var nick = document.getElementById('nick').value;
+        
+        var namecheck = /^[a-zA-Z ]{4,32}$/;
+        var passcheck = /^(?=,*[0-9])(?=,*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        var emailcheck = /^[a-zA-Z_]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z.]{2,6}$/;
+        var numcheck = /^[0-9]{11}$/;
+        var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
+
+        if(namecheck.test(fname)){
+          document.getElementById('errorname').innerHTML = "";
+        } else{
+          document.getElementById('errorname').innerHTML="Invalid name, please type again";
+          var f1 = false;
+        }
+
+        if(passcheck.test(pass)){
+          document.getElementById('errorpass').innerHTML = "";
+        } else{
+          document.getElementById('errorpass').innerHTML="Invalid password ";
+          var f2 = false;
+        }
+
+        if(pass.match(conpass)){
+
+        document.getElementById('errorcon').innerHTML = "";
+        } else{
+          document.getElementById('errorcon').innerHTML="Password does not match ";
+          var f3 = false;
+        }
+
+        if(emailcheck.test(email)){
+          document.getElementById('erroremail').innerHTML = "";
+        } else{
+          document.getElementById('erroremail').innerHTML="Invalid Email ";
+          var f4 = false;
+        }
+
+        if(numcheck.test(num)){
+          document.getElementById('errornum').innerHTML = "";
+        } else{
+          document.getElementById('errornum').innerHTML="Invalid number ";
+          var f5 = false;
+        }
+
+        if(nickcheck.test(nick)){
+          document.getElementById('errornick').innerHTML = "";
+        } else{
+          document.getElementById('errornick').innerHTML="Invalid nickname";
+          var f6 = false;
+        }
+
+        return f1,f2,f3,f4,f5,f6;
+      }
+    </script>
+</head>
+<body background= "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/365020/45295330069b8604077047c174fdd4ee2c009fd2.jpg">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img style = "height: 50px; width: 50px;" src =  "https://i.imgur.com/kk8VIfY.jpg" alt = ""></a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Synopsis</a></li>
+        <li><a href="#">Levels</a></li>
+        <li><a href="#">About Us</a></li>
+        <li class="active"><a href="#">Register/Log In</a></li>
+      </ul>
+  </div>
+</nav>
+<h3 align="center"> Register now before it's too late </h3>
+<div class="container">
+  
+  <form id="basic-form" onsubmit="return validation()">
+
+  <div class="form-group">
+    <label>Full Name </label>
+      <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
+      <span id="errorname" class="text-danger font-weight-bold"> </span>
+    </div>
+ 
+  <div class="form-group">
+    <label>Email Address</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+      <span id="erroremail" class="text-danger font-weight-bold"> </span>
+    </div>
+  
+  <div class="form-group">
+    <label>Contact number</label>
+      <input type="numeric" class="form-control" id="num" name="contact" placeholder="00921234567"> 
+      <span id="errornum" class="text-danger font-weight-bold"> </span>
+    </div>
+
+  <div class="form-group">
+    <label>Password</label>
+      <input type="Password" class="form-control" id="pass" name="pass" placeholder="Enter Password"> 
+      <span id="errorpass" class="text-danger font-weight-bold"> </span>
+    </div>
+
+    <div class="form-group">
+    <label>Confirm Password</label>
+      <input type="Password" class="form-control" id="conpass" name="conpass" placeholder="Enter Password Again"> 
+      <span id="errorcon" class="text-danger font-weight-bold"> </span>
+    </div>
+
+  <div class="form-group">
+    <label>Nickname</label>
+      <input type="text" class="form-control" id="nick" name="nick">
+      <span id="errornick" class="text-danger font-weight-bold"> </span>
+    </div>
+  
+       <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
-    </div>
-	</div>
-</form>
+  </form>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>BESEArcade © 2019</p>
+</footer>
 </body>
 </html>
