@@ -19,6 +19,12 @@
                 <li><a href="Register.html">Register</a></li>
             </ul>
         </div>
-        <iframe class="gamewindow" src="../game/game.html"></iframe>
+        <iframe onmouseover="focusGame()" id="game" class="gamewindow" src="../game/game.html"></iframe>
+        <script text="text/javascript">
+            function focusGame(){
+                var frame = document.getElementById("game");
+                frame.focus();
+            }
+        </script>
     </body>
 </html>
