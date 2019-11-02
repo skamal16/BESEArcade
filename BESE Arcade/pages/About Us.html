@@ -1,40 +1,150 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-        <title>About Us</title>
-    </head>
-    <body>
-        <div class="header">
-            <h1>
-                About Us
-            </h1>
-            <p>
-                We're students trying to understand wtf we're doing in life. Although I think
-                I don't care anymore. I want to go home.
-            </p>
-            <ul class="navbar">
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="About Us.html">About Us</a></li>
-                <li><a href="Play.html">Play</a></li>
-                <li><a href="Register.html">Register</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <div class="row">
-                <div class="column">
-                    <img src="../resources/armeen.jpg" alt="Armeen Khan">
-                    <p>Armeen Khan</p>
-                </div>
-                <div class="column">
-                    <img src="../resources/anas.jpg" alt="Syed Anas Kamal">
-                    <p>Syed Anas Kamal</p>
-                </div>
-                <div class="column">
-                    <img src="../resources/ghazi.jpg" alt="Ghazi Tiwana">
-                    <p>Ghazi Tiwana</p>
-                </div>
-            </div>
-        </div>
-    </body>
+<html lang="en">
+<head>
+  <title>REDEMPTION</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <style>
+
+    body {
+     background-repeat: no-repeat;
+     background-size: cover;
+     font-family: "felix titling";
+     height: 100%;
+     color: white;
+    }
+
+    li {
+      padding-top: 15px;
+      margin-left: 70px;
+    } 
+    .navbar {
+      font-size: 35px;
+    }
+    
+    
+    /* Set gray background color and 100% height */
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      width: 100%;
+      height: 50px;
+      margin-top: 100px;
+      bottom: 0;
+      background-color: #282828;
+      color: white;
+      padding-top: 12px;
+    }
+
+    
+      .row.content {height:auto;} 
+
+  .container{
+  width: 100%;
+  font-size: 20px;
+  padding: 50px;
+  }
+
+  .card{
+  position: relative;
+  box-shadow:0 4px 5px 0 rgba(0,0,0,1);
+  width: 400px;
+  background-color: #520000;
+  text-align: center;
+  border: 2px solid white ;
+  float: left;
+  padding: 5px;
+  height: 550px;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+
+.middletext {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.card:hover .image{
+      opacity: 0.3;
+}
+.card:hover .middletext {
+  opacity: 1;
+}
+
+.text {
+  
+  color: black;
+  font-size: 28px;
+  font-weight: bolder;
+  padding: 10px 10px;
+}
+
+
+</style>
+
+
+</head>
+<body background= "https://cdn1.thesculptedvegan.com/wp-content/uploads/2017/05/06132655/video-background.jpg">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img style = "height: 50px; width: 50px;" src =  "https://i.imgur.com/kk8VIfY.jpg" alt = ""></a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Synopsis</a></li>
+        <li><a href="#">Levels</a></li>
+        <li class="active"><a href="#">About Us</a></li>
+        <li><a href="#">Register/Log In</a></li>
+      </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h3 align="center"> This is the story about the creators of this website who had had enough of the cruel reality of life, and decided to start a new venture</h3>
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="https://scontent.fisb6-1.fna.fbcdn.net/v/t1.0-9/51318469_541328976366798_8441923430500007936_n.jpg?_nc_cat=102&_nc_oc=AQlMPs8R0-lQUsOQLBDjs7gYkESgZiNuVwucStWgzGLgku3H1-DeqqYw9_AoK-5X85U&_nc_ht=scontent.fisb6-1.fna&oh=8eb3b92d2c1e0d1cfed30b5d39f7411a&oe=5E5EF247" class="image" style="width: 370px; height: 380px" >
+      <h3> Ghazi Tiwana </h3>
+      <p> This is Ghazi. He is fed up of everyone. </p>
+      <div class="middletext">
+        <div class="text"> "Existence is pain" </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="https://scontent.fisb6-1.fna.fbcdn.net/v/t1.0-9/66033870_2779373295410847_1475092902764871680_n.jpg?_nc_cat=102&_nc_oc=AQmJGOyE-bBKAnWlcHB9LdFGD2fgfPnXRFTqpnKYHAx-7ketCnRlkcXIJGK6RAy8KQ4&_nc_ht=scontent.fisb6-1.fna&oh=bc0a786aa8df81f028f21bcb17484165&oe=5E5ECDE0" class="image" style="width: 370px; height: 380px" >
+      <h3> Armeen Khan </h3>
+      <p> This is Armeen. She is fed up of everyone. </p>
+      <div class="middletext">
+        <div class="text"> "Expectations lead to disapointments" </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="https://scontent.fisb6-1.fna.fbcdn.net/v/t1.0-9/56573574_10212548714865542_5126463219224805376_n.jpg?_nc_cat=110&_nc_oc=AQmjTgzb5qZuFH7FJnqT9xPhMC3OrrNpnTsBauKJjUQrYj7i8WqDJY5cIaISNRwKzU4&_nc_ht=scontent.fisb6-1.fna&oh=78f2d5d2f6e74437a0f7fbcfe20c1b3d&oe=5E4B2251" class="image" style="width: 370px; height: 380px" >
+      <h3> Anas Kamal </h3>
+      <p> This is Anas. He is fed up of everyone. </p>
+      <div class="middletext">
+        <div class="text"> "I wanna go home" </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="container-fluid text-center">
+  <p>BESEArcade © 2019</p>
+</footer>
+</body>
 </html>
