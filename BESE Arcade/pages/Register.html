@@ -112,65 +112,92 @@
         var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
 
         if(namecheck.test(fname)){
+          document.getElementById("fname").style.borderColor="green";
           document.getElementById('errorname').innerHTML = "";
         } else{
           if(fname==""){
+            document.getElementById("fname").style.borderColor="red";
             document.getElementById('errorname').innerHTML="Required field, please enter name";
           }
           else{
-          document.getElementById('errorname').innerHTML="Invalid name, please type again";}
+            document.getElementById("fname").style.borderColor="red";
+            document.getElementById('errorname').innerHTML="Invalid name, please type again";
+          }
           var f1 = false;
         }
 
         if(passcheck.test(pass)){
+          document.getElementById("pass").style.borderColor="green";
           document.getElementById('errorpass').innerHTML = "";
         } else{
           if(pass==""){
+            document.getElementById("pass").style.borderColor="red";
             document.getElementById('errorpass').innerHTML="Required field, please enter password";
           }
           else{
-          document.getElementById('errorpass').innerHTML="Invalid password, it must be at least 6 characters long";}
+            document.getElementById("pass").style.borderColor="red";
+            document.getElementById('errorpass').innerHTML="Invalid password, it must be at least 6 characters long";
+          }
           var f2 = false;
         }
 
-        if(pass.match(conpass)){
-
-        document.getElementById('errorcon').innerHTML = "";
-        } else{
-          document.getElementById('errorcon').innerHTML="Password does not match ";
-          var f3 = false;
+        if(conpass==""){
+            document.getElementById("conpass").style.borderColor="red";
+            document.getElementById('errorcon').innerHTML="Required field, please enter password to confirm";
+          } else{
+            if(pass.match(conpass)){
+              document.getElementById("conpass").style.borderColor="green";
+              document.getElementById('errorcon').innerHTML = "";
+            }
+            else{
+              document.getElementById("conpass").style.borderColor="red";
+              document.getElementById('errorcon').innerHTML="Password does not match ";
+            }
+            var f3 = false;
         }
 
         if(emailcheck.test(email)){
+          document.getElementById("email").style.borderColor="green";
           document.getElementById('erroremail').innerHTML = "";
         } else{
           if(email==""){
+            document.getElementById("email").style.borderColor="red";
             document.getElementById('erroremail').innerHTML="Required field, please enter email";
           }
           else{
-          document.getElementById('erroremail').innerHTML="Invalid email, write in the format example@gmail.com ";}
+            document.getElementById("email").style.borderColor="red";
+            document.getElementById('erroremail').innerHTML="Invalid email, write in the format example@gmail.com ";
+          }
           var f4 = false;
         }
 
         if(numcheck.test(num)){
+          document.getElementById("num").style.borderColor="green";
           document.getElementById('errornum').innerHTML = "";
         } else{
           if(num==""){
+            document.getElementById("num").style.borderColor="red";
             document.getElementById('errornum').innerHTML="Required field, please enter number";
           }
           else{
-          document.getElementById('errornum').innerHTML="Invalid number, please write in the format: 03001234567 ";}
+            document.getElementById("num").style.borderColor="red";
+            document.getElementById('errornum').innerHTML="Invalid number, please write in the format: 03001234567 ";
+          }
           var f5 = false;
         }
 
         if(nickcheck.test(nick)){
+          document.getElementById("nick").style.borderColor="green";
           document.getElementById('errornick').innerHTML = "";
         } else{
           if(nick==""){
+            document.getElementById("nick").style.borderColor="red";
             document.getElementById('errornick').innerHTML="Required field, please enter nickname";
           }
           else{
-          document.getElementById('errornick').innerHTML="Invalid nickname"}
+            document.getElementById("nick").style.borderColor="red";
+            document.getElementById('errornick').innerHTML="Invalid nickname"
+          }
           var f6 = false;
         }
 
