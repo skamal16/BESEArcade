@@ -111,6 +111,13 @@
         var numcheck = /^[0-9]{11}$/;
         var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
 
+        var f1 = true;
+        var f2 = true;
+        var f3 = true;
+        var f4 = true;
+        var f5 = true;
+        var f6 = true;
+
         if(namecheck.test(fname)){
           document.getElementById("fname").style.borderColor="green";
           document.getElementById('errorname').innerHTML = "";
@@ -123,7 +130,7 @@
             document.getElementById("fname").style.borderColor="red";
             document.getElementById('errorname').innerHTML="Invalid name, please type again";
           }
-          var f1 = false;
+          f1 = false;
         }
 
         if(passcheck.test(pass)){
@@ -138,22 +145,23 @@
             document.getElementById("pass").style.borderColor="red";
             document.getElementById('errorpass').innerHTML="Invalid password, it must be at least 6 characters long";
           }
-          var f2 = false;
+          f2 = false;
         }
 
         if(conpass==""){
             document.getElementById("conpass").style.borderColor="red";
             document.getElementById('errorcon').innerHTML="Required field, please enter password to confirm";
+            f3 = false;
           } else{
-            if(pass.match(conpass)){
+            if(pass == conpass){
               document.getElementById("conpass").style.borderColor="green";
               document.getElementById('errorcon').innerHTML = "";
             }
             else{
               document.getElementById("conpass").style.borderColor="red";
               document.getElementById('errorcon').innerHTML="Password does not match ";
+              f3 = false;
             }
-            var f3 = false;
         }
 
         if(emailcheck.test(email)){
@@ -168,7 +176,7 @@
             document.getElementById("email").style.borderColor="red";
             document.getElementById('erroremail').innerHTML="Invalid email, write in the format example@gmail.com ";
           }
-          var f4 = false;
+          f4 = false;
         }
 
         if(numcheck.test(num)){
@@ -183,7 +191,7 @@
             document.getElementById("num").style.borderColor="red";
             document.getElementById('errornum').innerHTML="Invalid number, please write in the format: 03001234567 ";
           }
-          var f5 = false;
+          f5 = false;
         }
 
         if(nickcheck.test(nick)){
@@ -198,10 +206,10 @@
             document.getElementById("nick").style.borderColor="red";
             document.getElementById('errornick').innerHTML="Invalid nickname"
           }
-          var f6 = false;
+          f6 = false;
         }
 
-        return f1,f2,f3,f4,f5,f6;
+        return f1 && f2 && f3 && f4 && f5 && f6;
       }
     </script>
 </head>
