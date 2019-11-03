@@ -46,10 +46,7 @@
     
 
   .container{
-  width: 500px;
-  border-style: solid;
-  border-width: 8px;
-  border-color: #8a1a1c; 
+  width: 500px; 
   font-size: 20px;
   padding: 50px;
 
@@ -74,7 +71,7 @@
   opacity: 0.9;
 }
 
-.signupbtn{
+.signupbtn, .loginbtn{
   background-color: #8a1a1c;
   float: left;
   width: 45%;
@@ -92,6 +89,29 @@
  #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick{
   font-size: 15px;
   font-family: sans-serif;
+ }
+
+
+  form p {
+    font-size: 15px;
+    text-align: center;
+  }
+
+ fieldset {
+  border:6px solid #8a1a1c;
+  border-radius:8px;
+  padding: 10px;
+  
+}
+
+ legend{
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+ }
+
+ #h3{
+  padding-top: 30px;
  }
   </style>
 
@@ -228,11 +248,38 @@
       </ul>
   </div>
 </nav>
-<h3 align="center"> Register now before it's too late </h3>
+<h3 id="h3" align="center"> Welcome back, we had been expecting you. </h3>
 <div class="container">
-  
-  <form id="basic-form" onsubmit="return validation()">
 
+  <form id="login"> 
+    <fieldset>
+      <legend>Login</legend>
+    <div class="form-group">
+    <label>Nickname/Username</label>
+      <input type="text" class="form-control" id="username" name="user" placeholder="Enter Username"> 
+      <span id="erroruser" class="text-danger font-weight-bold"> </span>
+    </div>
+    <div class="form-group">
+    <label>Password</label>
+      <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password"> 
+      <span id="errorpassword" class="text-danger font-weight-bold"> </span>
+    </div>
+    <p>Don't have an account? <a href="#reg-form"> Register now </a></p>
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="loginbtn">Login</button>
+   </div> 
+  </fieldset>
+  </form>
+</div>
+  <h3 align="center"> Still haven't registered? Register now before it's too late. </h3>
+
+
+
+<div class="container">
+  <form id="reg-form" onsubmit="return validation()">
+  <fieldset>
+    <legend>Register</legend>
   <div class="form-group">
     <label title="Alphabets only, at least 4 characters long">Full Name </label>
       <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
@@ -268,11 +315,14 @@
       <input type="text" class="form-control" id="nick" name="nick">
       <span id="errornick" class="text-danger font-weight-bold"> </span>
     </div>
-  
-       <div class="clearfix">
+  <p>Already have an account? <a href="#login"> Login now </a></p>
+   <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
+   </div> 
+   </fieldset>  
   </form>
+
 </div>
 
 <footer class="container-fluid text-center">
