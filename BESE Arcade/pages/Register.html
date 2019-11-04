@@ -55,9 +55,13 @@
   input[type=text], input[type=password], input[type=email], input[type=numeric] {
   width: 100%;
   margin: 5px 0 22px 0;
+  padding: 20px 8px;
   border: solid;
   background: #f1f1f1;
   color: black;
+  border-radius: 10px;
+  font-family: verdana;
+  font-size: 16px;
 }
       
   button {
@@ -86,9 +90,9 @@
   opacity: 1;
  }
 
- #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick{
+ #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick, #errorpassword, #erroruser{
   font-size: 15px;
-  font-family: sans-serif;
+  font-family: verdana;
  }
 
 
@@ -97,10 +101,14 @@
     text-align: center;
   }
 
+  form{
+    background-color: black;
+  }
+
  fieldset {
-  border:6px solid #8a1a1c;
+  border:3px solid #8a1a1c;
   border-radius:8px;
-  padding: 10px;
+  padding: 30px;
   
 }
 
@@ -231,6 +239,49 @@
 
         return f1 && f2 && f3 && f4 && f5 && f6;
       }
+
+
+      function loginValidation(){
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        
+        var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        var usercheck = /^[a-zA-Z0-9_]{4,10}$/;
+
+        var f1 = true;
+        var f2 = true;
+
+        if(usercheck.test(username)){
+          document.getElementById("username").style.borderColor="green";
+          document.getElementById('erroruser').innerHTML = "";
+        } else{
+          if(username==""){
+            document.getElementById("username").style.borderColor="red";
+            document.getElementById('erroruser').innerHTML="Required field, please enter username";
+          }
+          else{
+            document.getElementById("username").style.borderColor="red";
+            document.getElementById('erroruser').innerHTML="Invalid username, please type again";
+          }
+          f1 = false;
+        }
+        if(passwordcheck.test(password)){
+          document.getElementById("password").style.borderColor="green";
+          document.getElementById('errorpassword').innerHTML = "";
+        } else{
+          if(password==""){
+            document.getElementById("password").style.borderColor="red";
+            document.getElementById('errorpassword').innerHTML="Required field, please enter password";
+          }
+          else{
+            document.getElementById("password").style.borderColor="red";
+            document.getElementById('errorpassword').innerHTML="Invalid password, please type again";
+          }
+          f2 = false;
+        }
+        return f1 && f2;
+      }
     </script>
 </head>
 <body background= "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/365020/45295330069b8604077047c174fdd4ee2c009fd2.jpg">
@@ -251,7 +302,7 @@
 <h3 id="loginhead" align="center"> Welcome back, we had been expecting you. </h3>
 <div class="container">
 
-  <form id="login"> 
+  <form id="login" onsubmit="return loginValidation()"> 
     <fieldset>
       <legend>Login</legend>
     <div class="form-group">
