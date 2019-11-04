@@ -46,10 +46,7 @@
     
 
   .container{
-  width: 500px;
-  border-style: solid;
-  border-width: 8px;
-  border-color: #8a1a1c; 
+  width: 500px; 
   font-size: 20px;
   padding: 50px;
 
@@ -58,9 +55,13 @@
   input[type=text], input[type=password], input[type=email], input[type=numeric] {
   width: 100%;
   margin: 5px 0 22px 0;
+  padding: 20px 8px;
   border: solid;
   background: #f1f1f1;
   color: black;
+  border-radius: 10px;
+  font-family: verdana;
+  font-size: 16px;
 }
       
   button {
@@ -74,7 +75,7 @@
   opacity: 0.9;
 }
 
-.signupbtn{
+.signupbtn, .loginbtn{
   background-color: #8a1a1c;
   float: left;
   width: 45%;
@@ -89,9 +90,36 @@
   opacity: 1;
  }
 
- #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick{
+ #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick, #errorpassword, #erroruser{
   font-size: 15px;
-  font-family: sans-serif;
+  font-family: verdana;
+ }
+
+
+  form p {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  form{
+    background-color: black;
+  }
+
+ fieldset {
+  border:3px solid #8a1a1c;
+  border-radius:8px;
+  padding: 30px;
+  
+}
+
+ legend{
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+ }
+
+ #loginhead{
+  padding-top: 30px;
  }
   </style>
 
@@ -111,6 +139,13 @@
         var numcheck = /^[0-9]{11}$/;
         var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
 
+        var f1 = true;
+        var f2 = true;
+        var f3 = true;
+        var f4 = true;
+        var f5 = true;
+        var f6 = true;
+
         if(namecheck.test(fname)){
           document.getElementById("fname").style.borderColor="green";
           document.getElementById('errorname').innerHTML = "";
@@ -123,7 +158,7 @@
             document.getElementById("fname").style.borderColor="red";
             document.getElementById('errorname').innerHTML="Invalid name, please type again";
           }
-          var f1 = false;
+          f1 = false;
         }
 
         if(passcheck.test(pass)){
@@ -138,22 +173,23 @@
             document.getElementById("pass").style.borderColor="red";
             document.getElementById('errorpass').innerHTML="Invalid password, it must be at least 6 characters long";
           }
-          var f2 = false;
+          f2 = false;
         }
 
         if(conpass==""){
             document.getElementById("conpass").style.borderColor="red";
             document.getElementById('errorcon').innerHTML="Required field, please enter password to confirm";
+            f3 = false;
           } else{
-            if(pass.match(conpass)){
+            if(pass == conpass){
               document.getElementById("conpass").style.borderColor="green";
               document.getElementById('errorcon').innerHTML = "";
             }
             else{
               document.getElementById("conpass").style.borderColor="red";
               document.getElementById('errorcon').innerHTML="Password does not match ";
+              f3 = false;
             }
-            var f3 = false;
         }
 
         if(emailcheck.test(email)){
@@ -168,7 +204,7 @@
             document.getElementById("email").style.borderColor="red";
             document.getElementById('erroremail').innerHTML="Invalid email, write in the format example@gmail.com ";
           }
-          var f4 = false;
+          f4 = false;
         }
 
         if(numcheck.test(num)){
@@ -183,7 +219,7 @@
             document.getElementById("num").style.borderColor="red";
             document.getElementById('errornum').innerHTML="Invalid number, please write in the format: 03001234567 ";
           }
-          var f5 = false;
+          f5 = false;
         }
 
         if(nickcheck.test(nick)){
@@ -198,10 +234,53 @@
             document.getElementById("nick").style.borderColor="red";
             document.getElementById('errornick').innerHTML="Invalid nickname"
           }
-          var f6 = false;
+          f6 = false;
         }
 
-        return f1,f2,f3,f4,f5,f6;
+        return f1 && f2 && f3 && f4 && f5 && f6;
+      }
+
+
+      function loginValidation(){
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        
+        var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        var usercheck = /^[a-zA-Z0-9_]{4,10}$/;
+
+        var f1 = true;
+        var f2 = true;
+
+        if(usercheck.test(username)){
+          document.getElementById("username").style.borderColor="green";
+          document.getElementById('erroruser').innerHTML = "";
+        } else{
+          if(username==""){
+            document.getElementById("username").style.borderColor="red";
+            document.getElementById('erroruser').innerHTML="Required field, please enter username";
+          }
+          else{
+            document.getElementById("username").style.borderColor="red";
+            document.getElementById('erroruser').innerHTML="Invalid username, please type again";
+          }
+          f1 = false;
+        }
+        if(passwordcheck.test(password)){
+          document.getElementById("password").style.borderColor="green";
+          document.getElementById('errorpassword').innerHTML = "";
+        } else{
+          if(password==""){
+            document.getElementById("password").style.borderColor="red";
+            document.getElementById('errorpassword').innerHTML="Required field, please enter password";
+          }
+          else{
+            document.getElementById("password").style.borderColor="red";
+            document.getElementById('errorpassword').innerHTML="Invalid password, please type again";
+          }
+          f2 = false;
+        }
+        return f1 && f2;
       }
     </script>
 </head>
@@ -220,11 +299,38 @@
       </ul>
   </div>
 </nav>
-<h3 align="center"> Register now before it's too late </h3>
+<h3 id="loginhead" align="center"> Welcome back, we had been expecting you. </h3>
 <div class="container">
-  
-  <form id="basic-form" onsubmit="return validation()">
 
+  <form id="login" onsubmit="return loginValidation()"> 
+    <fieldset>
+      <legend>Login</legend>
+    <div class="form-group">
+    <label>Nickname/Username</label>
+      <input type="text" class="form-control" id="username" name="user" placeholder="Enter Username"> 
+      <span id="erroruser" class="text-danger font-weight-bold"> </span>
+    </div>
+    <div class="form-group">
+    <label>Password</label>
+      <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password"> 
+      <span id="errorpassword" class="text-danger font-weight-bold"> </span>
+    </div>
+    <p>Don't have an account? <a href="#registerhead"> Register now </a></p>
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="loginbtn">Login</button>
+   </div> 
+  </fieldset>
+  </form>
+</div>
+  <h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
+
+
+
+<div class="container">
+  <form id="reg-form" onsubmit="return validation()">
+  <fieldset>
+    <legend>Register</legend>
   <div class="form-group">
     <label title="Alphabets only, at least 4 characters long">Full Name </label>
       <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
@@ -260,11 +366,14 @@
       <input type="text" class="form-control" id="nick" name="nick">
       <span id="errornick" class="text-danger font-weight-bold"> </span>
     </div>
-  
-       <div class="clearfix">
+  <p>Already have an account? <a href="#loginhead"> Login now </a></p>
+   <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
+   </div> 
+   </fieldset>  
   </form>
+
 </div>
 
 <footer class="container-fluid text-center">
