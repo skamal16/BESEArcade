@@ -112,8 +112,20 @@
   } 
 
   .btn {
-    color: black;
+  background-color: black;
+  color: #8a1a1c;
+  border-color: #8a1a1c;
+  border-width: 3px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bolder;
   }
+  
+.btn:hover {
+  background-color: #8a1a1c;
+  color: black;
+}
+
 
   </style>
 </head>
@@ -144,7 +156,7 @@
   <div class="row">
     <div class="col-lg-4 col-xs-2" id = "logo"> <img src="https://i.imgur.com/kk8VIfY.jpg"  style = "height: 350px; width: 350px;"></div>
     <div class="col-lg-4 col-xs-7" style="margin-top: 150px; margin-left: 100px; font-size: 20px;"> <p> Redemption is a story of recovery, of reawakening and of reclamation. Will you be able to help Bob get his life back together from the deepest, darkest depths of despair?</p>
-      <button type="button"  class="btn btn-sm" data-toggle="modal" data-target="#myModal">Click Here To Start</button>
+      <button type="button"  class="btn" data-toggle="modal" data-target="#myModal">Click Here To Start</button>
   </div>
 </div>
 <div class="modal" id="myModal" role="dialog">
