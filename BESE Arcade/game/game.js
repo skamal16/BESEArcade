@@ -465,7 +465,7 @@ const Game = function() {
     this.tile_set     = new Game.TileSet(8, 16);
     this.player       = new Game.Player(32, 76);
   
-    this.zone_id      = "00";
+    this.zone_id      = "06";
   
     this.carrots      = [];// the array of carrots in this zone;
     this.carrot_count = 0;// the number of carrots you have.

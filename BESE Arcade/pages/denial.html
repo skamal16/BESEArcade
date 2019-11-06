@@ -10,8 +10,7 @@
   <style>
 
     body {
-     background-repeat: no-repeat;
-     background-size: cover;
+     background-size: 100%;
      font-family: "felix titling";
      height: 100%;
      color: white;
@@ -56,9 +55,13 @@
     }
 
     #gameframe {
-      margin-left: 150px;
-      height:500px;
-      width:1200px;
+      width: 1280px;
+      height: 720px;
+      border: solid black 2px;
+      background-color: white;
+      display: block;
+      margin: auto;
+      margin-top: 20px;
       opacity: 0;
       animation: show 2s;
       animation-delay: 5s;
@@ -109,14 +112,14 @@
      </div>
   </div>
 </nav>
-<div class="container-fluid" style="height: 520px;">
+<div class="container-fluid">
 <h1 style="text-align: center;">Level 1</h1>
 <div class="progress">
     <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
       <span class="sr-only">Loading</span>
     </div>
   </div>
-  <div><iframe src="https://i.imgur.com/SB9ziFa.jpg" id="gameframe"></iframe></div>
+  <div><iframe id="gameframe" class="gamewindow" src="../game/game.html"></iframe></div>
 </div>
 <footer class="container-fluid text-center">
   <p>BESEArcade © 2019</p>
