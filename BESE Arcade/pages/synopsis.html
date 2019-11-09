@@ -22,7 +22,7 @@
       margin-left: 70px;
     } 
     .navbar {
-      font-size: 35px;
+      font-size: 30px;
       text-align: center;
     }
     
@@ -39,11 +39,11 @@
     #section1, #section2, #section3 {
       font-size: 25px;
       padding-top:50px;
-      height:auto; 
+      height:900px; 
       text-align: center;
       border: 2px solid white;
       padding-top: 250px;
-      height: 900px;}
+      }
 
       #section2 {
         color: black;
@@ -54,6 +54,15 @@
     
       .row.content {height:auto;
   </style>
+
+  <script type="text/javascript">
+    $('[data-toggle="popover"]').popover({
+      html: true,
+      trigger: 'hover',
+      placement: 'bottom',
+      content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+    });
+  </script>
 </head>
 <body background= "https://i.imgur.com/mLyoV04.jpg" data-spy="scroll" data-target="#scrollnav" data-offset="200">
 <nav class="navbar navbar-inverse navbar-fixed-top" id="scrollnav">
@@ -73,7 +82,8 @@
 <div id="section1" class="container-fluid">
   <hr>
   <h1>STORY</h1>
-  <p>Voices. That is all Bob can hear. Voices inside his head and voices all around him. They call to him, reach out to him. For as long as he can remember, Bob has been haunted by these voices. Lately, these voices have been getting stronger. It seems so easy to give in to them. But Bob has not given up yet. He has once last chance to defeat these voices. Once last chance to get his life back together. Once last chance at...redemption. </p>
+  <p>Voices. That is all Bob can hear. Voices inside his head and voices all around him. They call to him, reach out to him. For as long as he can remember, Bob has been haunted by these voices. Lately, these voices have been getting stronger. It seems so easy to give in to them. But Bob has not given up yet. He has once last chance to defeat these voices. Once last chance to get his life back together. Once last chance at...</p><a href="#" title="redemption" data-toggle="popover" data-img="https://i.imgur.com/mLyoV04.jpg"><p style="text-align: center" >redemption </p></a> 
+  
   <hr>
 </div>
 <div id="section2" class="container-fluid">
