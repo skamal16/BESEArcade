@@ -25,10 +25,7 @@
       text-align: center;
     }
 
-    .popoverimage {
-      width: 500px;
-    }
-    
+  
     footer {
       width: 100%;
       height: 50px;
@@ -38,14 +35,15 @@
       color: white;
       padding-top: 12px;
     }
+     
+
+  
 
     #section1, #section2, #section3 {
       font-size: 25px;
-      padding-top:50px;
       height:900px; 
       text-align: center;
-      border: 2px solid white;
-      padding-top: 250px;
+      padding: 250px 80px 0px 80px;
       }
 
       #section2 {
@@ -53,6 +51,30 @@
       }
       #section3 {
         color: black;
+      }
+    
+
+      .popoverimage {
+      width: 300px;
+      height: 300px;
+      }
+
+      .popover{
+        max-width: 100%;
+        color: black;
+        text-align: center;
+        font-family: verdana;
+
+      }
+
+      .poptext{
+        color: #8a1a1c ;
+        font-weight: bold;
+      }
+
+      .poptext:hover{
+      color: #590f0f;
+
       }
     
       .row.content {height:auto};
@@ -64,7 +86,7 @@
     $('[data-toggle="popover"]').popover({
       trigger: 'hover',
       html: true,
-      placement: 'bottom',
+      placement: 'top',
       content: function () {
         return '<img class="popoverimage" src="'+$(this).data('img') + '" />';
       },
@@ -87,12 +109,13 @@
       </div>
     </div>
 </nav>
+  
 <div id="section1" class="container-fluid">
   <hr>
   <h1>STORY</h1>
   <p>Voices. That is all Bob can hear. Voices inside his head and voices all around him. They call to him, reach out to him. For as long as he can remember, Bob has been haunted by these voices. Lately, these voices have been getting stronger. It seems so easy to give in to them. But Bob has not given up yet. He has once last chance to defeat these voices. Once last chance to get his life back together. Once last chance at...</p>
-  <a href="#" title="redemption" data-toggle="popover" data-img="https://i.imgur.com/mLyoV04.jpg">
-    <p style="text-align: center" >redemption </p>
+  <a class="poptext" href="#" title="Redemption" data-toggle="popover" data-img="https://i.imgur.com/mLyoV04.jpg">
+    <span style="text-align: center" >redemption </span>
   </a> 
   
   <hr>
@@ -100,17 +123,18 @@
 <div id="section2" class="container-fluid">
   <hr>
   <h1>How To Play</h1>
-  <p>Use the <a href="#" data-toggle="tooltip" title="Up, down, left, right">arrow keys</a> to move the character.</p>
+  <p>Use the <a class="poptext" href="#" data-toggle="tooltip" title="Up, down, left, right">arrow keys</a> to move the character.</p>
   <p>Use the spacebar key to use attacks.</p>
-  <p>Avoid the <a href="#" data-toggle="tooltip" title="these are the voices that call out to Bob">shadows</a> which try to haunt Bob.</p>
+  <p>Avoid the <a class="poptext" href="#" title="Voices in his head" data-toggle="popover" data-img="https://i.imgur.com/3Sz5Rt6.jpg">shadows</a> which try to haunt Bob.</p>
   <hr>
 </div>
 <div id="section3" class="container-fluid">
   <hr>
   <h1>Objective</h1>
-  <p>Your objective is to help guide Bob through the 5 stages of grief to one final stage...the stage of redemption.</p>
+  <p>Your objective is to help guide Bob through the <a class="poptext" href="levels.html" title="5 stages of grief"> 5 stages of grief </a> to one final stage...the stage of redemption.</p>
   <hr>
 </div>
+
 <footer class="container-fluid text-center">
   <p>BESEArcade © 2019</p>
 </footer>
