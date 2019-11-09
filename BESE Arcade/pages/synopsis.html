@@ -24,6 +24,10 @@
       font-size: 30px;
       text-align: center;
     }
+
+    .popoverimage {
+      width: 500px;
+    }
     
     footer {
       width: 100%;
@@ -62,7 +66,7 @@
       html: true,
       placement: 'bottom',
       content: function () {
-        return '<img src="'+$(this).data('img') + '" />';
+        return '<img class="popoverimage" src="'+$(this).data('img') + '" />';
       },
     }) 
   });
