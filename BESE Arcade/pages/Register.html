@@ -121,6 +121,16 @@
  #loginhead{
   padding-top: 30px;
  }
+
+ #registerhead{
+  padding-top: 30px;
+  display: none;
+ }
+
+
+ #reg-form{
+  display: none;
+ }
   </style>
 
     <script type="text/javascript">
@@ -282,6 +292,21 @@
         }
         return f1 && f2;
       }
+
+      function viewRegister(){
+        document.getElementById('registerhead').setAttribute('style', 'display:block');
+        document.getElementById('reg-form').setAttribute('style', 'display:block');
+        document.getElementById('login').setAttribute('style', 'display:none');
+        document.getElementById('loginhead').setAttribute('style', 'display:none');
+      }
+      
+
+      function viewLogin(){
+        document.getElementById('registerhead').setAttribute('style', 'display:none');
+        document.getElementById('reg-form').setAttribute('style', 'display:none');
+        document.getElementById('login').setAttribute('style', 'display:block');
+        document.getElementById('loginhead').setAttribute('style', 'display:block');
+      }
     </script>
 </head>
 <body background= "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/365020/45295330069b8604077047c174fdd4ee2c009fd2.jpg">
@@ -306,7 +331,8 @@
      </div>
   </div>
 </nav>
-<h3 id="loginhead" align="center"> Welcome back, we had been expecting you. </h3>
+<h3 id="loginhead" align="center"> Welcome back, we have been expecting you. </h3>
+<h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
 <div class="container">
 
   <form id="login" onsubmit="return loginValidation()"> 
@@ -322,19 +348,18 @@
       <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password"> 
       <span id="errorpassword" class="text-danger font-weight-bold"> </span>
     </div>
-    <p>Don't have an account? <a href="#registerhead"> Register now </a></p>
+    <p>Don't have an account? <a href="#registerhead" onclick="viewRegister()"> Register now </a></p>
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="loginbtn">Login</button>
    </div> 
   </fieldset>
   </form>
-</div>
-  <h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
+  
 
 
 
-<div class="container">
+
   <form id="reg-form" onsubmit="return validation()">
   <fieldset>
     <legend>Register</legend>
@@ -373,7 +398,7 @@
       <input type="text" class="form-control" id="nick" name="nick">
       <span id="errornick" class="text-danger font-weight-bold"> </span>
     </div>
-  <p>Already have an account? <a href="#loginhead"> Login now </a></p>
+  <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
    <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
