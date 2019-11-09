@@ -23,7 +23,7 @@
       margin-left: 70px;
     } 
     .navbar {
-      font-size: 35px;
+      font-size: 30px;
     }
     
     
@@ -31,9 +31,10 @@
     
     /* Set black background color, white text and some padding */
     footer {
+      position: absolute;
+      bottom: 0;
       width: 100%;
       height: 50px;
-      margin-top: 100px;
       bottom: 0;
       background-color: #282828;
       color: white;
@@ -120,6 +121,28 @@
 
  #loginhead{
   padding-top: 30px;
+ }
+
+ #registerhead{
+  padding-top: 30px;
+  display: none;
+ }
+
+ #page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 62px;    /* Footer height */
+}
+
+ #reg-form{
+  display: none;
+ }
+
+ .heading{
+  padding: 20px 80px 10px 80px; 
  }
   </style>
 
@@ -282,9 +305,26 @@
         }
         return f1 && f2;
       }
+
+      function viewRegister(){
+        document.getElementById('registerhead').setAttribute('style', 'display:block');
+        document.getElementById('reg-form').setAttribute('style', 'display:block');
+        document.getElementById('login').setAttribute('style', 'display:none');
+        document.getElementById('loginhead').setAttribute('style', 'display:none');
+      }
+      
+
+      function viewLogin(){
+        document.getElementById('registerhead').setAttribute('style', 'display:none');
+        document.getElementById('reg-form').setAttribute('style', 'display:none');
+        document.getElementById('login').setAttribute('style', 'display:block');
+        document.getElementById('loginhead').setAttribute('style', 'display:block');
+      }
     </script>
 </head>
 <body background= "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/365020/45295330069b8604077047c174fdd4ee2c009fd2.jpg">
+  <div id="page-container">
+    <div id="content-wrap">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -301,12 +341,18 @@
         <li><a href="C:\Users\Ghazi\Documents\GitHub\BESEArcade\BESE Arcade\pages\synopsis.html">Synopsis</a></li>
         <li><a href="C:\Users\Ghazi\Documents\GitHub\BESEArcade\BESE Arcade\pages\levels.html">Levels</a></li>
         <li><a href="C:\Users\Ghazi\Documents\GitHub\BESEArcade\BESE Arcade\pages\About Us.html">About Us</a></li>
-        <li class="active"><a href="C:\Users\Ghazi\Documents\GitHub\BESEArcade\BESE Arcade\pages\Register.html">Register/Log In</a></li>
+        <li class="active"><a href="C:\Users\Ghazi\Documents\GitHub\BESEArcade\BESE Arcade\pages\Register.html">Login / Register</a></li>
       </ul>
      </div>
   </div>
 </nav>
-<h3 id="loginhead" align="center"> Welcome back, we had been expecting you. </h3>
+
+<div class="heading">
+<h2 id="loginregisterhead"> Login / Register </h2>
+<hr>
+</div>
+<h3 id="loginhead" align="center"> Welcome back, we have been expecting you. </h3>
+<h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
 <div class="container">
 
   <form id="login" onsubmit="return loginValidation()"> 
@@ -322,19 +368,18 @@
       <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password"> 
       <span id="errorpassword" class="text-danger font-weight-bold"> </span>
     </div>
-    <p>Don't have an account? <a href="#registerhead"> Register now </a></p>
+    <p>Don't have an account? <a href="#registerhead" onclick="viewRegister()"> Register now </a></p>
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="loginbtn">Login</button>
    </div> 
   </fieldset>
   </form>
-</div>
-  <h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
+  
 
 
 
-<div class="container">
+
   <form id="reg-form" onsubmit="return validation()">
   <fieldset>
     <legend>Register</legend>
@@ -373,7 +418,7 @@
       <input type="text" class="form-control" id="nick" name="nick">
       <span id="errornick" class="text-danger font-weight-bold"> </span>
     </div>
-  <p>Already have an account? <a href="#loginhead"> Login now </a></p>
+  <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
    <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
@@ -382,9 +427,14 @@
   </form>
 
 </div>
-
+</div>
 <footer class="container-fluid text-center">
   <p>BESEArcade © 2019</p>
 </footer>
+</div>
 </body>
+<script>
+  var body = document.getElementsByTagName("body")[0];
+  console.log(body.height);
+</script>
 </html>
