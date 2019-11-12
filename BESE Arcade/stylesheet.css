@@ -1,128 +1,38 @@
 body {
-    background: url("https://i.pinimg.com/originals/ca/dc/6b/cadc6b72e89313359767f16c4cfffe75.jpg");
-}
-
-.header {
-    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "felix titling";
+    height: 100%;
     color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: -10px;
-    margin-right: -10px;
-    margin-left: -10px;
 }
 
 .navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
+    font-size: 30px;
+    width: 100%;
 }
 
-.navbar li{
-    float: left;
+.navbar li {
+    padding-top: 15px;
+    margin-left: 70px;
 }
 
-.navbar li a{
-    display: block;
-    color: red;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+#page-container {
+    position: relative;
+    min-height: 100vh;
 }
 
-.navbar a:hover {
-    background-color: blue;
-  }
-
-.column{
-    float: left;
-    width: 33.33%;
+#content-wrap {
+    padding-bottom: 62px;
+    /* Footer height */
 }
 
-.row:after{
-    content:"";
-    display:table;
-    clear:both;
-}
-
-.content {
-    color: gray;
-    text-align: center;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-}
-
-.column img{
-    width:100%;
-    height: 700px;
-    border: solid black 5px;
-}
-
-.column p{
-    color: black;
-    font-family: fantasy;
-    font-size: 25px;
-}
-
-.gamewindow{
-    width: 1280px;
-    height: 720px;
-    border: solid black 2px;
-    background-color: white;
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-}
-
-input[type=text], input[type=password], input[type=email], input[type=numeric] {
-    width: 89%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: solid;
-    background: #f1f1f1;
-    }
-#heading{
-    padding: 100px 50px 0px 50px;
-}
-.form{
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 50px 500px 300px 500px;
-    border-radius: 10px;
-    border-color: black;
-}
-.gender{
-    margin: 10px 0px 22px 0px;
-}
-
-button {
-
-color: white;
-padding: 14px  10px;
-margin: 8px 0px;
-border: none;
-cursor: pointer;
-width: 100%;
-opacity: 0.9;
-}
-
-.signupbtn{
-background-color: #4CAF50;
-float: left;
-width: 50%;
-}
-
-.cancelbtn{
-background-color: #f44336;
-float: right;
-width: 50%;
-}
-button:hover {
-opacity: 1;
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    background-color: #282828;
+    color: white;
+    padding-top: 12px;
 }

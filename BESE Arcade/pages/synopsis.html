@@ -1,146 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>REDEMPTION</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-    body {
-     background-repeat: no-repeat;
-     background-size: cover;
-     font-family: "felix titling";
-     height: 100%;
-     color: white;
-    }
+    <title>REDEMPTION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .popover {
+            max-width: 100%;
+        }
+        
+        #section1,
+        #section2,
+        #section3 {
+            font-size: 25px;
+            height: 1000px;
+            text-align: center;
+            padding: 250px 80px 0px 80px;
+        }
+        
+        #section2 {
+            color: black;
+        }
+        
+        #section3 {
+            color: black;
+        }
+        
+        .popoverimage {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .popover {
+            max-width: 100%;
+            color: black;
+            text-align: center;
+            font-family: verdana;
+        }
+        
+        .poptext {
+            color: #590f0f;
+            font-weight: bold;
+        }
+        
+        .poptext:hover {
+            color: #8a1a1c;
+        }
+    </style>
 
-    li {
-      padding-top: 15px;
-      margin-left: 70px;
-    } 
-    .navbar {
-      font-size: 30px;
-      text-align: center;
-    }
-
-  
-    footer {
-      width: 100%;
-      height: 50px;
-      margin-top: 100px;
-      bottom: 0;
-      background-color: #282828;
-      color: white;
-      padding-top: 12px;
-    }
-     
-
-  
-
-    .popover{
-      max-width: 100%;
-    }
-
-    #section1, #section2, #section3 {
-      font-size: 25px;
-      height:1000px; 
-      text-align: center;
-      padding: 250px 80px 0px 80px;
-      }
-
-      #section2 {
-        color: black;
-      }
-      #section3 {
-        color: black;
-      }
-    
-
-      .popoverimage {
-      width: 300px;
-      height: 300px;
-      }
-
-      .popover{
-        max-width: 100%;
-        color: black;
-        text-align: center;
-        font-family: verdana;
-
-      }
-
-      .poptext{
-        color: #590f0f;
-        font-weight: bold;
-      }
-
-      .poptext:hover{
-      color: #8a1a1c ;
-
-      }
-    
-      .row.content {height:auto};
-  </style>
-
-  <script type="text/javascript">
-
-  $(document).ready(function(){
-    $('[data-toggle="popover"]').popover({
-      trigger: 'hover',
-      html: true,
-      placement: 'top',
-      content: function () {
-        return '<img class="popoverimage" src="'+$(this).data('img') + '" />';
-      },
-    }) 
-  });
-  </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('[data-toggle="popover"]').popover({
+                trigger: 'hover',
+                html: true,
+                placement: 'top',
+                content: function() {
+                    return '<img class="popoverimage" src="' + $(this).data('img') + '" />';
+                },
+            })
+        });
+    </script>
 </head>
-<body background= "https://i.imgur.com/mLyoV04.jpg" data-spy="scroll" data-target="#scrollnav" data-offset="220">
-<nav class="navbar navbar-inverse navbar-fixed-top" id="scrollnav">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="Home.html"><img style="height:50px; width:50px;" src="https://i.imgur.com/kk8VIfY.jpg" alt = ""></a>
-    </div>
-    <div>
-        <ul class="nav navbar-nav">
-          <li><a href="#section1">Story</a></li>
-          <li><a href="#section2">How To Play</a></li>
-          <li><a href="#section3">Objective</a></li>
-        </ul>
-      </div>
-    </div>
-</nav>
-  
-<div id="section1" class="container-fluid">
-  <hr>
-  <h1>STORY</h1>
-  <p>Voices. That is all Bob can hear. Voices inside his head and voices all around him. They call to him, reach out to him. For as long as he can remember, Bob has been haunted by these voices. Lately, these voices have been getting stronger. It seems so easy to give in to them. But Bob has not given up yet. He has one last chance to defeat these voices. One last chance to get his life back together. One last chance at...</p>
-  <a class="poptext" href="#" title="Redemption" data-toggle="popover" data-img="https://i.imgur.com/3Sz5Rt6.jpg">
-    <span style="text-align: center" >REDEMPTION</span>
-  </a> 
-  
-  <hr>
-</div>
-<div id="section2" class="container-fluid">
-  <hr>
-  <h1>How To Play</h1>
-  <p>Use the <a class="poptext" href="#" data-toggle="tooltip" title="Up, down, left, right">arrow keys</a> to move the character.</p>
-  <p>Use the spacebar key to use attacks.</p>
-  <p>Avoid the <a class="poptext" href="#" title="Voices in his head" data-toggle="popover" data-img="https://i.imgur.com/mLyoV04.jpg">shadows</a> which try to haunt Bob.</p>
-  <hr>
-</div>
-<div id="section3" class="container-fluid">
-  <hr>
-  <h1>Objective</h1>
-  <p>Your objective is to help guide Bob through the <a class="poptext" href="levels.html" title="5 stages of grief"> 5 stages of grief </a> to one final stage...the stage of redemption.</p>
-  <hr>
-</div>
 
-<footer class="container-fluid text-center">
-  <p>BESEArcade © 2019</p>
-</footer>
+<body background="https://i.imgur.com/mLyoV04.jpg" data-spy="scroll" data-target="#scrollnav" data-offset="220">
+    <div id="page-container">
+        <div id="content-wrap">
+            <nav class="navbar navbar-inverse navbar-fixed-top" id="scrollnav">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="Home.html"><img style="height:50px; width:50px;" src="https://i.imgur.com/kk8VIfY.jpg" alt=""></a>
+                    </div>
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#section1">Story</a></li>
+                            <li><a href="#section2">How To Play</a></li>
+                            <li><a href="#section3">Objective</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="section1" class="container-fluid">
+                <hr>
+                <h1>STORY</h1>
+                <p>Voices. That is all Bob can hear. Voices inside his head and voices all around him. They call to him, reach out to him. For as long as he can remember, Bob has been haunted by these voices. Lately, these voices have been getting stronger.
+                    It seems so easy to give in to them. But Bob has not given up yet. He has one last chance to defeat these voices. One last chance to get his life back together. One last chance at...</p>
+                <a class="poptext" href="#" title="Redemption" data-toggle="popover" data-img="https://i.imgur.com/3Sz5Rt6.jpg">
+                    <span style="text-align: center">REDEMPTION</span>
+                </a>
+
+                <hr>
+            </div>
+            <div id="section2" class="container-fluid">
+                <hr>
+                <h1>How To Play</h1>
+                <p>Use the <a class="poptext" href="#" data-toggle="tooltip" title="Up, down, left, right">arrow keys</a> to move the character.</p>
+                <p>Use the spacebar key to use attacks.</p>
+                <p>Avoid the <a class="poptext" href="#" title="Voices in his head" data-toggle="popover" data-img="https://i.imgur.com/mLyoV04.jpg">shadows</a> which try to haunt Bob.</p>
+                <hr>
+            </div>
+            <div id="section3" class="container-fluid">
+                <hr>
+                <h1>Objective</h1>
+                <p>Your objective is to help guide Bob through the <a class="poptext" href="levels.html" title="5 stages of grief"> 5 stages of grief </a> to one final stage...the stage of redemption.</p>
+                <hr>
+            </div>
+        </div>
+        <footer class="container-fluid text-center">
+            <p>BESEArcade © 2019</p>
+        </footer>
+    </div>
 </body>
+
 </html>

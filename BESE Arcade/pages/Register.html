@@ -1,440 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>REDEMPTION</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <style>
-
-    body {
-     background-repeat: no-repeat;
-     background-size: cover;
-     font-family: "felix titling";
-     height: 100%;
-     color: white;
-    }
-
-    li {
-      padding-top: 15px;
-      margin-left: 70px;
-    } 
-    .navbar {
-      font-size: 30px;
-    }
-    
-    
-    /* Set gray background color and 100% height */
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 50px;
-      bottom: 0;
-      background-color: #282828;
-      color: white;
-      padding-top: 12px;
-    }
-
-    
-      .row.content {height:auto;} 
-
-    
-
-  .container{
-  width: 500px; 
-  font-size: 20px;
-  padding: 50px;
-
-  
-  }
-  input[type=text], input[type=password], input[type=email], input[type=numeric] {
-  width: 100%;
-  margin: 5px 0 22px 0;
-  padding: 20px 8px;
-  border: solid;
-  background: #f1f1f1;
-  color: black;
-  border-radius: 10px;
-  font-family: verdana;
-  font-size: 16px;
-}
-      
-  button {
-  color: white;
-  padding: 14px  10px;
-  margin: 8px 0px;
-  border: solid;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 50%;
-  opacity: 0.9;
-}
-
-.signupbtn, .loginbtn{
-  background-color: #8a1a1c;
-  float: left;
-  width: 45%;
-}
-
-.cancelbtn{
-  background-color: #9c9595;
-  float: right;
-  width: 45%;
-}
- button:hover {
-  opacity: 1;
- }
-
- #errorname, #erroremail, #errornum, #errorpass, #errorcon, #errornick, #errorpassword, #erroruser{
-  font-size: 15px;
-  font-family: verdana;
- }
-
-
-  form p {
-    font-size: 15px;
-    text-align: center;
-  }
-
-  form{
-    background-color: rgba(0,0,0,0.8);
-  }
-
- fieldset {
-  border:3px solid #8a1a1c;
-  border-radius:8px;
-  padding: 30px;
-  
-}
-
- legend{
-  font-size: 30px;
-  color: white;
-  text-decoration: none;
- }
-
- #loginhead{
-  padding-top: 30px;
- }
-
- #registerhead{
-  padding-top: 30px;
-  display: none;
- }
-
- #page-container {
-  position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 62px;    /* Footer height */
-}
-
- #reg-form{
-  display: none;
- }
-
- .heading{
-  padding: 20px 80px 10px 80px; 
- }
-  </style>
+    <title>REDEMPTION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        .container {
+            width: 500px;
+            font-size: 20px;
+            padding: 50px;
+        }
+        
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        input[type=numeric] {
+            width: 100%;
+            margin: 5px 0 22px 0;
+            padding: 20px 8px;
+            border: solid;
+            background: #f1f1f1;
+            color: black;
+            border-radius: 10px;
+            font-family: verdana;
+            font-size: 16px;
+        }
+        
+        button {
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50%;
+            opacity: 0.9;
+        }
+        
+        .signupbtn,
+        .loginbtn {
+            background-color: #8a1a1c;
+            float: left;
+            width: 45%;
+        }
+        
+        .cancelbtn {
+            background-color: #9c9595;
+            float: right;
+            width: 45%;
+        }
+        
+        button:hover {
+            opacity: 1;
+        }
+        
+        #errorname,
+        #erroremail,
+        #errornum,
+        #errorpass,
+        #errorcon,
+        #errornick,
+        #errorpassword,
+        #erroruser {
+            font-size: 15px;
+            font-family: verdana;
+        }
+        
+        form p {
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        form {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        fieldset {
+            border: 3px solid #8a1a1c;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        legend {
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        #loginhead {
+            padding-top: 30px;
+        }
+        
+        #registerhead {
+            padding-top: 30px;
+            display: none;
+        }
+        
+        #reg-form {
+            display: none;
+        }
+        
+        .heading {
+            padding: 20px 80px 10px 80px;
+        }
+    </style>
 
     <script type="text/javascript">
-      function validation(){
+        function validation() {
 
-        var fname = document.getElementById('fname').value;
-        var email = document.getElementById('email').value;
-        var num = document.getElementById('num').value;
-        var pass = document.getElementById('pass').value;
-        var conpass = document.getElementById('conpass').value;
-        var nick = document.getElementById('nick').value;
-        
-        var namecheck = /^[a-zA-Z ]{4,32}$/;
-        var passcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-        var emailcheck = /^[a-zA-Z_0-9]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z.]{2,6}$/;
-        var numcheck = /^[0-9]{11}$/;
-        var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
+            var fname = document.getElementById('fname').value;
+            var email = document.getElementById('email').value;
+            var num = document.getElementById('num').value;
+            var pass = document.getElementById('pass').value;
+            var conpass = document.getElementById('conpass').value;
+            var nick = document.getElementById('nick').value;
 
-        var f1 = true;
-        var f2 = true;
-        var f3 = true;
-        var f4 = true;
-        var f5 = true;
-        var f6 = true;
+            var namecheck = /^[a-zA-Z ]{4,32}$/;
+            var passcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+            var emailcheck = /^[a-zA-Z_0-9]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z.]{2,6}$/;
+            var numcheck = /^[0-9]{11}$/;
+            var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
 
-        if(namecheck.test(fname)){
-          document.getElementById("fname").style.borderColor="green";
-          document.getElementById('errorname').innerHTML = "";
-        } else{
-          if(fname==""){
-            document.getElementById("fname").style.borderColor="red";
-            document.getElementById('errorname').innerHTML="Required field, please enter name";
-          }
-          else{
-            document.getElementById("fname").style.borderColor="red";
-            document.getElementById('errorname').innerHTML="Invalid name, please type again";
-          }
-          f1 = false;
-        }
+            var f1 = true;
+            var f2 = true;
+            var f3 = true;
+            var f4 = true;
+            var f5 = true;
+            var f6 = true;
 
-        if(passcheck.test(pass)){
-          document.getElementById("pass").style.borderColor="green";
-          document.getElementById('errorpass').innerHTML = "";
-        } else{
-          if(pass==""){
-            document.getElementById("pass").style.borderColor="red";
-            document.getElementById('errorpass').innerHTML="Required field, please enter password";
-          }
-          else{
-            document.getElementById("pass").style.borderColor="red";
-            document.getElementById('errorpass').innerHTML="Invalid password, it must be at least 6 characters long";
-          }
-          f2 = false;
-        }
-
-        if(conpass==""){
-            document.getElementById("conpass").style.borderColor="red";
-            document.getElementById('errorcon').innerHTML="Required field, please enter password to confirm";
-            f3 = false;
-          } else{
-            if(pass == conpass){
-              document.getElementById("conpass").style.borderColor="green";
-              document.getElementById('errorcon').innerHTML = "";
+            if (namecheck.test(fname)) {
+                document.getElementById("fname").style.borderColor = "green";
+                document.getElementById('errorname').innerHTML = "";
+            } else {
+                if (fname == "") {
+                    document.getElementById("fname").style.borderColor = "red";
+                    document.getElementById('errorname').innerHTML = "Required field, please enter name";
+                } else {
+                    document.getElementById("fname").style.borderColor = "red";
+                    document.getElementById('errorname').innerHTML = "Invalid name, please type again";
+                }
+                f1 = false;
             }
-            else{
-              document.getElementById("conpass").style.borderColor="red";
-              document.getElementById('errorcon').innerHTML="Password does not match ";
-              f3 = false;
+
+            if (passcheck.test(pass)) {
+                document.getElementById("pass").style.borderColor = "green";
+                document.getElementById('errorpass').innerHTML = "";
+            } else {
+                if (pass == "") {
+                    document.getElementById("pass").style.borderColor = "red";
+                    document.getElementById('errorpass').innerHTML = "Required field, please enter password";
+                } else {
+                    document.getElementById("pass").style.borderColor = "red";
+                    document.getElementById('errorpass').innerHTML = "Invalid password, it must be at least 6 characters long";
+                }
+                f2 = false;
             }
+
+            if (conpass == "") {
+                document.getElementById("conpass").style.borderColor = "red";
+                document.getElementById('errorcon').innerHTML = "Required field, please enter password to confirm";
+                f3 = false;
+            } else {
+                if (pass == conpass) {
+                    document.getElementById("conpass").style.borderColor = "green";
+                    document.getElementById('errorcon').innerHTML = "";
+                } else {
+                    document.getElementById("conpass").style.borderColor = "red";
+                    document.getElementById('errorcon').innerHTML = "Password does not match ";
+                    f3 = false;
+                }
+            }
+
+            if (emailcheck.test(email)) {
+                document.getElementById("email").style.borderColor = "green";
+                document.getElementById('erroremail').innerHTML = "";
+            } else {
+                if (email == "") {
+                    document.getElementById("email").style.borderColor = "red";
+                    document.getElementById('erroremail').innerHTML = "Required field, please enter email";
+                } else {
+                    document.getElementById("email").style.borderColor = "red";
+                    document.getElementById('erroremail').innerHTML = "Invalid email, write in the format example@gmail.com ";
+                }
+                f4 = false;
+            }
+
+            if (numcheck.test(num)) {
+                document.getElementById("num").style.borderColor = "green";
+                document.getElementById('errornum').innerHTML = "";
+            } else {
+                if (num == "") {
+                    document.getElementById("num").style.borderColor = "red";
+                    document.getElementById('errornum').innerHTML = "Required field, please enter number";
+                } else {
+                    document.getElementById("num").style.borderColor = "red";
+                    document.getElementById('errornum').innerHTML = "Invalid number, please write in the format: 03001234567 ";
+                }
+                f5 = false;
+            }
+
+            if (nickcheck.test(nick)) {
+                document.getElementById("nick").style.borderColor = "green";
+                document.getElementById('errornick').innerHTML = "";
+            } else {
+                if (nick == "") {
+                    document.getElementById("nick").style.borderColor = "red";
+                    document.getElementById('errornick').innerHTML = "Required field, please enter nickname";
+                } else {
+                    document.getElementById("nick").style.borderColor = "red";
+                    document.getElementById('errornick').innerHTML = "Invalid nickname"
+                }
+                f6 = false;
+            }
+
+            return f1 && f2 && f3 && f4 && f5 && f6;
         }
 
-        if(emailcheck.test(email)){
-          document.getElementById("email").style.borderColor="green";
-          document.getElementById('erroremail').innerHTML = "";
-        } else{
-          if(email==""){
-            document.getElementById("email").style.borderColor="red";
-            document.getElementById('erroremail').innerHTML="Required field, please enter email";
-          }
-          else{
-            document.getElementById("email").style.borderColor="red";
-            document.getElementById('erroremail').innerHTML="Invalid email, write in the format example@gmail.com ";
-          }
-          f4 = false;
+
+        function loginValidation() {
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+            var usercheck = /^[a-zA-Z0-9_]{4,10}$/;
+
+            var f1 = true;
+            var f2 = true;
+
+            if (usercheck.test(username)) {
+                document.getElementById("username").style.borderColor = "green";
+                document.getElementById('erroruser').innerHTML = "";
+            } else {
+                if (username == "") {
+                    document.getElementById("username").style.borderColor = "red";
+                    document.getElementById('erroruser').innerHTML = "Required field, please enter username";
+                } else {
+                    document.getElementById("username").style.borderColor = "red";
+                    document.getElementById('erroruser').innerHTML = "Invalid username, please type again";
+                }
+                f1 = false;
+            }
+            if (passwordcheck.test(password)) {
+                document.getElementById("password").style.borderColor = "green";
+                document.getElementById('errorpassword').innerHTML = "";
+            } else {
+                if (password == "") {
+                    document.getElementById("password").style.borderColor = "red";
+                    document.getElementById('errorpassword').innerHTML = "Required field, please enter password";
+                } else {
+                    document.getElementById("password").style.borderColor = "red";
+                    document.getElementById('errorpassword').innerHTML = "Invalid password, please type again";
+                }
+                f2 = false;
+            }
+            return f1 && f2;
         }
 
-        if(numcheck.test(num)){
-          document.getElementById("num").style.borderColor="green";
-          document.getElementById('errornum').innerHTML = "";
-        } else{
-          if(num==""){
-            document.getElementById("num").style.borderColor="red";
-            document.getElementById('errornum').innerHTML="Required field, please enter number";
-          }
-          else{
-            document.getElementById("num").style.borderColor="red";
-            document.getElementById('errornum').innerHTML="Invalid number, please write in the format: 03001234567 ";
-          }
-          f5 = false;
+        function viewRegister() {
+            document.getElementById('registerhead').setAttribute('style', 'display:block');
+            document.getElementById('reg-form').setAttribute('style', 'display:block');
+            document.getElementById('login').setAttribute('style', 'display:none');
+            document.getElementById('loginhead').setAttribute('style', 'display:none');
         }
 
-        if(nickcheck.test(nick)){
-          document.getElementById("nick").style.borderColor="green";
-          document.getElementById('errornick').innerHTML = "";
-        } else{
-          if(nick==""){
-            document.getElementById("nick").style.borderColor="red";
-            document.getElementById('errornick').innerHTML="Required field, please enter nickname";
-          }
-          else{
-            document.getElementById("nick").style.borderColor="red";
-            document.getElementById('errornick').innerHTML="Invalid nickname"
-          }
-          f6 = false;
+
+        function viewLogin() {
+            document.getElementById('registerhead').setAttribute('style', 'display:none');
+            document.getElementById('reg-form').setAttribute('style', 'display:none');
+            document.getElementById('login').setAttribute('style', 'display:block');
+            document.getElementById('loginhead').setAttribute('style', 'display:block');
         }
-
-        return f1 && f2 && f3 && f4 && f5 && f6;
-      }
-
-
-      function loginValidation(){
-
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-        
-        var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-        var usercheck = /^[a-zA-Z0-9_]{4,10}$/;
-
-        var f1 = true;
-        var f2 = true;
-
-        if(usercheck.test(username)){
-          document.getElementById("username").style.borderColor="green";
-          document.getElementById('erroruser').innerHTML = "";
-        } else{
-          if(username==""){
-            document.getElementById("username").style.borderColor="red";
-            document.getElementById('erroruser').innerHTML="Required field, please enter username";
-          }
-          else{
-            document.getElementById("username").style.borderColor="red";
-            document.getElementById('erroruser').innerHTML="Invalid username, please type again";
-          }
-          f1 = false;
-        }
-        if(passwordcheck.test(password)){
-          document.getElementById("password").style.borderColor="green";
-          document.getElementById('errorpassword').innerHTML = "";
-        } else{
-          if(password==""){
-            document.getElementById("password").style.borderColor="red";
-            document.getElementById('errorpassword').innerHTML="Required field, please enter password";
-          }
-          else{
-            document.getElementById("password").style.borderColor="red";
-            document.getElementById('errorpassword').innerHTML="Invalid password, please type again";
-          }
-          f2 = false;
-        }
-        return f1 && f2;
-      }
-
-      function viewRegister(){
-        document.getElementById('registerhead').setAttribute('style', 'display:block');
-        document.getElementById('reg-form').setAttribute('style', 'display:block');
-        document.getElementById('login').setAttribute('style', 'display:none');
-        document.getElementById('loginhead').setAttribute('style', 'display:none');
-      }
-      
-
-      function viewLogin(){
-        document.getElementById('registerhead').setAttribute('style', 'display:none');
-        document.getElementById('reg-form').setAttribute('style', 'display:none');
-        document.getElementById('login').setAttribute('style', 'display:block');
-        document.getElementById('loginhead').setAttribute('style', 'display:block');
-      }
     </script>
 </head>
-<body background= "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/365020/45295330069b8604077047c174fdd4ee2c009fd2.jpg">
-  <div id="page-container">
-    <div id="content-wrap">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="Home.html"><img style = "height: 50px; width: 50px;" src =  "https://i.imgur.com/kk8VIfY.jpg" alt = ""></a>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+<body background="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/365020/45295330069b8604077047c174fdd4ee2c009fd2.jpg">
+    <div id="page-container">
+        <div id="content-wrap">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="Home.html"><img style="height: 50px; width: 50px;" src="https://i.imgur.com/kk8VIfY.jpg" alt=""></a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Home.html">Home</a></li>
+                            <li><a href="synopsis.html">Synopsis</a></li>
+                            <li><a href="levels.html">Levels</a></li>
+                            <li><a href="About Us.html">About Us</a></li>
+                            <li class="active"><a href="Register.html">Login / Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="heading">
+                <h2 id="loginregisterhead"> Login / Register </h2>
+                <hr>
+            </div>
+            <h3 id="loginhead" align="center"> Welcome back, we have been expecting you. </h3>
+            <h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
+            <div class="container">
+
+                <form id="login" onsubmit="return loginValidation()">
+                    <fieldset>
+                        <legend>Login</legend>
+                        <div class="form-group">
+                            <label>Nickname/Username</label>
+                            <input type="text" class="form-control" id="username" name="user" placeholder="Enter Username">
+                            <span id="erroruser" class="text-danger font-weight-bold"> </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password">
+                            <span id="errorpassword" class="text-danger font-weight-bold"> </span>
+                        </div>
+                        <p>Don't have an account? <a href="#registerhead" onclick="viewRegister()"> Register now </a></p>
+                        <div class="clearfix">
+                            <button type="button" class="cancelbtn">Cancel</button>
+                            <button type="submit" class="loginbtn">Login</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+
+
+
+                <form id="reg-form" onsubmit="return validation()">
+                    <fieldset>
+                        <legend>Register</legend>
+                        <div class="form-group">
+                            <label title="Alphabets only, at least 4 characters long">Full Name </label>
+                            <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
+                            <span id="errorname" class="text-danger font-weight-bold"> </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+                            <span id="erroremail" class="text-danger font-weight-bold"> </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact number</label>
+                            <input type="numeric" class="form-control" id="num" name="contact" placeholder="0300xxxxxxx">
+                            <span id="errornum" class="text-danger font-weight-bold"> </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label title="Password must be at least 6 characters long, must contain 1 alphanumeric and 1 special character">Password</label>
+                            <input type="Password" class="form-control" id="pass" name="pass" placeholder="Enter Password">
+                            <span id="errorpass" class="text-danger font-weight-bold"> </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="Password" class="form-control" id="conpass" name="conpass" placeholder="Enter Password Again">
+                            <span id="errorcon" class="text-danger font-weight-bold"> </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label title="Nickname must be at least 4 characters long, no special characters except _">Nickname</label>
+                            <input type="text" class="form-control" id="nick" name="nick">
+                            <span id="errornick" class="text-danger font-weight-bold"> </span>
+                        </div>
+                        <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
+                        <div class="clearfix">
+                            <button type="button" class="cancelbtn">Cancel</button>
+                            <button type="submit" class="signupbtn">Sign Up</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+        <footer class="container-fluid text-center">
+            <p>BESEArcade © 2019</p>
+        </footer>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="synopsis.html">Synopsis</a></li>
-        <li><a href="levels.html">Levels</a></li>
-        <li><a href="About Us.html">About Us</a></li>
-        <li class="active"><a href="Register.html">Login / Register</a></li>
-      </ul>
-     </div>
-  </div>
-</nav>
-
-<div class="heading">
-<h2 id="loginregisterhead"> Login / Register </h2>
-<hr>
-</div>
-<h3 id="loginhead" align="center"> Welcome back, we have been expecting you. </h3>
-<h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
-<div class="container">
-
-  <form id="login" onsubmit="return loginValidation()"> 
-    <fieldset>
-      <legend>Login</legend>
-    <div class="form-group">
-    <label>Nickname/Username</label>
-      <input type="text" class="form-control" id="username" name="user" placeholder="Enter Username"> 
-      <span id="erroruser" class="text-danger font-weight-bold"> </span>
-    </div>
-    <div class="form-group">
-    <label>Password</label>
-      <input type="Password" class="form-control" id="password" name="password" placeholder="Enter Password"> 
-      <span id="errorpassword" class="text-danger font-weight-bold"> </span>
-    </div>
-    <p>Don't have an account? <a href="#registerhead" onclick="viewRegister()"> Register now </a></p>
-    <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="loginbtn">Login</button>
-   </div> 
-  </fieldset>
-  </form>
-  
-
-
-
-
-  <form id="reg-form" onsubmit="return validation()">
-  <fieldset>
-    <legend>Register</legend>
-  <div class="form-group">
-    <label title="Alphabets only, at least 4 characters long">Full Name </label>
-      <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
-      <span id="errorname" class="text-danger font-weight-bold"> </span>
-    </div>
- 
-  <div class="form-group">
-    <label>Email Address</label>
-      <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com">
-      <span id="erroremail" class="text-danger font-weight-bold"> </span>
-    </div>
-  
-  <div class="form-group">
-    <label>Contact number</label>
-      <input type="numeric" class="form-control" id="num" name="contact" placeholder="0300xxxxxxx"> 
-      <span id="errornum" class="text-danger font-weight-bold"> </span>
-    </div>
-
-  <div class="form-group">
-    <label title="Password must be at least 6 characters long, must contain 1 alphanumeric and 1 special character">Password</label>
-      <input type="Password" class="form-control" id="pass" name="pass" placeholder="Enter Password"> 
-      <span id="errorpass" class="text-danger font-weight-bold"> </span>
-    </div>
-
-    <div class="form-group">
-    <label>Confirm Password</label>
-      <input type="Password" class="form-control" id="conpass" name="conpass" placeholder="Enter Password Again"> 
-      <span id="errorcon" class="text-danger font-weight-bold"> </span>
-    </div>
-
-  <div class="form-group">
-    <label title="Nickname must be at least 4 characters long, no special characters except _">Nickname</label>
-      <input type="text" class="form-control" id="nick" name="nick">
-      <span id="errornick" class="text-danger font-weight-bold"> </span>
-    </div>
-  <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
-   <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
-   </div> 
-   </fieldset>  
-  </form>
-
-</div>
-</div>
-<footer class="container-fluid text-center">
-  <p>BESEArcade © 2019</p>
-</footer>
-</div>
 </body>
 <script>
-  var body = document.getElementsByTagName("body")[0];
-  console.log(body.height);
+    var body = document.getElementsByTagName("body")[0];
+    console.log(body.height);
 </script>
+
 </html>
