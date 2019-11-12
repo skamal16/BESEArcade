@@ -26,6 +26,9 @@ body {
     /* Footer height */
 }
 
+#page-content {
+    margin-top: 200px;
+}
 footer {
     position: fixed;
     bottom: 0;
