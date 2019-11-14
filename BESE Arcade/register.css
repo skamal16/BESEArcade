@@ -1,0 +1,98 @@
+.container {
+            width: 500px;
+            font-size: 20px;
+            padding: 50px;
+        }
+        
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        input[type=numeric] {
+            width: 100%;
+            margin: 5px 0 22px 0;
+            padding: 20px 8px;
+            border: solid;
+            background: #f1f1f1;
+            color: black;
+            border-radius: 10px;
+            font-family: verdana;
+            font-size: 16px;
+        }
+        
+        button {
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50%;
+            opacity: 0.9;
+        }
+        
+        .signupbtn,
+        .loginbtn {
+            background-color: #8a1a1c;
+            float: left;
+            width: 45%;
+        }
+        
+        .cancelbtn {
+            background-color: #9c9595;
+            float: right;
+            width: 45%;
+        }
+        
+        button:hover {
+            opacity: 1;
+        }
+        
+        #errorname,
+        #erroremail,
+        #errornum,
+        #errorpass,
+        #errorcon,
+        #errornick,
+        #errorpassword,
+        #erroruser {
+            font-size: 15px;
+            font-family: verdana;
+        }
+        
+        form p {
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        form {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        fieldset {
+            border: 3px solid #8a1a1c;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        legend {
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        #loginhead {
+            padding-top: 30px;
+        }
+        
+        #registerhead {
+            padding-top: 30px;
+            display: none;
+        }
+        
+        #reg-form {
+            display: none;
+        }
+        
+        .heading {
+            padding: 20px 80px 10px 80px;
+        }

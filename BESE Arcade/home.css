@@ -1,0 +1,88 @@
+ #page-content {
+            width: 70%;
+            margin-left: 0 auto;
+            margin-right: 0 auto;
+        }
+        #logo {
+            margin-top: 85px;
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0% {
+                transform: none;
+                opacity: 1;
+            }
+            7% {
+                transform: skew(-4deg, -4deg);
+                opacity: 0.4;
+            }
+            10% {
+                transform: none;
+                opacity: 1;
+            }
+            27% {
+                transform: none;
+                opacity: 1;
+            }
+            30% {
+                transform: skew(3deg, -1.5deg);
+                opacity: 0.5;
+            }
+            35% {
+                transform: none;
+                opacity: 1;
+            }
+            52% {
+                transform: none;
+                opacity: 1;
+            }
+            55% {
+                transform: skew(-3deg, 0.8deg);
+                opacity: 0.4;
+            }
+            50% {
+                transform: none;
+                opacity: 1;
+            }
+            72% {
+                transform: none;
+                opacity: 1;
+            }
+            75% {
+                transform: skew(5deg, 4deg);
+                opacity: 0.75;
+            }
+            80% {
+                transform: none;
+                opacity: 1;
+            }
+            100% {
+                transform: none;
+                opacity: 1;
+            }
+        }
+        
+        .modal-header,
+        .modal-content {
+            background-color: black;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        .btn {
+            background-color: black;
+            color: white;
+            border-color: white;
+            border-width: 3px;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+        
+        .btn:hover {
+            background-color: #8a1a1c;
+            border-color: black;
+            color: black;
+        }
