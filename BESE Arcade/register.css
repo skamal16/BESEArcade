@@ -2,6 +2,7 @@
             width: 500px;
             font-size: 20px;
             padding: 50px;
+            max-width: 120%;
         }
         
         input[type=text],
@@ -19,28 +20,32 @@
             font-size: 16px;
         }
         
-        button {
-            color: white;
-            padding: 14px 10px;
-            margin: 8px 0px;
-            border: solid;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 50%;
-            opacity: 0.9;
-        }
         
         .signupbtn,
         .loginbtn {
             background-color: #8a1a1c;
             float: left;
             width: 45%;
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
         }
         
         .cancelbtn {
             background-color: #9c9595;
             float: right;
             width: 45%;
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
         }
         
         button:hover {
