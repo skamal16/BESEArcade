@@ -8,13 +8,14 @@
             position: relative;
             box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 1);
             width: 400px;
+            max-width: 100%;
             background-color: #520000;
             text-align: center;
             border: 2px solid white;
             float: left;
             padding: 5px;
             margin-top: 50px;
-            height: 600px;
+            height: 625px;
         }
         
         .card p {
@@ -50,13 +51,17 @@
         
         .image {
             padding: 20px 20px 2px 20px;
+            width: 360px;
+            max-width: 100%; 
+            height: auto;
         }
         
         .btn {
             background-color: black;
             padding: 10px;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 13px;
+            max-width: 100%;
         }
         
         .glyphicon-user {
