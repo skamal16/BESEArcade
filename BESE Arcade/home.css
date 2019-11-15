@@ -1,9 +1,9 @@
  #page-content {
-            width: 100%;
             max-width: 100%;
         }
         #logo {
-            left: 40%;
+            display: flex;
+            justify-content: center;
             margin-top: 85px;
             animation: glitch 2s infinite;
             max-width: 100%;
