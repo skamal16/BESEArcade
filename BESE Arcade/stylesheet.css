@@ -7,7 +7,6 @@ body {
 }
 
 .navbar {
-    position: relative;
     font-size: 30px;
     width: 100%;
 }
@@ -21,6 +20,7 @@ body {
     height: 40px;
 }
 #page-container {
+    margin-top: 100px;
     position: relative;
     min-height: 100vh;
 }
