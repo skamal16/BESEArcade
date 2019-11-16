@@ -7,6 +7,7 @@
             margin-top: 75px;
             animation: glitch 5s infinite;
             max-width: 100%;
+	    
         }
 
         #description {
@@ -78,7 +79,7 @@
             text-align: center;
         }
         
-	.heading {	
+	.heading:hover {	
 		font-size: 40px;
 		animation: glow 1s ease-in-out infinite alternate;
 	}
@@ -98,9 +99,9 @@
             color: white;
             border-color: white;
             border-width: 3px;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
-            font-weight: bolder;s
+            font-weight: bolder;
         }
         
         .btn:hover {

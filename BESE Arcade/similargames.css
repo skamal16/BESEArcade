@@ -11,6 +11,10 @@
             padding: 20px 80px 10px 80px;
         }
         
+	#heading{
+	    text-align: left;
+	}
+
         .container p {
             font-family: verdana;
             font-size: 18px;
