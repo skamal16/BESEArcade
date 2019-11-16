@@ -15,7 +15,7 @@
             float: left;
             padding: 5px;
             margin-top: 50px;
-            height: 625px;
+            height: 600px;
         }
         
         .card p {
@@ -66,4 +66,16 @@
         
         .glyphicon-user {
             padding-right: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+    .card p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+        .card {
+            height: 500px;
         }

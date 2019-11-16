@@ -5,7 +5,6 @@
         }
         
         .container {
-            text-align: center;
             width: 100%;
             font-size: 20px;
             padding: 20px 80px 10px 80px;
@@ -17,7 +16,7 @@
 
         .container p {
             font-family: verdana;
-            font-size: 18px;
+            font-size: 20px;
         }
         
         .trailer {
@@ -33,3 +32,9 @@
         #gameheading {
             color: #8a1a1c;
         }
+
+        @media screen and (max-width: 600px) {
+        .container p {
+    font-size: 12px;
+  }
+}
