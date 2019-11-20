@@ -118,8 +118,8 @@
                 }
                 f6 = false;
             }
-
             return f1 && f2 && f3 && f4 && f5 && f6;
+           
         }
 
 
@@ -205,13 +205,14 @@
                     </div>
                 </div>
             </nav>
-            <div id="page-content">
+            <div class="row">
+            <div class="col-xs-12">
             <div class="heading">
-                <h2 id="loginregisterhead"> Login / Register </h2>
+                <h2> Login / Register </h2>
                 <hr>
             </div>
-            <h3 id="loginhead" align="center"> Welcome back, we have been expecting you. </h3>
-            <h3 id="registerhead" align="center"> Still haven't registered? Register now before it's too late. </h3>
+            <h3 id="loginhead"> Welcome back, we have been expecting you. </h3>
+            <h3 id="registerhead"> Still haven't registered? Register now before it's too late. </h3>
             <div class="container">
 
                 <form id="login" onsubmit="return loginValidation()">
@@ -284,7 +285,7 @@
                         </div>
                     </fieldset>
                 </form>
-
+            </div>
             </div>
         </div>
         </div>
@@ -293,9 +294,6 @@
         </footer>
     </div>
 </body>
-<script>
-    var body = document.getElementsByTagName("body")[0];
-    console.log(body.height);
-</script>
+
 
 </html>

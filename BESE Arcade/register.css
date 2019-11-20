@@ -21,8 +21,7 @@
         }
         
         
-        .signupbtn,
-        .loginbtn {
+        .signupbtn, .loginbtn {
             background-color: #8a1a1c;
             float: left;
             width: 45%;
@@ -70,7 +69,7 @@
         }
         
         form {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.6);
         }
         
         fieldset {
@@ -87,11 +86,13 @@
         
         #loginhead {
             padding-top: 30px;
+            text-align: center;
         }
         
         #registerhead {
             padding-top: 30px;
             display: none;
+            text-align: center;
         }
         
         #reg-form {

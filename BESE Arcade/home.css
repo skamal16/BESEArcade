@@ -1,4 +1,4 @@
- #page-content {
+ .container {
             max-width: 100%;
         }
         #logo {
@@ -71,18 +71,17 @@
             }
         }
         
-        .modal-header,
-        .modal-content {
+        .modal-header, .modal-content {
             background-color: black;
             color: white;
             font-size: 15px;
             text-align: center;
         }
         
-	.heading:hover {	
-		font-size: 40px;
-		animation: glow 1s ease-in-out infinite alternate;
-	}
+	   .heading:hover {	
+		  font-size: 40px;
+		  animation: glow 1s ease-in-out infinite alternate;
+	   }
 
 	@keyframes glow {
   	from {
