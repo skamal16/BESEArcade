@@ -2,7 +2,7 @@
             width: 500px;
             font-size: 20px;
             padding: 50px;
-            max-width: 120%;
+            max-width: 100%;
         }
         
         input[type=text],
@@ -45,6 +45,7 @@
             border-radius: 5px;
             cursor: pointer;
             opacity: 0.9;
+            text-align: center;
         }
         
         button:hover {
@@ -102,3 +103,33 @@
         .heading {
             padding: 20px 80px 10px 80px;
         }
+
+        @media screen and (max-width: 400px) {
+
+        .container {
+            font-size: 13px; 
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        input[type=numeric] {
+            font-size: 12px;
+        }
+
+        #errorname,
+        #erroremail,
+        #errornum,
+        #errorpass,
+        #errorcon,
+        #errornick,
+        #errorpassword,
+        #erroruser {
+            font-size: 12px;
+        }
+
+        form p {
+            font-size: 12px;
+        }
+
+    }

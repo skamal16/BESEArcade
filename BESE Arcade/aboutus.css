@@ -72,9 +72,22 @@
     .card p {
     font-size: 12px;
   }
+
+  .middletext {
+            visibility: hidden;
+        } 
 }
 
 @media screen and (max-width: 500px) {
         .card {
             height: 500px;
         }
+
+    }
+
+    @media screen and (max-width: 950px) {
+
+  .middletext {
+            visibility: hidden;
+        } 
+}
