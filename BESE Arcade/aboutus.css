@@ -69,25 +69,29 @@
 
         @media screen and (max-width: 600px) {
 
-    .card p {
-    font-size: 12px;
-  }
+        .card p {
+            font-size: 12px;
+        }
 
-  .middletext {
+  
+    
+        @media screen and (min-width: 600px) and (max-width: 770px) {
+         .middletext {
             visibility: hidden;
         } 
-}
 
-@media screen and (max-width: 500px) {
-        .card {
-            height: 500px;
         }
+
+        @media screen and (max-width: 500px) {
+        .card {
+            height: 530px;
+        }
+
+          .container {
+            padding: 20px 10px 10px 10px;
+        }
+
 
     }
 
-    @media screen and (max-width: 950px) {
-
-  .middletext {
-            visibility: hidden;
-        } 
-}
+    

@@ -16,7 +16,7 @@
 
         .container p {
             font-family: verdana;
-            font-size: 20px;
+            font-size: 18px;
         }
         
         .trailer {
@@ -35,6 +35,9 @@
 
         @media screen and (max-width: 600px) {
         .container p {
-    font-size: 12px;
-  }
-}
+    		font-size: 12px;
+  		}
+  		.container {
+  			padding: 20px 20px 20px 20px;
+  		}
+	}
