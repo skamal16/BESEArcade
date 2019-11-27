@@ -73,7 +73,7 @@
             font-size: 12px;
         }
 
-  
+  		}
     
         @media screen and (min-width: 600px) and (max-width: 770px) {
          .middletext {
@@ -92,6 +92,6 @@
         }
 
 
-    }
+    	}
 
     
