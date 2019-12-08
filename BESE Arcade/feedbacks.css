@@ -1,0 +1,37 @@
+
+.container {
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 80px 10px 80px;
+   }
+
+	.parallax {
+  background-image: url("https://i.imgur.com/s8AL1uf.jpg");
+  min-height: 150px; 
+
+  /*parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.feedback{
+	height:150px;
+	font-family: verdana;
+	color: white; 
+	font-size:18px;
+}
+
+@media screen and (max-width: 500px){
+  .container{
+  padding: 20px 10px 10px 10px;
+}
+
+  .container p{
+    font-size: 12px;
+  }
+  .parallax {
+    min-height: 90px;
+  }
+}
