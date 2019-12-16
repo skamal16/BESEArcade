@@ -118,6 +118,23 @@
                 }
                 f6 = false;
             }
+            
+
+            if (f1 === true && f2 === true && f3 === true && f4 === true && f5 === true && f6 === true) {
+                $.ajax({
+         data: {
+            fname: fname,
+            email: email,
+            contact: num,
+            username: nick,
+            pass: pass
+         },
+         type: "post",
+         url: "register.php",
+});
+
+            }
+
             return f1 && f2 && f3 && f4 && f5 && f6;
 
         }
@@ -238,7 +255,7 @@
 
 
 
-                <form id="reg-form" onsubmit="return validation() && register()">
+                <form id="reg-form" method="post" onsubmit="return validation() && register()">
                     <fieldset>
                         <legend>Register</legend>
                         <div class="form-group">
@@ -290,27 +307,7 @@
         </footer>
     </div>
 </body>
-<script>
-        function register(){
-            var fname = document.getElementById('fname').value;
-            var email = document.getElementById('email').value;
-            var num = document.getElementById('num').value;
-            var pass = document.getElementById('pass').value;
-            var username = document.getElementById('username').value;
-            $.ajax({
-         data: {
-            fname: fname,
-            email: email,
-            contact: num,
-            username: username,
-            pass: pass
-         },
-         type: "post",
-         url: "register.php",
-});
-            
-        }
-                        </script>
+
 
 
 </html>
