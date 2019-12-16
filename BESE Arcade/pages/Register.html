@@ -255,7 +255,7 @@
 
                         <div class="form-group">
                             <label>Contact number</label>
-                            <input type="numeric" class="form-control" id="num" name="contact" placeholder="0300xxxxxxx">
+                            <input type="number" class="form-control" id="num" name="contact" placeholder="0300xxxxxxx">
                             <span id="errornum" class="text-danger font-weight-bold"> </span>
                         </div>
 
@@ -279,13 +279,8 @@
                         <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn" name="signup">Sign Up</button>
+                            <button type="submit" class="signupbtn" name="signup" onclick="register()">Sign Up</button>
                         </div>
-                        <script>
-                            //$(document).ready(function() {
-                                //$('.form-control').on('blur', () => validation());
-                            //}); 
-                        </script>
                     </fieldset>
                 </form>
             </div>
@@ -295,6 +290,27 @@
         </footer>
     </div>
 </body>
+<script>
+        function register(){
+            var fname = document.getElementById('fname').value;
+            var email = document.getElementById('email').value;
+            var num = document.getElementById('num').value;
+            var pass = document.getElementById('pass').value;
+            var username = document.getElementById('username').value;
+            $.ajax({
+         data: {
+            name: fname,
+            email: email,
+            contact: num,
+            username: username,
+            pass: pass
+         },
+         type: "post",
+         url: "register.php",
+});
+            
+        }
+                        </script>
 
 
 </html>
