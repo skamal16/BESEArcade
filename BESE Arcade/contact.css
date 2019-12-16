@@ -75,5 +75,23 @@
     .flip-card-back {
         background-color: #520000;
         color: white;
+        text-align: center;
         transform: rotateY(180deg);
+    }
+
+    .contact{
+            background-color: white;
+            color: black;
+            width: 45%;
+            padding: 14px 10px;
+            margin-top: 25%;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
+        }
+    button:hover{
+        opacity: 1;
+        background-color: #8a1a1c;
+        color: white;
     }

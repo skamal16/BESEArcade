@@ -1,0 +1,105 @@
+.container {
+            width: 700px;
+            font-size: 20px;
+            padding: 50px;
+            max-width: 100%;
+        }
+        
+body{
+    background-position: center;
+}
+        input[type=text],
+        input[type=email],
+        textarea {
+            width: 100%;
+            margin: 5px 0 22px 0;
+            padding: 20px 8px;
+            border: solid;
+            background: #f1f1f1;
+            color: black;
+            border-radius: 10px;
+            font-family: verdana;
+            font-size: 16px;
+        }
+        
+        
+        .contact{
+            background-color: #8a1a1c;
+            float: left;
+            width: 45%;
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        
+        .cancelbtn {
+            background-color: #9c9595;
+            float: right;
+            width: 45%;
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        button:hover {
+            opacity: 1;
+        }
+        
+        form p {
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        form {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        fieldset {
+            border: 3px solid #8a1a1c;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        legend {
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        #head {
+            padding-top: 30px;
+            text-align: center;
+        }
+        
+        
+        .heading {
+            padding: 20px 80px 10px 80px;
+        }
+
+        @media screen and (max-width: 400px) {
+
+        .container {
+            font-size: 13px; 
+        }
+
+        input[type=text],
+        input[type=email],
+        textarea {
+            font-size: 12px;
+        }
+
+
+        form p {
+            font-size: 12px;
+        }
+
+    }
