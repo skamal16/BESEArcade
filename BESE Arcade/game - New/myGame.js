@@ -7,7 +7,9 @@ canvas.height = HEIGHT;
 
 const CTX = canvas.getContext("2d");
 
-let gameObjects = new Array();
+let gameObjects = [];
+let rigidObjects = [];
+let enemies = [];
 
 window.onload = function() {
     startGame();
@@ -26,7 +28,7 @@ var game = {
 
     start: function() {
         document.body.append(canvas);
-        this.level = new GameBuilder().build();
+        this.level = new Level_1().build();
     },
 
     update: function() {
