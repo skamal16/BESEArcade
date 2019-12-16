@@ -1,21 +1,14 @@
 <?php 
 	$db = mysqli_connect('localhost', 'root', '', 'redemption');
 
-	if (isset($_POST['signup'])) {
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$contact = $_POST['contact'];
-		$pass = $_POST['pass'];
-		$username = $_POST['username'];
+		$fname = mysqli_real_escape_string($db, $_POST['fname']);
+		$email = mysqli_real_escape_string($db, $_POST['email']);
+		$contact = mysqli_real_escape_string($db, $_POST['contact']);
+		$pass = mysqli_real_escape_string($db, $_POST['pass']);
+		$username = mysqli_real_escape_string($db, $_POST['username']);
 
 		$password = md5($pass);
-		mysqli_query($db, "INSERT INTO users (username, name, email, contact, password) VALUES ('$username', '$name', '$email', $contact, '$password')");
+		mysqli_query($db, "INSERT INTO users (username, name, email, contact, password) VALUES ('$username', '$fname', '$email', $contact, '$password')");
 
 		header("Location: register.html");
-
-	}
-
-
-
-
 ?>

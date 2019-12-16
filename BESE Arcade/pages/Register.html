@@ -238,7 +238,7 @@
 
 
 
-                <form id="reg-form" action="register.php" method="POST" onsubmit="return validation()">
+                <form id="reg-form" onsubmit="return validation() && register()">
                     <fieldset>
                         <legend>Register</legend>
                         <div class="form-group">
@@ -279,7 +279,7 @@
                         <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn" name="signup" onclick="register()">Sign Up</button>
+                            <button type="submit" class="signupbtn" name="signup">Sign Up</button>
                         </div>
                     </fieldset>
                 </form>
@@ -299,7 +299,7 @@
             var username = document.getElementById('username').value;
             $.ajax({
          data: {
-            name: fname,
+            fname: fname,
             email: email,
             contact: num,
             username: username,
