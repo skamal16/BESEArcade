@@ -180,13 +180,14 @@
 
              if (f1 && f2) {
                 $.ajax({
-            data: {
-                user: user,
-                password: password
-                },
-            type: "post",
-            url: "loginprocess.php",
-            });
+         data: {
+            user: user,
+            password: password
+         },
+         type: "post",
+         url: "loginprocess.php",
+
+        });
 
             }
             return f1 && f2;
