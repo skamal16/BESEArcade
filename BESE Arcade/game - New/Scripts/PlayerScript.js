@@ -18,12 +18,24 @@ class PlayerScript extends Script {
         this.drag = 1;
         this.gravity = 3;
 
-        this.viewportLeft = WIDTH / 6;
-        this.viewportRight = WIDTH / 2;
+        this.viewportLeft = WIDTH / 3;
+        this.viewportRight = WIDTH * 2 / 3;
     }
 
     update() {
         this.move();
+        var animator = this.gameObject.sprite.animator;
+        if (this.dx < 0) {
+            animator.active = animator.walk_left;
+            animator.frames = 6;
+        } else if (this.dx > 0) {
+            animator.active = animator.walk_right;
+            animator.frames = 6;
+        } else {
+            animator.active = animator.idle;
+            animator.frames = 1;
+            animator.currentFrame = 0;
+        }
         this.accelerate();
         this.applyResistances();
         if (controller.mouse[0]) this.killEnemy();
@@ -32,10 +44,9 @@ class PlayerScript extends Script {
         var p = this.gameObject.transform;
 
         var mouseX = controller.mousePos[0];
-        var mouseY = controller.mousePos[1];
 
         m.x = mouseX > p.x ? p.x + this.gameObject.rigidbody.collider.width / 2 : p.x - this.gameObject.rigidbody.collider.width / 2;
-        m.y = p.y - this.gameObject.rigidbody.collider.height / 2;
+        m.y = p.y;
     }
 
     killEnemy() {
@@ -72,21 +83,23 @@ class PlayerScript extends Script {
         var collide = false;
 
         gameObjects.forEach(function(gameObject) {
-            if (gameObject !== obj)
-                if (gameObject.rigidbody && gameObject.rigidbody.collideAllx(-dx) != -dx) collide = true;
+            if (gameObject !== obj && gameObject.rigidbody && !gameObject.rigidbody.isKinematic && gameObject.rigidbody.collidex(obj.rigidbody, -dx)) {
+                collide = true;
+                return;
+            }
         });
 
         if (plr.x > this.viewportRight && dx > 0 && !collide) {
             gameObjects.forEach(function(gameObject) {
                 if (gameObject !== obj)
-                    gameObject.transform.move(-dx, 0);
+                    gameObject.transform.moveMap(-dx, 0);
             });
             this.dy = plr.move(0, this.dy)[1];
 
         } else if (plr.x < this.viewportLeft && dx < 0 && !collide) {
             gameObjects.forEach(function(gameObject) {
                 if (gameObject !== obj)
-                    gameObject.transform.move(-dx, 0)[0];
+                    gameObject.transform.moveMap(-dx, 0)[0];
             });
             this.dy = plr.move(0, this.dy)[1];
 

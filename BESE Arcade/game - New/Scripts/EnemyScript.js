@@ -17,11 +17,24 @@ class EnemyScript extends Script {
         this.jump = 20;
         this.drag = 1;
         this.gravity = 2;
+        this.pace = 100;
     }
 
     update() {
         this.findPlayer();
         this.move();
+        var animator = this.gameObject.sprite.animator;
+        if (this.dx < 0) {
+            animator.active = animator.walk_left;
+            animator.frames = 6;
+        } else if (this.dx > 0) {
+            animator.active = animator.walk_right;
+            animator.frames = 6;
+        } else {
+            animator.active = animator.idle;
+            animator.frames = 1;
+            animator.currentFrame = 0;
+        }
         this.accelerate();
         this.applyResistances();
     }
@@ -37,7 +50,7 @@ class EnemyScript extends Script {
 
     move() {
         var enemy = this.gameObject.transform;
-        this.dy = enemy.move(this.dx, this.dy)[1];
+        [this.dx, this.dy] = enemy.move(this.dx, this.dy);
     }
 
     accelerate() {

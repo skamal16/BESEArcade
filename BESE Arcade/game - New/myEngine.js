@@ -1,19 +1,29 @@
 class MapLoader {
-    loadMap(file) {
-        var reader = new FileReader();
-        var text;
+    loadMap(player, level) {
+        var map = levels[level];
+        var lines = map.split('\n');
 
-        reader.onload = function() {
-            text = reader.result;
-            createObjectsFromText(text);
-        };
+        var tileWidth = 30;
 
-        var textfile = new File
-        reader.readAsText(file);
-    }
+        var enemyWidth = 60;
+        var enemyHeight = 90;
 
-    createObjectsFromText(text) {
-        console.log(text);
+        var y = 0;
+        lines.forEach(function(line) {
+            var x = 0;
+            line.split('').forEach(function(tile) {
+                if (tile == '0') {
+                    new GameObject().addTransform(x, y).addSprite(new Sprite().createRectangle("white", tileWidth, tileWidth)).addRigidBody(x, y, tileWidth, tileWidth);
+                } else if (tile == '1') {
+                    player.transform.x = x;
+                    player.transform.y = y - player.sprite.height;
+                } else if (tile == '2') {
+                    new EnemyBuilder().build(player, x, y - player.sprite.height, enemyWidth, enemyHeight);
+                }
+                x += tileWidth;
+            });
+            y += tileWidth;
+        });
     }
 }
 
@@ -200,6 +210,15 @@ class Transform {
         this.y = y;
     }
 
+    moveMap(dx, dy) {
+        this.x += dx;
+        this.y += dy;
+
+        var d = [dx, dy];
+
+        return d;
+    }
+
     move(dx, dy) {
         var rb = this.gameObject.rigidbody;
         if (rb && !rb.isKinematic) dx = rb.collideAllx(dx);
@@ -213,6 +232,33 @@ class Transform {
     }
 }
 
+//animator
+class Animator {
+    constructor(image, width, height, frames) {
+        this.image = new Image();
+        this.image.src = image;
+        this.x = 0;
+        this.y = 0;
+        this.delay = 6;
+        this.counter = this.speed;
+        this.frames = frames;
+        this.currentFrame = 0;
+        this.width = width;
+        this.height = height;
+    }
+
+    render() {
+        var clipWidth = this.image.width / this.frames;
+        CTX.drawImage(this.image, clipWidth * this.currentFrame, 0, clipWidth, this.image.height, this.x, this.y, this.width, this.height);
+
+        if (this.counter > 0) this.counter--;
+        else {
+            this.counter = this.delay;
+            this.currentFrame = (this.currentFrame + 1) % this.frames;
+        }
+    }
+}
+
 //sprite to be rendered
 class Sprite {
     constructor() {
@@ -220,7 +266,20 @@ class Sprite {
         this.y = 0;
     }
 
-    createImage(image) {
+    createImage(image, width, height) {
+        this.image = new Image();
+        this.image.src = image;
+        this.width = width;
+        this.height = height;
+        this.type = "image";
+        return this;
+    }
+
+    createAnimatedSprite(animator) {
+        this.width = animator.width;
+        this.height = animator.height;
+        this.animator = animator;
+        this.type = "animated";
         return this;
     }
 
@@ -228,18 +287,28 @@ class Sprite {
         this.color = color;
         this.width = width;
         this.height = height;
-        CTX.fillStyle = color;
-        CTX.fillRect(this.x, this.y, this.width, this.height);
+        this.type = "rect";
         return this;
     }
 
     update(transform) {
         this.x = transform.x;
         this.y = transform.y;
+
+        if (this.type == "animated") {
+            this.animator.x = this.x;
+            this.animator.y = this.y;
+        }
     }
 
     render() {
-        CTX.fillStyle = this.color;
-        CTX.fillRect(this.x, this.y, this.width, this.height);
+        if (this.type == "rect") {
+            CTX.fillStyle = this.color;
+            CTX.fillRect(this.x, this.y, this.width, this.height);
+        } else if (this.type == "image") {
+            CTX.drawImage(this.image, this.x, this.y, this.width, this.height);
+        } else if (this.type == "animated") {
+            this.animator.render();
+        }
     }
 }

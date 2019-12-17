@@ -21,15 +21,16 @@ function startGame() {
     setInterval(function() {
         game.update();
         controller.update();
-    }, 20);
+    }, 15);
 }
 
 var game = {
 
     start: function() {
         document.body.append(canvas);
-        this.level = new Level_1().build();
+        game.level = new Level().build();
     },
+
 
     update: function() {
         CTX.clearRect(0, 0, WIDTH, HEIGHT);
