@@ -19,13 +19,13 @@
             var num = document.getElementById('num').value;
             var pass = document.getElementById('pass').value;
             var conpass = document.getElementById('conpass').value;
-            var nick = document.getElementById('nick').value;
+            var username = document.getElementById('username').value;
 
             var namecheck = /^[a-zA-Z ]{4,32}$/;
             var passcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
             var emailcheck = /^[a-zA-Z_0-9]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z.]{2,6}$/;
             var numcheck = /^[0-9]{11}$/;
-            var nickcheck = /^[a-zA-Z0-9_]{4,10}$/;
+            var usernamecheck = /^[a-zA-Z0-9_]{4,10}$/;
 
             var f1 = true;
             var f2 = true;
@@ -105,19 +105,36 @@
                 f5 = false;
             }
 
-            if (nickcheck.test(nick)) {
-                document.getElementById("nick").style.borderColor = "green";
-                document.getElementById('errornick').innerHTML = "";
+            if (usernamecheck.test(username)) {
+                document.getElementById("username").style.borderColor = "green";
+                document.getElementById('errorusername').innerHTML = "";
             } else {
-                if (nick == "") {
-                    document.getElementById("nick").style.borderColor = "red";
-                    document.getElementById('errornick').innerHTML = "Required field, please enter nickname";
+                if (username == "") {
+                    document.getElementById("username").style.borderColor = "red";
+                    document.getElementById('errorusername').innerHTML = "Required field, please enter usernamename";
                 } else {
-                    document.getElementById("nick").style.borderColor = "red";
-                    document.getElementById('errornick').innerHTML = "Invalid nickname"
+                    document.getElementById("username").style.borderColor = "red";
+                    document.getElementById('errorusername').innerHTML = "Invalid username"
                 }
                 f6 = false;
             }
+            
+
+            if (f1 && f2 && f3 && f4 && f5  && f6) {
+                $.ajax({
+         data: {
+            fname: fname,
+            email: email,
+            contact: num,
+            username: username,
+            pass: pass
+         },
+         type: "post",
+         url: "register.php",
+        });
+
+            }
+
             return f1 && f2 && f3 && f4 && f5 && f6;
 
         }
@@ -125,7 +142,7 @@
 
         function loginValidation() {
 
-            var username = document.getElementById('username').value;
+            var user = document.getElementById('user').value;
             var password = document.getElementById('password').value;
 
             var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
@@ -134,15 +151,15 @@
             var f1 = true;
             var f2 = true;
 
-            if (usercheck.test(username)) {
-                document.getElementById("username").style.borderColor = "green";
+            if (usercheck.test(user)) {
+                document.getElementById("user").style.borderColor = "green";
                 document.getElementById('erroruser').innerHTML = "";
             } else {
-                if (username == "") {
-                    document.getElementById("username").style.borderColor = "red";
+                if (user == "") {
+                    document.getElementById("user").style.borderColor = "red";
                     document.getElementById('erroruser').innerHTML = "Required field, please enter username";
                 } else {
-                    document.getElementById("username").style.borderColor = "red";
+                    document.getElementById("user").style.borderColor = "red";
                     document.getElementById('erroruser').innerHTML = "Invalid username, please type again";
                 }
                 f1 = false;
@@ -159,6 +176,18 @@
                     document.getElementById('errorpassword').innerHTML = "Invalid password, please type again";
                 }
                 f2 = false;
+            }
+
+             if (f1 && f2) {
+                $.ajax({
+            data: {
+                user: user,
+                password: password
+                },
+            type: "post",
+            url: "loginprocess.php",
+            });
+
             }
             return f1 && f2;
         }
@@ -213,12 +242,12 @@
             <h3 id="registerhead"> Still haven't registered? Register now before it's too late. </h3>
             <div class="container">
 
-                <form id="login" onsubmit="return loginValidation()">
+                <form id="login" method="post" onsubmit="return loginValidation()">
                     <fieldset>
                         <legend>Login</legend>
                         <div class="form-group">
-                            <label>Nickname/Username</label>
-                            <input type="text" class="form-control" id="username" name="user" placeholder="Enter Username">
+                            <label>Username</label>
+                            <input type="text" class="form-control" id="user" name="user" placeholder="Enter Username">
                             <span id="erroruser" class="text-danger font-weight-bold"> </span>
                         </div>
                         <div class="form-group">
@@ -229,7 +258,7 @@
                         <p>Don't have an account? <a href="#registerhead" onclick="viewRegister()"> Register now </a></p>
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="loginbtn">Login</button>
+                            <button type="submit" class="loginbtn" name="login">Login</button>
                         </div>
                     </fieldset>
                 </form>
@@ -238,7 +267,7 @@
 
 
 
-                <form id="reg-form" onsubmit="return validation()">
+                <form id="reg-form" method="post" onsubmit="return validation()">
                     <fieldset>
                         <legend>Register</legend>
                         <div class="form-group">
@@ -255,7 +284,7 @@
 
                         <div class="form-group">
                             <label>Contact number</label>
-                            <input type="numeric" class="form-control" id="num" name="contact" placeholder="0300xxxxxxx">
+                            <input type="number" class="form-control" id="num" name="contact" placeholder="0300xxxxxxx">
                             <span id="errornum" class="text-danger font-weight-bold"> </span>
                         </div>
 
@@ -272,20 +301,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label title="Nickname must be at least 4 characters long, no special characters except _">Nickname</label>
-                            <input type="text" class="form-control" id="nick" name="nick">
-                            <span id="errornick" class="text-danger font-weight-bold"> </span>
+                            <label title="usernamename must be at least 4 characters long, no special characters except _">Username</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                            <span id="errorusername" class="text-danger font-weight-bold"> </span>
                         </div>
                         <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Sign Up</button>
+                            <button type="submit" class="signupbtn" name="signup">Sign Up</button>
                         </div>
-                        <script>
-                            $(document).ready(function() {
-                                $('.form-control').on('blur', () => validation());
-                            });
-                        </script>
                     </fieldset>
                 </form>
             </div>
@@ -295,6 +319,7 @@
         </footer>
     </div>
 </body>
+
 
 
 </html>
