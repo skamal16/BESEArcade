@@ -142,7 +142,7 @@
 
         function loginValidation() {
 
-            var username = document.getElementById('user').value;
+            var user = document.getElementById('user').value;
             var password = document.getElementById('password').value;
 
             var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
@@ -151,11 +151,11 @@
             var f1 = true;
             var f2 = true;
 
-            if (usercheck.test(username)) {
-                document.getElementById("username").style.borderColor = "green";
+            if (usercheck.test(user)) {
+                document.getElementById("user").style.borderColor = "green";
                 document.getElementById('erroruser').innerHTML = "";
             } else {
-                if (username == "") {
+                if (user == "") {
                     document.getElementById("user").style.borderColor = "red";
                     document.getElementById('erroruser').innerHTML = "Required field, please enter username";
                 } else {
@@ -176,6 +176,18 @@
                     document.getElementById('errorpassword').innerHTML = "Invalid password, please type again";
                 }
                 f2 = false;
+            }
+
+             if (f1 && f2) {
+                $.ajax({
+            data: {
+                user: user,
+                password: password
+                },
+            type: "post",
+            url: "loginprocess.php",
+            });
+
             }
             return f1 && f2;
         }
@@ -230,7 +242,7 @@
             <h3 id="registerhead"> Still haven't registered? Register now before it's too late. </h3>
             <div class="container">
 
-                <form id="login" action="loginprocess.php" action="post" onsubmit="return loginValidation()">
+                <form id="login" method="post" onsubmit="return loginValidation()">
                     <fieldset>
                         <legend>Login</legend>
                         <div class="form-group">
@@ -255,7 +267,7 @@
 
 
 
-                <form id="reg-form" method="post" onsubmit="return validation() && register()">
+                <form id="reg-form" method="post" onsubmit="return validation()">
                     <fieldset>
                         <legend>Register</legend>
                         <div class="form-group">
