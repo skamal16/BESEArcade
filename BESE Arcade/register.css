@@ -48,6 +48,20 @@
             text-align: center;
         }
         
+        .signout{
+            background-color: #9c9595;
+            width: 45%;
+            color: white;
+            padding: 14px 10px;
+            margin: 8px 0px;
+            border: solid;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.9;
+            text-align: center;
+
+        }
+
         button:hover {
             opacity: 1;
         }
