@@ -5,12 +5,14 @@
     <title>REDEMPTION</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="756838740735-3rfdsg2r6hff1jr85kp1hebm1s40g6u3.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../stylesheet.css">
     <link rel="stylesheet" href="./../register.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript">
         function validation() {
 
@@ -180,13 +182,14 @@
 
              if (f1 && f2) {
                 $.ajax({
-            data: {
-                user: user,
-                password: password
-                },
-            type: "post",
-            url: "loginprocess.php",
-            });
+         data: {
+            user: user,
+            password: password
+         },
+         type: "post",
+         url: "loginprocess.php",
+
+        });
 
             }
             return f1 && f2;
@@ -206,6 +209,25 @@
             document.getElementById('login').setAttribute('style', 'display:block');
             document.getElementById('loginhead').setAttribute('style', 'display:block');
         }
+
+        function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var user = profile.getName();
+  $.ajax({
+         data: {
+            user: user,
+         },
+         type: "post",
+         url: "googlelogin.php",
+        });
+}
+
+ function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
     </script>
 </head>
 
@@ -259,9 +281,14 @@
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
                             <button type="submit" class="loginbtn" name="login">Login</button>
+
                         </div>
+                       
+                       <p>Sign in with Google account</p><div class="g-signin2" data-onsuccess="onSignIn"></div>
+                   
                     </fieldset>
                 </form>
+                <a href="Home.html"><button class="signout" onclick="signOut()">Sign Out of Google</button></a>
 
 
 

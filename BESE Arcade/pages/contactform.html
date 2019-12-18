@@ -42,10 +42,13 @@
                 <h2> Contact Us </h2>
                 <hr>
             </div>
-            <h3 id="head">Have any questions? Leave us a comment and we'll get back to you...maybe. </h3>
+           
             
             <div class="container">
-
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5">
+                        <h3 id="head">Have any questions? Leave us a comment and we'll get back to you...maybe. </h3>
                 <form id="contact-form">
                     <fieldset>
                         <legend>Contact Us</legend>
@@ -71,7 +74,33 @@
                     </fieldset>
                 </form>
             </div>
-        </div>
+
+            <div class="col-sm-4">
+            <div id="map"></div>
+            <h3 id="maphead">Drop by our place if you wanna have a chat, we don't bite...maybe</h3>
+            </div>
+
+            </div> 
+
+                 <script> 
+                function initMap() { 
+                var uluru = {lat: 33.6429, lng: 72.9906}; 
+                var map = new google.maps.Map(document.getElementById('map'), { 
+                zoom: 16, 
+                center: uluru 
+                }); 
+                var marker = new google.maps.Marker({ 
+                position: uluru, 
+                map: map 
+                }); 
+            } 
+            </script> 
+            <script async defer 
+            src= 
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap"> 
+            </script>
+            </div>
+        
         <footer class="container-fluid text-center">
             <p>BESEArcade © 2019</p>
         </footer>
