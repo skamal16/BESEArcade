@@ -28,7 +28,7 @@ var game = {
 
     start: function() {
         document.body.append(canvas);
-        game.level = new Level().build();
+        game.level = new Level().build(1);
     },
 
 

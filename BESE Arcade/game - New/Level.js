@@ -1,6 +1,6 @@
 class Level {
 
-    build() {
+    build(level) {
 
         gameObjects = [];
         rigidObjects = [];
@@ -13,7 +13,7 @@ class Level {
 
         this.player = new PlayerBuilder().build(0, 0);
 
-        var level_map = "level1";
+        var level_map = level;
 
         new MapLoader().loadMap(this.player, level_map);
 

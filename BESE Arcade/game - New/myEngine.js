@@ -18,7 +18,11 @@ class MapLoader {
                     player.transform.x = x;
                     player.transform.y = y - player.sprite.height;
                 } else if (tile == '2') {
-                    new EnemyBuilder().build(player, x, y - player.sprite.height, enemyWidth, enemyHeight);
+                    new EnemyBuilder().build(player, x, y - enemyHeight, enemyWidth, enemyHeight);
+                } else if (tile == '3') {
+                    var door = new GameObject().addTransform(x, y - player.sprite.height + 20).addSprite(new Sprite().createRectangle("darkgreen", tileWidth * 3, player.sprite.height + 20));
+                    var door_script = new LevelDoorScript(door, player, level + 1);
+                    door.addScript(door_script);
                 }
                 x += tileWidth;
             });
