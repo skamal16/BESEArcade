@@ -42,16 +42,31 @@
                 <h2> What's New? </h2>
                 <hr>
             </div>
-           
-            
-            <div class="container">
-               
+
+
+            <div id="shit" class="container">
+                <li>
+                    Game: <br> GameSummary: <br>
+                </li>
+
+                <script>
+                    let url = "http://www.gamespot.com/api/games/?api_key=21fc01ad692b35b8e2b82c39f5640e8426325de8&format=json&filter=genres:action";
+                    let request = new XMLHttpRequest();
+                    request.open('GET', url);
+                    request.responseType = 'json';
+                    request.send();
+
+                    request.onload = function() {
+
+                        console.log(request.response);
+                    };
+                </script>
             </div>
-        
-        <footer class="container-fluid text-center">
-            <p>BESEArcade © 2019</p>
-        </footer>
-    </div>
+
+            <footer class="container-fluid text-center">
+                <p>BESEArcade © 2019</p>
+            </footer>
+        </div>
 </body>
 
 
