@@ -45,12 +45,9 @@
 
 
             <div id="shit" class="container">
-                <li>
-                    Game: <br> GameSummary: <br>
-                </li>
 
                 <script>
-                    let url = "http://www.gamespot.com/api/games/?api_key=21fc01ad692b35b8e2b82c39f5640e8426325de8&format=json&filter=genres:action";
+                    let url = "http://www.gamespot.com/api/games/?api_key=21fc01ad692b35b8e2b82c39f5640e8426325de8&format=json";
                     let request = new XMLHttpRequest();
                     request.open('GET', url);
                     request.responseType = 'json';
@@ -58,7 +55,13 @@
 
                     request.onload = function() {
 
-                        console.log(request.response);
+                        var results = request.response.results;
+
+                        results.forEach(element => {
+                            let li = document.createElement("li");
+                            li.innerHTML = "Name: " + element.name + "<br>Description: " + element.deck + "<br>Image: " + "<img src=" + element.image.square_small + ">" + "<br>Genre: " + element.genres[0].name + "<br>Release Date: " + element.release_date;
+                            document.getElementById("shit").append(li);
+                        });
                     };
                 </script>
             </div>
