@@ -1,7 +1,6 @@
 class LevelDoorScript extends Script {
-    constructor(gameObject, player, level_target) {
+    constructor(gameObject, player) {
         super(gameObject);
-        this.level_target = level_target;
         this.player = player;
     }
 
@@ -32,7 +31,24 @@ class LevelDoorScript extends Script {
         }
 
         if (crash && ((dx > 0 && myright <= otherright) || (dx < 0 && myleft >= otherleft))) {
-            game.level = new Level().build(this.level_target);
+            this.updateScore();
+            currentLevel++;
+            killCount = 0;
+            game.level = new Level().build();
         }
+    }
+
+    updateScore() {
+        var score = killCount;
+        console.log(score);
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("SCORE SENT");
+                console.log(this.responseText);
+            }
+        };
+        xmlhttp.open("GET", "score_upload.php?score=" + score + "&level=" + currentLevel, true);
+        xmlhttp.send();
     }
 }

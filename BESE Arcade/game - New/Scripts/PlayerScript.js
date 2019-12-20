@@ -56,7 +56,7 @@ class PlayerScript extends Script {
         var dy = this.dy;
 
         enemies.forEach(function(enemy) {
-            if (melee.rigidbody.collidex(enemy.rigidbody, dx) || melee.rigidbody.collidex(enemy.rigidbody, dy)) {
+            if (melee.rigidbody.collidex(enemy.rigidbody, dx)) {
 
                 new_enemies = new_enemies.filter(function(value) {
                     return value != enemy;
@@ -69,6 +69,8 @@ class PlayerScript extends Script {
                 gameObjects = gameObjects.filter(function(value) {
                     return value != enemy;
                 });
+
+                killCount++;
             }
         });
 

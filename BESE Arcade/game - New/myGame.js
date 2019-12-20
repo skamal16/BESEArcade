@@ -10,6 +10,9 @@ const CTX = canvas.getContext("2d");
 let gameObjects = [];
 let rigidObjects = [];
 let enemies = [];
+let currentLevel = 1;
+
+let killCount = 0;
 
 window.onload = function() {
     startGame();
@@ -28,7 +31,7 @@ var game = {
 
     start: function() {
         document.body.append(canvas);
-        game.level = new Level().build(1);
+        game.level = new Level().build();
     },
 
 
