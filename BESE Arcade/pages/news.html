@@ -47,7 +47,11 @@
             <div id="shit" class="container">
 
                 <script>
-                    let url = "http://www.gamespot.com/api/games/?api_key=21fc01ad692b35b8e2b82c39f5640e8426325de8&format=json";
+                    var url = 'https://newsapi.org/v2/everything?' +
+                        'q=Video Games Horror Scary&' +
+                        //'from=2019-12-19&' +
+                        'sortBy=relevance&' +
+                        'apiKey=e38a5584a4a841fc85aede7b0c207d94';
                     let request = new XMLHttpRequest();
                     request.open('GET', url);
                     request.responseType = 'json';
@@ -55,11 +59,13 @@
 
                     request.onload = function() {
 
-                        var results = request.response.results;
+                        var results = request.response.articles;
+
+                        console.log(results);
 
                         results.forEach(element => {
                             let li = document.createElement("li");
-                            li.innerHTML = "Name: " + element.name + "<br>Description: " + element.deck + "<br>Image: " + "<img src=" + element.image.square_small + ">" + "<br>Genre: " + element.genres[0].name + "<br>Release Date: " + element.release_date;
+                            li.innerHTML = "Title: " + element.title + "<br>Description: " + element.description + "<br>Image: " + "<img src=" + element.urlToImage + ">" + "<br>Author: " + element.author + "<br>URL: " + element.url;
                             document.getElementById("shit").append(li);
                         });
                     };
