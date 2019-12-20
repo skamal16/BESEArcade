@@ -7,34 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../stylesheet.css">
-    <link rel="stylesheet" href="./../denial.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
-<body background="https://i.imgur.com/iGr29Mn.jpg">
+<body background="https://i.imgur.com/3Sz5Rt6.jpg">
     <div id="page-container">
         <div id="content-wrap">
             <div id="navbar"></div>
             <script>
                 $(document).ready(function() {
-                    $('#navbar').load('navbar.html');
+                    $('#navbar').load("navbar.html", function() {
+                        $('#profile').addClass("active");
+                    });
                 });
             </script>
-            <div class="container-fluid">
-                <h1 style="text-align: center;">Level 1</h1>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                        <span class="sr-only">Loading</span>
-                    </div>
-                </div>
-                <div><iframe id="gameframe" class="gamewindow" scrolling="no" src="../game - New/game.html"></iframe></div>
-            </div>
         </div>
+        <div id="userdetails"></div>
+        <button onclick="signOut()">SIGN OUT</button>
         <footer class="container-fluid text-center">
             <p>BESEArcade © 2019</p>
         </footer>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "server_scripts/getUserDetails.php",
+                success: function(response) {
+                    $("#userdetails").html(response);
+                }
+            });
+        });
+
+        function signOut() {
+            $.ajax({
+                url: "server_scripts/signOut.php",
+                success: function() {
+                    window.location.replace("Register.html");
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+
 $user = $_POST['user'];
 $password = $_POST['password'];
 
@@ -16,12 +17,11 @@ $row = mysqli_fetch_array($result);
 if($row['username'] == $user && $row['password'] == $password){
 	$_SESSION['login']=$user;
 	mysqli_query($db,"insert into userlog(username) values('".$_SESSION['login']."')");
-	exit();
+	echo true;
 }
 
 else {
-	echo "Failed to login";
+	echo false;
 }
-
 
 ?>

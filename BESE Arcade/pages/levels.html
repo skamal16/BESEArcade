@@ -15,75 +15,60 @@
 <body background="https://i.imgur.com/3Sz5Rt6.jpg">
     <div id="page-container">
         <div id="content-wrap">
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="Home.html"><img style="height: 40px; width: 40px;" src="https://i.imgur.com/kk8VIfY.jpg" alt=""></a>
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="Home.html">Home</a></li>
-                            <li><a href="synopsis.html">Synopsis</a></li>
-                            <li class="active"><a href="levels.html">Levels</a></li>
-                            <li><a href="About Us.html">About Us</a></li>
-                            <li><a href="Similar Games.html">Similar Games</a></li>
-                            <li><a href="Register.html">Login / Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div id="navbar"></div>
+            <script>
+                $(document).ready(function() {
+                    $('#navbar').load("navbar.html", function() {
+                        $('#levels').addClass("active");
+                    });
+                });
+            </script>
             <div class="container">
-                <h1 style="text-align: center;"> Can you guide Bob through all 6 levels?
-                    <h1>
-                        <div id="myCarousel" class="carousel slide">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                                <li data-target="#myCarousel" data-slide-to="3"></li>
-                                <li data-target="#myCarousel" data-slide-to="4"></li>
-                                <li data-target="#myCarousel" data-slide-to="5"></li>
-                            </ol>
+                <h1 style="text-align: center;"> Can you guide Bob through all 6 levels?</h1>
+                <div id="myCarousel" class="carousel slide">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                        <li data-target="#myCarousel" data-slide-to="5"></li>
+                    </ol>
 
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
 
-                                <div class="item active">
-                                    <a href="denial.html"><img src="https://i.imgur.com/iGr29Mn.jpg" alt="" style="width:100%;"></a>
-                                </div>
-                                <div class="item">
-                                    <img src="https://i.imgur.com/EnoW0Ky.jpg" alt="" style="width:100%;">
-                                </div>
-                                <div class="item">
-                                    <img src="https://i.imgur.com/6dyvPQC.jpg" alt="" style="width:100%;">
-                                </div>
-                                <div class="item">
-                                    <img src="https://i.imgur.com/VXJJO24.jpg" alt="" style="width:100%;">
-                                </div>
-                                <div class="item">
-                                    <img src="https://i.imgur.com/BdPghPL.jpg" alt="" style="width:100%;">
-                                </div>
-                                <div class="item">
-                                    <img src="https://i.imgur.com/qMsy6sh.jpg" alt="" style="width:100%;">
-                                </div>
-                            </div>
-
-                            <!-- Left and right controls -->
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                        <div class="item active">
+                            <a href="denial.html"><img src="https://i.imgur.com/iGr29Mn.jpg" alt="" style="width:100%;"></a>
                         </div>
+                        <div class="item">
+                            <img src="https://i.imgur.com/EnoW0Ky.jpg" alt="" style="width:100%;">
+                        </div>
+                        <div class="item">
+                            <img src="https://i.imgur.com/6dyvPQC.jpg" alt="" style="width:100%;">
+                        </div>
+                        <div class="item">
+                            <img src="https://i.imgur.com/VXJJO24.jpg" alt="" style="width:100%;">
+                        </div>
+                        <div class="item">
+                            <img src="https://i.imgur.com/BdPghPL.jpg" alt="" style="width:100%;">
+                        </div>
+                        <div class="item">
+                            <img src="https://i.imgur.com/qMsy6sh.jpg" alt="" style="width:100%;">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
         </div>
         <footer class="container-fluid text-center">

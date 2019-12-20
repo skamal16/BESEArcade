@@ -1,43 +1,43 @@
 .nav-tabs {
-            margin-top: 10%;
-            font-size: 20px;
-            font-weight: bolder;
-        }
-        
-        .container {
-            width: 100%;
-            font-size: 20px;
-            padding: 20px 80px 10px 80px;
-        }
-        
-	#heading{
-	    text-align: left;
-	}
+    margin-top: 10%;
+    font-size: 20px;
+    font-weight: bolder;
+}
 
-        .container p {
-            font-family: verdana;
-            font-size: 18px;
-        }
-        
-        .trailer {
-            margin: auto;
-            margin-top: 40px;
-            width: 560px;
-            max-width: 100%;
-            height: 315px;
-            border: 3px solid #8a1a1c;
-            display: block;
-        }
-        
-        #gameheading {
-            color: #8a1a1c;
-        }
+.container {
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 80px 10px 80px;
+}
 
-        @media screen and (max-width: 600px) {
-        .container p {
-    		font-size: 12px;
-  		}
-  		.container {
-  			padding: 20px 20px 20px 20px;
-  		}
-	}
+#heading {
+    text-align: left;
+}
+
+.container p {
+    font-family: verdana;
+    font-size: 18px;
+}
+
+.trailer {
+    margin: auto;
+    margin-top: 40px;
+    width: 560px;
+    max-width: 100%;
+    height: 315px;
+    border: 3px solid #8a1a1c;
+    display: block;
+}
+
+#gameheading {
+    color: #8a1a1c;
+}
+
+@media screen and (max-width: 600px) {
+    .container p {
+        font-size: 12px;
+    }
+    .container {
+        padding: 20px 20px 20px 20px;
+    }
+}
