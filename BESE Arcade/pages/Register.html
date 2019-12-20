@@ -133,6 +133,9 @@
                     },
                     type: "post",
                     url: "register.php",
+                    success: function() {
+                        window.location.replace("Profile.html");
+                    }
                 });
 
             }
@@ -188,11 +191,11 @@
                     },
                     type: "post",
                     url: "loginprocess.php",
-
+                    success: function(response) {
+                        if (response) window.location.replace("Profile.html");
+                    }
                 });
-
             }
-            return f1 && f2;
         }
 
         function viewRegister() {
@@ -238,7 +241,7 @@
             <script>
                 $(document).ready(function() {
                     $('#navbar').load("navbar.html", function() {
-                        $('#register').addClass("active");
+                        $('#profile').addClass("active");
                     });
                 });
             </script>
@@ -250,7 +253,7 @@
             <h3 id="registerhead"> Still haven't registered? Register now before it's too late. </h3>
             <div class="container">
 
-                <form id="login" method="post" onsubmit="return loginValidation()">
+                <form id="login">
                     <fieldset>
                         <legend>Login</legend>
                         <div class="form-group">
@@ -266,7 +269,7 @@
                         <p>Don't have an account? <a href="#registerhead" onclick="viewRegister()"> Register now </a></p>
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="loginbtn" name="login">Login</button>
+                            <button type="button" class="loginbtn" name="login" onclick="loginValidation()">Login</button>
 
                         </div>
 

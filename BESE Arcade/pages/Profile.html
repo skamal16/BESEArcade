@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>REDEMPTION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body background="https://i.imgur.com/3Sz5Rt6.jpg">
+    <div id="page-container">
+        <div id="content-wrap">
+            <div id="navbar"></div>
+            <script>
+                $(document).ready(function() {
+                    $('#navbar').load("navbar.html", function() {
+                        $('#profile').addClass("active");
+                    });
+                });
+            </script>
+        </div>
+        <div id="userdetails"></div>
+        <button onclick="signOut()">SIGN OUT</button>
+        <footer class="container-fluid text-center">
+            <p>BESEArcade © 2019</p>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "server_scripts/getUserDetails.php",
+                success: function(response) {
+                    $("#userdetails").html(response);
+                }
+            });
+        });
+
+        function signOut() {
+            $.ajax({
+                url: "server_scripts/signOut.php",
+                success: function() {
+                    window.location.replace("Register.html");
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
