@@ -16,72 +16,58 @@
 <body background="https://imgur.com/MW7489J.jpg">
     <div id="page-container">
         <div id="content-wrap">
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="Home.html"><img style="height: 40px; width: 40px;" src="https://i.imgur.com/kk8VIfY.jpg" alt=""></a>
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="Home.html">Home</a></li>
-                            <li><a href="synopsis.html">Synopsis</a></li>
-                            <li><a href="levels.html">Levels</a></li>
-                            <li><a href="About Us.html">About Us</a></li>
-                            <li class="active"><a href="Similar Games.html">Similar Games</a></li>
-                            <li><a href="Register.html">Login / Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div id="navbar"></div>
+            <script>
+                $(document).ready(function() {
+                    $('#navbar').load("navbar.html", function() {
+                        $('#similargames').addClass("active");
+                    });
+                });
+            </script>
 
 
             <div class="container">
-            	<div class="row">
-            	<div class="col-xs-12">
-                <h2 id="heading">Similar Games</h2>
-                <hr>
-                <p>If you're on this page, that means you're an adrenaline junkie who's looking for more thrills and scares. Fear not! Browse through the different games that we have selected just for you and your thrill-seeking personality so you always
-                    have a way to procrastinate and never finish what you were planning to do in the first place. </p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 id="heading">Similar Games</h2>
+                        <hr>
+                        <p>If you're on this page, that means you're an adrenaline junkie who's looking for more thrills and scares. Fear not! Browse through the different games that we have selected just for you and your thrill-seeking personality so you
+                            always have a way to procrastinate and never finish what you were planning to do in the first place. </p>
 
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="active"><a data-toggle="tab" href="#game1" id="gameheading">Game I</a></li>
-                    <li><a data-toggle="tab" href="#game2" id="gameheading">Game II</a></li>
-                    <li><a data-toggle="tab" href="#game3" id="gameheading">Game III</a></li>
-                </ul>
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="active"><a data-toggle="tab" href="#game1" id="gameheading">Game I</a></li>
+                            <li><a data-toggle="tab" href="#game2" id="gameheading">Game II</a></li>
+                            <li><a data-toggle="tab" href="#game3" id="gameheading">Game III</a></li>
+                        </ul>
 
-                <div class="tab-content">
-                    <div id="game1" class="tab-pane fade in active">
-                        <h3>Limbo</h3>
-                        <p>Limbo is a puzzle-platform video game developed by independent studio Playdead. Limbo is a 2D side-scroller, incorporating a physics system that governs environmental objects and the player character. The player guides an unnamed
-                            boy through dangerous environments and traps as he searches for his sister. The game is presented in black-and-white tones, using lighting, film grain effects and minimal ambient sounds to create an eerie atmosphere often associated
-                            with the horror genre. This is the perfect game for someone who doesn't like happy endings. </p>
-                        <iframe class="trailer" src="https://www.youtube.com/embed/Y4HSyVXKYz8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
+                        <div class="tab-content">
+                            <div id="game1" class="tab-pane fade in active">
+                                <h3>Limbo</h3>
+                                <p>Limbo is a puzzle-platform video game developed by independent studio Playdead. Limbo is a 2D side-scroller, incorporating a physics system that governs environmental objects and the player character. The player guides
+                                    an unnamed boy through dangerous environments and traps as he searches for his sister. The game is presented in black-and-white tones, using lighting, film grain effects and minimal ambient sounds to create an eerie
+                                    atmosphere often associated with the horror genre. This is the perfect game for someone who doesn't like happy endings. </p>
+                                <iframe class="trailer" src="https://www.youtube.com/embed/Y4HSyVXKYz8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
 
-                    <div id="game2" class="tab-pane fade">
-                        <h3>Slender Man</h3>
-                        <p>Slender: The Eight Pages (formerly called Slender) is a free-to-play indie-developed first-person survival horror video game released in June 2012 as a beta for Microsoft Windows and OS X by Parsec Productions. The game is based
-                            on the quasi-folklore meme figure known as the Slender Man, who is depicted as a tall man wearing all black with a white face with no facial features. The character is known for the ominous (although fictitious) abduction of
-                            countless children in dark mysterious settings, such as deep forests and abandoned buildings.</p>
-                        <iframe class="trailer" src="https://www.youtube.com/embed/QnvjNcV8kX8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
+                            <div id="game2" class="tab-pane fade">
+                                <h3>Slender Man</h3>
+                                <p>Slender: The Eight Pages (formerly called Slender) is a free-to-play indie-developed first-person survival horror video game released in June 2012 as a beta for Microsoft Windows and OS X by Parsec Productions. The game
+                                    is based on the quasi-folklore meme figure known as the Slender Man, who is depicted as a tall man wearing all black with a white face with no facial features. The character is known for the ominous (although fictitious)
+                                    abduction of countless children in dark mysterious settings, such as deep forests and abandoned buildings.</p>
+                                <iframe class="trailer" src="https://www.youtube.com/embed/QnvjNcV8kX8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
 
-                    <div id="game3" class="tab-pane fade">
-                        <h3>Inside</h3>
-                        <p>INSIDE is a puzzle-platformer adventure game developed and published by Playdead. The player character is an unnamed boy who explores a surreal and mostly monochromatic environment presented as a 2.5D platform game. The game is
-                            dark, with color used sparingly to highlight both the player and certain parts of the environment. The game is also mostly silent, with the exception of occasional musical cues. The player controls the boy who walks, runs,
-                            swims, climbs, and uses objects to overcome obstacles and progress in the game.</p>
-                        <iframe class="trailer" src="https://www.youtube.com/embed/oo-2UIkrqe8"  allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <div id="game3" class="tab-pane fade">
+                                <h3>Inside</h3>
+                                <p>INSIDE is a puzzle-platformer adventure game developed and published by Playdead. The player character is an unnamed boy who explores a surreal and mostly monochromatic environment presented as a 2.5D platform game. The
+                                    game is dark, with color used sparingly to highlight both the player and certain parts of the environment. The game is also mostly silent, with the exception of occasional musical cues. The player controls the boy who
+                                    walks, runs, swims, climbs, and uses objects to overcome obstacles and progress in the game.</p>
+                                <iframe class="trailer" src="https://www.youtube.com/embed/oo-2UIkrqe8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
         <footer class="container-fluid text-center">
             <p>BESEArcade © 2019</p>

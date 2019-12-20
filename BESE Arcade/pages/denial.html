@@ -15,28 +15,12 @@
 <body background="https://i.imgur.com/iGr29Mn.jpg">
     <div id="page-container">
         <div id="content-wrap">
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="Home.html"><img style="height: 40px; width: 40px;" src="https://i.imgur.com/kk8VIfY.jpg" alt=""></a>
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="Home.html">Home</a></li>
-                            <li><a href="synopsis.html">Synopsis</a></li>
-                            <li><a href="levels.html">Levels</a></li>
-                            <li><a href="About Us.html">About Us</a></li>
-                            <li><a href="Similar Games.html">Similar Games</a></li>
-                            <li><a href="Register.html">Login / Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div id="navbar"></div>
+            <script>
+                $(document).ready(function() {
+                    $('#navbar').load('navbar.html');
+                });
+            </script>
             <div class="container-fluid">
                 <h1 style="text-align: center;">Level 1</h1>
                 <div class="progress">
