@@ -1,0 +1,10 @@
+  .container {
+            width: 100%;
+            font-size: 20px;
+            padding: 20px 100px 0px 100px;
+        }
+        
+    #img{
+        height: 400px;
+        width: 500px;
+    }

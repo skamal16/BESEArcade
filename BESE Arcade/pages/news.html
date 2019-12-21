@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../stylesheet.css">
-    <link rel="stylesheet" href="./../contactform.css">
+    <link rel="stylesheet" href="./../news.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -24,13 +24,22 @@
                     });
                 });
             </script>
+              <div id="shit" class="container">
             <div class="heading">
                 <h2> What's New? </h2>
                 <hr>
             </div>
 
-
-            <div id="shit" class="container">
+               <div id="title"></div>
+               <div><img id="img" src=""></div>
+               <div id="desc"></div>
+               <hr>
+               <div id="author"></div>
+               <hr>
+               <div id="url"></div>
+               <hr>
+   
+          
 
                 <script>
                     var url = 'https://newsapi.org/v2/everything?' +
@@ -50,9 +59,23 @@
                         console.log(results);
 
                         results.forEach(element => {
-                            let li = document.createElement("li");
-                            li.innerHTML = "Title: " + element.title + "<br>Description: " + element.description + "<br>Image: " + "<img src=" + element.urlToImage + ">" + "<br>Author: " + element.author + "<br>URL: " + element.url;
-                            document.getElementById("shit").append(li);
+                              var title=element.title;
+                              var desc=element.description;
+                              var img=element.urlToImage;  
+                              var author=element.author ;
+                              var url=element.url;
+
+                              $("#title").html("<h2>" + title + "</h2>");
+                              $("#img").attr("src",img);
+                              $("#desc").html("Description: " + desc + "continue reading");
+                              $("#author").html("Author: " + author);
+                              $("#url").html("Link: " + url);
+                              
+                              
+
+
+
+
                         });
                     };
                 </script>
