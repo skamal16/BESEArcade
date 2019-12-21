@@ -12,16 +12,14 @@ $db = mysqli_connect('localhost', 'root', '', 'redemption');
 
 session_start();
 
-$result = mysqli_query($db, "SELECT * FROM users WHERE username = '$username' AND password = '$password'") or die ("Failed");
-$row = mysqli_fetch_array($result);
-if($row['username'] == $user && $row['password'] == $password){
-	$_SESSION['login']=$user;
-	mysqli_query($db,"INSERT INTO userlog(username) VALUES ('$user')");
-	echo true;
-}
+mysqli_query($db, "SET @success = 0");
 
-else {
-	echo false;
-}
+$result = mysqli_query($db, "CALL LoginUser('$username', '$password', @success)");
+$result = mysqli_fetch_assoc($result);
+
+if($result["result"]){
+	$_SESSION['login']=$username;
+	echo "success";
+}else echo "User not found or password incorrect.";
 
 ?>

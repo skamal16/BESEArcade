@@ -11,8 +11,9 @@ $pass = mysqli_real_escape_string($db, $_POST['pass']);
 $username = mysqli_real_escape_string($db, $_POST['username']);
 
 $password = md5($pass);
-mysqli_query($db, "CALL RegisterUser('$username', '$fname', '$email', $contact, '$password')") or die("Failed");
-$_SESSION['login']=$username;
+if(mysqli_query($db, "CALL RegisterUser('$username', '$fname', '$email', $contact, '$password')")){
+    $_SESSION['login']=$username;
+    echo "success";
+} else echo mysqli_error($db);
 
-echo true;
 ?>
