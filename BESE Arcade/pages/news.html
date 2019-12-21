@@ -24,22 +24,13 @@
                     });
                 });
             </script>
-              <div id="shit" class="container">
             <div class="heading">
                 <h2> What's New? </h2>
                 <hr>
             </div>
 
-               <div id="title"></div>
-               <div><img id="img" src=""></div>
-               <div id="desc"></div>
-               <hr>
-               <div id="author"></div>
-               <hr>
-               <div id="url"></div>
-               <hr>
-   
-          
+
+            <div id="shit" class="container">
 
                 <script>
                     var url = 'https://newsapi.org/v2/everything?' +
@@ -59,23 +50,15 @@
                         console.log(results);
 
                         results.forEach(element => {
-                              var title=element.title;
-                              var desc=element.description;
-                              var img=element.urlToImage;  
-                              var author=element.author ;
-                              var url=element.url;
-
-                              $("#title").html("<h2>" + title + "</h2>");
-                              $("#img").attr("src",img);
-                              $("#desc").html("Description: " + desc + "continue reading");
-                              $("#author").html("Author: " + author);
-                              $("#url").html("Link: " + url);
-                              
-                              
-
-
-
-
+                            const div = document.createElement("div")
+      div.className = "news"
+      div.innerHTML = `
+            <h2>${element.title}</h2>
+            <h3>${element.author}</h3>
+            <a href="${element.url}">${element.url}</a>
+            <img src="${element.urlToImage}"/>
+            <p>${element.description}</p>`
+            shit.appendChild(div)
                         });
                     };
                 </script>
