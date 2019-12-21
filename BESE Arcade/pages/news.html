@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../stylesheet.css">
-    <link rel="stylesheet" href="./../contactform.css">
+    <link rel="stylesheet" href="./../news.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -50,9 +50,15 @@
                         console.log(results);
 
                         results.forEach(element => {
-                            let li = document.createElement("li");
-                            li.innerHTML = "Title: " + element.title + "<br>Description: " + element.description + "<br>Image: " + "<img src=" + element.urlToImage + ">" + "<br>Author: " + element.author + "<br>URL: " + element.url;
-                            document.getElementById("shit").append(li);
+                            const div = document.createElement("div")
+      div.className = "news"
+      div.innerHTML = `
+            <h2>${element.title}</h2>
+            <h3>${element.author}</h3>
+            <a href="${element.url}">${element.url}</a>
+            <img src="${element.urlToImage}"/>
+            <p>${element.description}</p>`
+            shit.appendChild(div)
                         });
                     };
                 </script>
