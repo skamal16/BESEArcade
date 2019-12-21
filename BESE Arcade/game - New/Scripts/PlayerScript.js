@@ -84,7 +84,7 @@ class PlayerScript extends Script {
         var collide = false;
 
         gameObjects.forEach(function(gameObject) {
-            if (gameObject !== obj && gameObject.rigidbody && !gameObject.rigidbody.isKinematic && gameObject.rigidbody.collidex(obj.rigidbody, -dx)) {
+            if (gameObject !== obj && gameObject.rigidbody && !gameObject.rigidbody.isKinematic && gameObject.rigidbody.collidex(obj.rigidbody, -dx) && gameObject.rigidbody.collidex(obj.rigidbody, -dxy)) {
                 collide = true;
                 return;
             }

@@ -1,0 +1,46 @@
+<br>
+<br>
+<h2>ADMIN PANEL</h2>
+<input id="username" type="text"><button onclick="deleteUser()">DELETE USER</button>
+<button onclick="printServerStats()">PRINT SERVER STATS</button>
+<script>
+    function deleteUser() {
+        var user = $("#username:text").val();
+        console.log("DELETING USER: " + user);
+        $.ajax({
+            data: {
+                username: user,
+            },
+            url: "server_scripts/deleteUser.php",
+            type: "post",
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function printServerStats() {
+        $.ajax({
+            url: "server_scripts/getServerDetails.php",
+            success: function(response) {
+                try {
+                    var obj = JSON.parse(response);
+                    var myJSON = JSON.stringify(obj);
+                    $.ajax({
+                        data: {
+                            server_details: myJSON,
+                        },
+                        url: "server_scripts/printServerDetails.php",
+                        type: "post",
+                        success: function(response) {
+                            if (response) console.log("server details printed");
+                            else console.log(response);
+                        }
+                    });
+                } catch (err) {
+                    console.log(err + "\nResponse: " + response);
+                }
+            }
+        });
+    }
+</script>

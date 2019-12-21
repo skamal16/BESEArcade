@@ -25,6 +25,7 @@
         </div>
         <div id="userdetails"></div>
         <button onclick="signOut()">SIGN OUT</button>
+        <div id="adminPanel"></div>
         <footer class="container-fluid text-center">
             <p>BESEArcade © 2019</p>
         </footer>
@@ -32,12 +33,8 @@
 
     <script>
         $(document).ready(function() {
-            $.ajax({
-                url: "server_scripts/getUserDetails.php",
-                success: function(response) {
-                    $("#userdetails").html(response);
-                }
-            });
+            getUserDetails();
+            openAdminPanel();
         });
 
         function signOut() {
@@ -45,6 +42,24 @@
                 url: "server_scripts/signOut.php",
                 success: function() {
                     window.location.replace("Register.html");
+                }
+            });
+        }
+
+        function getUserDetails() {
+            $.ajax({
+                url: "server_scripts/getUserDetails.php",
+                success: function(response) {
+                    $("#userdetails").html(response);
+                }
+            });
+        }
+
+        function openAdminPanel() {
+            $.ajax({
+                url: "server_scripts/checkAdmin.php",
+                success: function(response) {
+                    if (response) $("#adminPanel").load("adminPanel.html");
                 }
             });
         }
