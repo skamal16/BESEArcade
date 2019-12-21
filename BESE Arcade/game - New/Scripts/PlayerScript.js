@@ -52,11 +52,9 @@ class PlayerScript extends Script {
     killEnemy() {
         var new_enemies = enemies;
         var melee = this.melee;
-        var dx = this.dx;
-        var dy = this.dy;
 
         enemies.forEach(function(enemy) {
-            if (melee.rigidbody.collidex(enemy.rigidbody, dx)) {
+            if (melee.rigidbody.collidex(enemy.rigidbody, 0)) {
 
                 new_enemies = new_enemies.filter(function(value) {
                     return value != enemy;
@@ -81,6 +79,7 @@ class PlayerScript extends Script {
         var obj = this.gameObject;
         var plr = obj.transform;
         var dx = this.dx;
+        var dy = this.dy;
 
         var collide = false;
 

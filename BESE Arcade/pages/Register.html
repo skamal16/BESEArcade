@@ -134,7 +134,8 @@
                     type: "post",
                     url: "register.php",
                     success: function(response) {
-                        if (response) window.location.replace("Profile.html");
+                        if (response == "success") window.location.replace("Profile.html");
+                        else console.log(response);
                     }
                 });
 
@@ -189,7 +190,8 @@
                     type: "post",
                     url: "loginprocess.php",
                     success: function(response) {
-                        if (response) window.location.replace("Profile.html");
+                        if (response == "success") window.location.replace("Profile.html");
+                        else console.log(response);
                     }
                 });
 
