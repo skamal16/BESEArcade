@@ -1,11 +1,14 @@
   .container {
             width: 100%;
             font-size: 20px;
-            padding: 20px 80px 0px 80px;
+            padding: 0px 80px 0px 80px;
             background-image: url("https://i.dlpng.com/static/png/6794747_preview.png");
           
         }
 
+body{
+  background-color: black;
+}
 
     .articles {
 	display: flex;
