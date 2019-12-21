@@ -7,7 +7,7 @@ body {
 }
 
 .navbar {
-    font-size: 30px;
+    font-size: 25px;
     width: 100%;
 }
 
@@ -70,7 +70,7 @@ footer {
       float: none;
   }
   .navbar-nav>li>a {
-      padding-top: 10px;
+      padding-top: 2px;
       padding-bottom: 10px;
       font-size: 15px;
   }
