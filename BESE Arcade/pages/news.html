@@ -24,13 +24,16 @@
                     });
                 });
             </script>
+
+            <div id="article" class="container">
             <div class="heading">
                 <h2> What's New? </h2>
                 <hr>
             </div>
+            <div class="articles">
+ 
+			</div>
 
-
-            <div id="shit" class="container">
 
                 <script>
                     var url = 'https://newsapi.org/v2/everything?' +
@@ -48,19 +51,17 @@
                         var results = request.response.articles;
 
                         console.log(results);
-
+                        const articlesDiv = document.querySelector(".articles")
                         results.forEach(element => {
                             const div = document.createElement("div")
-      div.className = "news"
-      div.innerHTML = `
-            <h2>${element.title}</h2>
-            <h3>${element.author}</h3>
-            <a href="${element.url}">${element.url}</a>
-            <img src="${element.urlToImage}"/>
-            <p>${element.description}</p>`
-            shit.appendChild(div)
-                        });
-                    };
+						      div.className = "news"
+						      div.innerHTML = `
+						            <h4>${element.title}</h4>
+						            <img src="${element.urlToImage}"/>
+						            <p>${element.description} <a href="${element.url}">Continue reading</a> </p>`
+						            articlesDiv.appendChild(div)
+						                        });
+						                    };
                 </script>
             </div>
 

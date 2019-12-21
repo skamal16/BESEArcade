@@ -1,10 +1,47 @@
   .container {
             width: 100%;
             font-size: 20px;
-            padding: 20px 100px 0px 100px;
+            padding: 20px 80px 0px 80px;
         }
-        
-    #img{
-        height: 400px;
-        width: 500px;
-    }
+
+
+    .articles {
+	display: flex;
+	flex-wrap: wrap;
+	
+	
+}
+
+   
+
+.news {
+	width: 350px;
+	height: 500px;
+	margin:auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid lightgrey;
+}
+
+   .news p{
+   	text-align: justify;
+   	 	font-size: 15px;
+   	font-family: verdana;
+
+   }
+
+   .news h4{
+   	text-align: center;
+   }
+
+   .news img{
+   	padding-left: 30px;
+   	padding-top: 10px;
+   	padding-bottom: 10px;
+   }
+
+img {
+	max-width: 270px;
+	height: 170px;
+}
