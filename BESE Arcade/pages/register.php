@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 $db = mysqli_connect('localhost', 'root', '', 'redemption');
 
 $fname = mysqli_real_escape_string($db, $_POST['fname']);
@@ -9,6 +11,8 @@ $pass = mysqli_real_escape_string($db, $_POST['pass']);
 $username = mysqli_real_escape_string($db, $_POST['username']);
 
 $password = md5($pass);
-mysqli_query($db, "INSERT INTO users (username, name, email, contact, password) VALUES ('$username', '$fname', '$email', $contact, '$password')");
+mysqli_query($db, "CALL RegisterUser('$username', '$fname', '$email', $contact, '$password')") or die("Failed");
+$_SESSION['login']=$username;
 
+echo true;
 ?>

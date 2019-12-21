@@ -133,12 +133,12 @@
                     },
                     type: "post",
                     url: "register.php",
+                    success: function(response) {
+                        if (response) window.location.replace("Profile.html");
+                    }
                 });
 
             }
-
-            return f1 && f2 && f3 && f4 && f5 && f6;
-
         }
 
 
@@ -283,7 +283,7 @@
 
 
 
-                <form id="reg-form" method="post" onsubmit="return validation()">
+                <form id="reg-form">
                     <fieldset>
                         <legend>Register</legend>
                         <div class="form-group">
@@ -324,7 +324,7 @@
                         <p>Already have an account? <a href="#loginhead" onclick="viewLogin()"> Login now </a></p>
                         <div class="clearfix">
                             <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn" name="signup">Sign Up</button>
+                            <button type="button" class="signupbtn" name="signup" onclick="validation()">Sign Up</button>
                         </div>
                     </fieldset>
                 </form>

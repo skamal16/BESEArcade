@@ -16,7 +16,7 @@ $result = mysqli_query($db, "SELECT * FROM users WHERE username = '$username' AN
 $row = mysqli_fetch_array($result);
 if($row['username'] == $user && $row['password'] == $password){
 	$_SESSION['login']=$user;
-	mysqli_query($db,"insert into userlog(username) values('".$_SESSION['login']."')");
+	mysqli_query($db,"INSERT INTO userlog(username) VALUES ('$user')");
 	echo true;
 }
 
