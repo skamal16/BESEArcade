@@ -37,6 +37,8 @@ var game = {
 
     update: function() {
         CTX.clearRect(0, 0, WIDTH, HEIGHT);
+        CTX.fillStyle = 'black';
+        CTX.fillRect(0, 0, canvas.width, canvas.height);
         gameObjects.forEach(function(gameObject) {
             gameObject.update();
         });

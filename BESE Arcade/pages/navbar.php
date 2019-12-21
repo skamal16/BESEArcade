@@ -16,10 +16,22 @@
                 <li id="aboutus"><a href="About Us.html">About Us</a></li>
                 <li id="similargames"><a href="Similar Games.html">Similar Games</a></li>
                 <li id="news"><a href="news.html">News</a></li>
-                <li id="register"><a href="Register.html">Login / Register</a></li>
+                <li id="contact"><a href="Contact.html">Get in touch</a></li>
+                <li id="feedback"><a href="Feedbacks.html">Feedback</a></li>
+                <li id="profile"></li>
             </ul>
         </div>
     </div>
 </nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "server_scripts/check_signedIn.php",
+            success: function(result) {
+                var html = !result ? '<a href="Register.html">Login / Register</a>' : '<a href="Profile.html">Profile</a>';
+                $('#profile').html(html);
+            }
+        });
+    });
 </script>

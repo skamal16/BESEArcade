@@ -238,7 +238,7 @@ class Transform {
 
 //animator
 class Animator {
-    constructor(image, width, height, frames) {
+    constructor(image, width, height, frames, speed = 6) {
         this.image = new Image();
         this.image.src = image;
         this.x = 0;

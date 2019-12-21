@@ -5,6 +5,8 @@ class PlayerAnimator extends Animator {
         this.walk_left = images[1];
         this.walk_right = images[2];
         this.jump = images[3];
+        this.attack_right = images[4];
+        this.attack_left = images[5];
         this.active = this.idle;
     }
 

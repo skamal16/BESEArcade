@@ -20,12 +20,41 @@ class PlayerScript extends Script {
 
         this.viewportLeft = WIDTH / 3;
         this.viewportRight = WIDTH * 2 / 3;
+        this.viewportTop = HEIGHT / 3;
+        this.viewportBottom = HEIGHT * 2 / 3;
+        this.camspeed = 10;
     }
 
     update() {
-        this.move();
         var animator = this.gameObject.sprite.animator;
-        if (this.dx < 0) {
+        var melee_animator = this.melee.sprite.animator;
+        melee_animator.active = false;
+
+        var m = this.melee.transform;
+        var p = this.gameObject.transform;
+
+        var mouseX = controller.mousePos[0];
+
+        m.y = p.y;
+
+        if (controller.mouse[0]) {
+            this.killEnemy();
+            if (mouseX > p.x) {
+                m.x = p.x + this.gameObject.rigidbody.collider.width / 2;
+                animator.active = animator.attack_right;
+                melee_animator.active = melee_animator.attack_right;
+            } else {
+                m.x = p.x - this.gameObject.rigidbody.collider.width / 2;
+                animator.active = animator.attack_left;
+                melee_animator.active = melee_animator.attack_left;
+            }
+            if (animator.frames != 4) {
+                animator.frames = 4;
+                animator.currentFrame = 0;
+            }
+            melee_animator.currentFrame = animator.currentFrame;
+            this.dx = 0;
+        } else if (this.dx < 0) {
             animator.active = animator.walk_left;
             animator.frames = 6;
         } else if (this.dx > 0) {
@@ -36,17 +65,10 @@ class PlayerScript extends Script {
             animator.frames = 1;
             animator.currentFrame = 0;
         }
+        this.move();
+
         this.accelerate();
         this.applyResistances();
-        if (controller.mouse[0]) this.killEnemy();
-
-        var m = this.melee.transform;
-        var p = this.gameObject.transform;
-
-        var mouseX = controller.mousePos[0];
-
-        m.x = mouseX > p.x ? p.x + this.gameObject.rigidbody.collider.width / 2 : p.x - this.gameObject.rigidbody.collider.width / 2;
-        m.y = p.y;
     }
 
     killEnemy() {
@@ -78,35 +100,34 @@ class PlayerScript extends Script {
     move() {
         var obj = this.gameObject;
         var plr = obj.transform;
-        var dx = this.dx;
-        var dy = this.dy;
 
-        var collide = false;
+        var camspeed = this.camspeed;
 
-        gameObjects.forEach(function(gameObject) {
-            if (gameObject !== obj && gameObject.rigidbody && !gameObject.rigidbody.isKinematic && gameObject.rigidbody.collidex(obj.rigidbody, -dx) && gameObject.rigidbody.collidex(obj.rigidbody, -dxy)) {
-                collide = true;
-                return;
-            }
-        });
-
-        if (plr.x > this.viewportRight && dx > 0 && !collide) {
+        if (plr.x > this.viewportRight) {
             gameObjects.forEach(function(gameObject) {
-                if (gameObject !== obj)
-                    gameObject.transform.moveMap(-dx, 0);
+                gameObject.transform.moveMap(-camspeed, 0);
             });
-            this.dy = plr.move(0, this.dy)[1];
 
-        } else if (plr.x < this.viewportLeft && dx < 0 && !collide) {
-            gameObjects.forEach(function(gameObject) {
-                if (gameObject !== obj)
-                    gameObject.transform.moveMap(-dx, 0)[0];
-            });
-            this.dy = plr.move(0, this.dy)[1];
-
-        } else {
-            [this.dx, this.dy] = plr.move(this.dx, this.dy);
         }
+        if (plr.x < this.viewportLeft) {
+            gameObjects.forEach(function(gameObject) {
+                gameObject.transform.moveMap(camspeed, 0);
+            });
+
+        }
+        if (plr.y < this.viewportTop) {
+            gameObjects.forEach(function(gameObject) {
+                gameObject.transform.moveMap(0, camspeed);
+            });
+
+        }
+        if (plr.y > this.viewportBottom) {
+            gameObjects.forEach(function(gameObject) {
+                gameObject.transform.moveMap(0, -camspeed);
+            });
+        }
+
+        [this.dx, this.dy] = plr.move(this.dx, this.dy);
     }
 
     accelerate() {

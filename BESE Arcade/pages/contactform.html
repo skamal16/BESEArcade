@@ -16,95 +16,92 @@
 <body background="../resources/contactform.jpg">
     <div id="page-container">
         <div id="content-wrap">
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="Home.html"><img style="height: 40px; width: 40px;" src="https://i.imgur.com/kk8VIfY.jpg" alt=""></a>
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="Home.html">Home</a></li>
-                            <li><a href="synopsis.html">Synopsis</a></li>
-                            <li><a href="levels.html">Levels</a></li>
-                            <li><a href="About Us.html">About Us</a></li>
-                            <li><a href="Similar Games.html">Similar Games</a></li>
-                            <li class="active"><a href="Register.html">Login / Register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div id="navbar"></div>
+            <script>
+                $(document).ready(function() {
+                    $('#navbar').load("navbar.html", function() {
+                        //$('#contact').addClass("active");
+                    });
+                });
+            </script>
             <div class="heading">
                 <h2> Contact Us </h2>
                 <hr>
             </div>
-           
-            
+
+
             <div class="container">
                 <div class="row">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-5">
                         <h3 id="head">Have any questions? Leave us a comment and we'll get back to you...maybe. </h3>
-                <form id="contact-form">
-                    <fieldset>
-                        <legend>Contact Us</legend>
-                        <div class="form-group">
-                            <label>Full Name </label>
-                            <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here" required>
-                        </div>
+                        <form id="contact-form">
+                            <fieldset>
+                                <legend>Contact Us</legend>
+                                <div class="form-group">
+                                    <label>Full Name </label>
+                                    <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
-                        </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
+                                </div>
 
-                        <div class="form-group">
-                            <label>Comments</label>
-                            <textarea rows="5" cols="38"></textarea>
-                        </div>
+                                <div class="form-group">
+                                    <label>Comments</label>
+                                    <textarea id="feedback" placeholder="Type your feedback here." required rows="5" cols="38"></textarea>
+                                </div>
 
-                        <div class="clearfix">
-                            <button type="button" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="contact">Submit</button>
-                        </div>
-                    </fieldset>
-                </form>
+                                <div class="clearfix">
+                                    <button type="button" class="cancelbtn">Cancel</button>
+                                    <button type="button" class="contact" onclick="submitFeedback()">Submit</button>
+                                </div>
+
+                                <script>
+                                    function submitFeedback() {
+                                        let fname = $("#fname:text").val();
+                                        let email = $("#email:text").val();
+                                        let feedback = $("#feedback").val();
+
+                                        console.log(fname + " " + email + " " + feedback);
+                                    }
+                                </script>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div id="map"></div>
+                        <h3 id="maphead">Drop by our place if you wanna have a chat, we don't bite...maybe</h3>
+                    </div>
+
+                </div>
+
+                <script>
+                    function initMap() {
+                        var uluru = {
+                            lat: 33.6429,
+                            lng: 72.9906
+                        };
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 16,
+                            center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+                </script>
             </div>
 
-            <div class="col-sm-4">
-            <div id="map"></div>
-            <h3 id="maphead">Drop by our place if you wanna have a chat, we don't bite...maybe</h3>
-            </div>
-
-            </div> 
-
-                 <script> 
-                function initMap() { 
-                var uluru = {lat: 33.6429, lng: 72.9906}; 
-                var map = new google.maps.Map(document.getElementById('map'), { 
-                zoom: 16, 
-                center: uluru 
-                }); 
-                var marker = new google.maps.Marker({ 
-                position: uluru, 
-                map: map 
-                }); 
-            } 
-            </script> 
-            <script async defer 
-            src= 
-            "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap"> 
-            </script>
-            </div>
-        
-        <footer class="container-fluid text-center">
-            <p>BESEArcade © 2019</p>
-        </footer>
-    </div>
+            <footer class="container-fluid text-center">
+                <p>BESEArcade © 2019</p>
+            </footer>
+        </div>
 </body>
 
 
