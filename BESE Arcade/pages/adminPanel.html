@@ -1,8 +1,10 @@
-<br>
-<br>
+<head>
+     <link rel="stylesheet" href="./../profile.css">
+</head>
+
 <h2>ADMIN PANEL</h2>
-<input id="username" type="text"><button onclick="deleteUser()">DELETE USER</button>
-<button onclick="printServerStats()">PRINT SERVER STATS</button>
+<input id="username" type="text"><button id="deleteuser" onclick="deleteUser()">DELETE USER</button><br>
+<button id="printserver" onclick="printServerStats()">PRINT SERVER STATS</button>
 <script>
     function deleteUser() {
         var user = $("#username:text").val();

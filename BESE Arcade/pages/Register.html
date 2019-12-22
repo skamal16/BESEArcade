@@ -203,6 +203,7 @@
             document.getElementById('reg-form').setAttribute('style', 'display:block');
             document.getElementById('login').setAttribute('style', 'display:none');
             document.getElementById('loginhead').setAttribute('style', 'display:none');
+            document.getElementById('signout').setAttribute('style', 'display:none');
         }
 
 
@@ -279,7 +280,7 @@
                     </fieldset>
                 </form>
                 <div class="googleout">
-                    <a href="Home.html"><button class="signout" onclick="signOut()">Sign Out of Google</button></a>
+                    <a href="Home.html"><button class="signout" id="signout" onclick="signOut()">Sign Out of Google</button></a>
                 </div>
 
 

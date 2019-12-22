@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 80px 10px 80px;
+    text-align: center;
+    font-family: "felix titling";
+	color: white;
+}
+
+#userdetails, #adminPanel {
+	font-family: "felix titling";
+	font-size: 25px;
+	color: white;
+}
+
+#signout, #deleteuser, #printserver{
+        background-color: #8a1a1c;
+        color: white;
+        font-size: 20px;
+        padding: 14px 10px;
+        border: solid;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0.9;
+        margin-top: 10px;
+        
+}
+
+button: hover{
+	opacity: 1;
+}
