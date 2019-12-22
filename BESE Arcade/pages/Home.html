@@ -70,44 +70,46 @@
     </footer>
 </body>
 <script type="text/javascript">
-
     function showtime() {
-        setInterval( function() {
-          if (navigator.geolocation) {
-    var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-    };
-    function success(pos) {
-  var crd = pos.coords;
-  var lat = crd.latitude;
-  var long = crd.longitude;
-  var loc = lat + "," +  long;
-  console.log(loc);
-   var targetDate = new Date();
-    var timestamp = targetDate.getTime()/1000 + targetDate.getTimezoneOffset() * 60;
-    var apicall = 'http://api.timezonedb.com/v2.1/get-time-zone?key=EF7175MO4GES&format=json&by=position&lat=' + lat + '&lng=' + long;
-    $.getJSON(apicall,function(data1){
-                if(data1!=null){
-                    console.log(data1);
-                    var country = data1.countryCode;
-                    var zone = data1.zoneName;
-                    var time = data1.formatted;
-                    $("#timeloc").html(country +" "+ zone+" "+ time);
-                 } });
-}
+        setInterval(function() {
+            if (navigator.geolocation) {
+                var options = {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                };
 
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
+                function success(pos) {
+                    var crd = pos.coords;
+                    var lat = crd.latitude;
+                    var long = crd.longitude;
+                    var loc = lat + "," + long;
+                    console.log(loc);
+                    var targetDate = new Date();
+                    var timestamp = targetDate.getTime() / 1000 + targetDate.getTimezoneOffset() * 60;
+                    var apicall = 'http://api.timezonedb.com/v2.1/get-time-zone?key=EF7175MO4GES&format=json&by=position&lat=' + lat + '&lng=' + long;
+                    $.getJSON(apicall, function(data1) {
+                        if (data1 != null) {
+                            console.log(data1);
+                            var country = data1.countryCode;
+                            var zone = data1.zoneName;
+                            var time = data1.formatted;
+                            $("#timeloc").html(country + " " + zone + " " + time);
+                        }
+                    });
+                }
 
-navigator.geolocation.getCurrentPosition(success, error, options); 
-   
-  } else { 
-    alert("geolocation not supported");
-  } }, 1000);
-}
+                function error(err) {
+                    console.warn(`ERROR(${err.code}): ${err.message}`);
+                }
+
+                navigator.geolocation.getCurrentPosition(success, error, options);
+
+            } else {
+                alert("geolocation not supported");
+            }
+        }, 1000);
+    }
 </script>
 
 </html>
