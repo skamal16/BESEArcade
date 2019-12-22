@@ -38,15 +38,6 @@
                         <form id="contact-form">
                             <fieldset>
                                 <legend>Contact Us</legend>
-                                <div class="form-group">
-                                    <label>Full Name </label>
-                                    <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
-                                </div>
 
                                 <div class="form-group">
                                     <label>Comments</label>
@@ -57,23 +48,18 @@
                                     <button type="button" class="cancelbtn">Cancel</button>
                                     <button type="button" class="contact" onclick="submitFeedback()">Submit</button>
                                 </div>
-                                <div id="response"></div>
 
                                 <script>
                                     function submitFeedback() {
-                                        let fname = $("#fname:text").val();
-                                        let uemail = $("#email:text").val();
                                         let ufeedback = $("#textarea").val();
 
                                         $.ajax({
                                             data: {
-                                                name: fname,
-                                                email: uemail,
                                                 feedback: ufeedback,
                                             },
                                             url: "server_scripts/uploadFeedback.php",
                                             success: function(response) {
-                                                if (response) $("#response").html("Your Feedback has been submitted");
+                                                if (response) window.location.replace("Feedbacks.html");
                                                 else console.log(response);
                                             },
                                             type: "post",

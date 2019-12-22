@@ -1,12 +1,12 @@
 <?php
+session_start();
 
-$name = $_POST["name"];
-$email = $_POST["email"];
+$name = $_SESSION["login"];
 $feedback = $_POST["feedback"];
 
 $db = mysqli_connect('localhost', 'root', '', 'redemption');
 
-$result = mysqli_query($db, "CALL InsertFeedback('$name', '$email', '$feedback')");
+$result = mysqli_query($db, "CALL InsertFeedback('$name', '$feedback')");
 
 if ($result) echo true;
 else echo mysqli_error($db);
