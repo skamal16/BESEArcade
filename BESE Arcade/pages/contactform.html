@@ -50,7 +50,7 @@
 
                                 <div class="form-group">
                                     <label>Comments</label>
-                                    <textarea id="feedback" placeholder="Type your feedback here." required rows="5" cols="38"></textarea>
+                                    <textarea id="myText" placeholder="Type your feedback here." required rows="5" cols="38"></textarea>
                                 </div>
 
                                 <div class="clearfix">
@@ -62,7 +62,7 @@
                                     function submitFeedback() {
                                         let fname = $("#fname:text").val();
                                         let email = $("#email:text").val();
-                                        let feedback = $("#feedback").val();
+                                        let feedback = $("#myText").val();
 
                                         console.log(fname + " " + email + " " + feedback);
                                     }
