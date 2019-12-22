@@ -50,21 +50,34 @@
 
                                 <div class="form-group">
                                     <label>Comments</label>
-                                    <textarea id="myText" placeholder="Type your feedback here." required rows="5" cols="38"></textarea>
+                                    <textarea id="textarea" placeholder="Type your feedback here." required rows="5" cols="38"></textarea>
                                 </div>
 
                                 <div class="clearfix">
                                     <button type="button" class="cancelbtn">Cancel</button>
                                     <button type="button" class="contact" onclick="submitFeedback()">Submit</button>
                                 </div>
+                                <div id="response"></div>
 
                                 <script>
                                     function submitFeedback() {
                                         let fname = $("#fname:text").val();
-                                        let email = $("#email:text").val();
-                                        let feedback = $("#myText").val();
+                                        let uemail = $("#email:text").val();
+                                        let ufeedback = $("#textarea").val();
 
-                                        console.log(fname + " " + email + " " + feedback);
+                                        $.ajax({
+                                            data: {
+                                                name: fname,
+                                                email: uemail,
+                                                feedback: ufeedback,
+                                            },
+                                            url: "server_scripts/uploadFeedback.php",
+                                            success: function(response) {
+                                                if (response) $("#response").html("Your Feedback has been submitted");
+                                                else console.log(response);
+                                            },
+                                            type: "post",
+                                        });
                                     }
                                 </script>
                             </fieldset>

@@ -31,6 +31,13 @@
             success: function(result) {
                 var html = !result ? '<a href="Register.html">Login / Register</a>' : '<a href="Profile.html">Profile</a>';
                 $('#profile').html(html);
+                if (result) {
+                    $('#contact').show();
+                    $('#levels').show();
+                } else {
+                    $('#contact').hide();
+                    $('#levels').hide();
+                }
             }
         });
     });
