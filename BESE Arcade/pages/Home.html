@@ -70,8 +70,10 @@
     </footer>
 </body>
 <script type="text/javascript">
+
     function showtime() {
-  if (navigator.geolocation) {
+        setInterval( function() {
+          if (navigator.geolocation) {
     var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -104,7 +106,7 @@ navigator.geolocation.getCurrentPosition(success, error, options);
    
   } else { 
     alert("geolocation not supported");
-  }
+  } }, 1000);
 }
 </script>
 
