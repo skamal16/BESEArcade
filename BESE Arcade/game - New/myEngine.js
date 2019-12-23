@@ -27,6 +27,10 @@ class MapLoader {
                     var platform = new GameObject().addTransform(x, y).addSprite(new Sprite().createRectangle("white", tileWidth * 5, tileWidth)).addRigidBody(x, y, tileWidth * 5, tileWidth);
                     var platform_script = new PlatformScript(platform, 2);
                     platform.addScript(platform_script);
+                } else if (tile == '5') {
+                    var platform = new GameObject().addTransform(x, y).addSprite(new Sprite().createRectangle("white", tileWidth * 5, tileWidth)).addRigidBody(x, y, tileWidth * 5, tileWidth);
+                    var platform_script = new PlatformScript(platform, 2, true);
+                    platform.addScript(platform_script);
                 }
                 x += tileWidth;
             });
