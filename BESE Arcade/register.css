@@ -20,6 +20,10 @@
             font-size: 16px;
         }
         
+       
+        .g-signin2{
+            margin-left: 32%;
+        }
         
         .signupbtn, .loginbtn {
             background-color: #8a1a1c;

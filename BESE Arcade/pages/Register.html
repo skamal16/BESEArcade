@@ -215,7 +215,7 @@
             document.getElementById('reg-form').setAttribute('style', 'display:block');
             document.getElementById('login').setAttribute('style', 'display:none');
             document.getElementById('loginhead').setAttribute('style', 'display:none');
-            document.getElementById('signout').setAttribute('style', 'display:none');
+            
         }
 
 
@@ -241,17 +241,7 @@
             });
         }
 
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function() {
-                console.log('User signed out.');
-            });
-            $.ajax({
-                url: "server_scripts/signOut.php",
-                success: function() {
-                    window.location.replace("Register.html");
-                } });
-        }
+        
     </script>
 </head>
 
@@ -293,16 +283,13 @@
                             <button type="button" class="loginbtn" name="login" onclick="loginValidation()">Login</button>
 
                         </div>
-
+                        <h3 style="text-align: center;"> OR </h3>
                         <p>Sign in with Google account</p>
                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
                     </fieldset>
                 </form>
-                <div class="googleout">
-                    <a href="Home.html"><button class="signout" id="signout" onclick="signOut()">Sign Out of Google</button></a>
-                </div>
-
+              
 
 
 
