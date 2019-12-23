@@ -22,7 +22,8 @@
 
     .col-sm-12{
         text-align: center;
-        padding-right: 8%;
+        padding-left: 60%;
+        padding-right: 10%;
         padding-top: 20px;
     }
 body{
@@ -129,11 +130,20 @@ body{
     h3  {
         font-size: 19px;
     }
+  
     @media screen and (max-width: 800px) {
     h3{
         font-size: 15px;
     }
+
     legend  {
         font-size: 25px;
     }
 }
+
+    @media screen and (min-width: 300px) and (max-width: 600px){
+          .col-sm-12{
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+    }
