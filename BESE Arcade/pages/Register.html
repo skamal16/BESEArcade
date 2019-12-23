@@ -14,6 +14,47 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                    url: "server_scripts/retrieveCookies.php",
+                    success: function(response) {
+                        if (response != false){
+                            cookies = JSON.parse(response);
+                            $("#user:text").val(cookies.username);
+                            document.getElementById("password").value = cookies.password;
+                        }
+                        else console.log("retrieving cookies failed");
+                    }
+                });
+
+            document.getElementById("fname").onblur = function(){checkExists("fname", document.getElementById("fname").value);}
+            document.getElementById("email").onblur = function(){checkExists("email", document.getElementById("email").value);}
+            document.getElementById("num").onblur = function(){checkExists("num", document.getElementById("num").value);}
+            document.getElementById("username").onblur = function(){checkExists("username", document.getElementById("username").value);}
+        });
+
+        function checkExists(ufield, uvalue){
+            $.ajax({
+                data: {
+                    field: ufield,
+                    value: uvalue,
+                },
+                type: "post",
+                url: "server_scripts/checkExists.php",
+                success: function(response){
+                    console.log(response);
+                    if(response > 0) {
+                        console.log("EXISTS");
+                        document.getElementById(ufield).style.borderColor = "red";
+                    }
+                    else {
+                        console.log("DOES NOT EXIST");
+                        document.getElementById(ufield).style.borderColor = "green";
+                    }
+                }
+            });
+        }
+
         function validation() {
 
             var fname = document.getElementById('fname').value;
@@ -190,7 +231,9 @@
                     type: "post",
                     url: "loginprocess.php",
                     success: function(response) {
-                        if (response == "success") window.location.replace("Profile.html");
+                        if (response == "success"){
+                            window.location.replace("Profile.html");
+                        } 
                         else console.log(response);
                     }
                 });
@@ -291,7 +334,7 @@
                         <legend>Register</legend>
                         <div class="form-group">
                             <label title="Alphabets only, at least 4 characters long">Full Name </label>
-                            <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here">
+                            <input type="text" class="form-control" id="fname" name="name" placeholder="Enter name here" >
                             <span id="errorname" class="text-danger font-weight-bold"> </span>
                         </div>
 

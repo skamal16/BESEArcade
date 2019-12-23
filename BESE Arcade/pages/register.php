@@ -13,6 +13,12 @@ $username = mysqli_real_escape_string($db, $_POST['username']);
 $password = md5($pass);
 if(mysqli_query($db, "CALL RegisterUser('$username', '$fname', '$email', $contact, '$password')")){
     $_SESSION['login']=$username;
+
+    $cookie_name = "login_details";
+	$cookie_value = '{ "username":"'.$username.'", "password":"'.$pass.'"}';
+
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+	
     echo "success";
 } else echo mysqli_error($db);
 
