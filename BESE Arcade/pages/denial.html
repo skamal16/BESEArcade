@@ -20,22 +20,23 @@
             <script>
                 $(document).ready(function() {
                     $('#navbar').load('navbar.html');
-                    $.ajax({
-                        url: "../game - New/getActiveLevel.php",
-                        success: function(response) {
-                            console.log(response);
-                            var level = response;
-                            $.ajax({
-                                url: "getActiveLevelScore.php",
-                                success: function(response) {
-                                    console.log(response);
-                                    var score = response;
-                                    $("#level").html("Level " + level + "\n" + "Highscore: " + score);
-                                }
-                            });
-                            $("#level").html("Level " + response);
-                        }
-                    });
+                    setInterval(function() {
+                        $.ajax({
+                            url: "../game - New/getActiveLevel.php",
+                            success: function(response) {
+                                var level = response;
+                                $.ajax({
+                                    url: "getActiveLevelScore.php",
+                                    success: function(response) {
+                                        var score = response;
+                                        var text = "Level " + level + "\n" + "Highscore: " + score;
+                                        $("#level").html(text);
+                                    }
+                                });
+                                $("#level").html("Level " + response);
+                            }
+                        });
+                    }, 1000);
                 });
             </script>
             <div class="container-fluid">

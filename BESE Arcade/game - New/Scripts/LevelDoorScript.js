@@ -32,7 +32,6 @@ class LevelDoorScript extends Script {
 
         if (crash && ((dx > 0 && myright <= otherright) || (dx < 0 && myleft >= otherleft))) {
             this.updateScore();
-            currentLevel++;
             killCount = 0;
             game.level = new Level().build();
         }
@@ -50,5 +49,17 @@ class LevelDoorScript extends Script {
         };
         xmlhttp.open("GET", "score_upload.php?score=" + score + "&level=" + currentLevel, true);
         xmlhttp.send();
+        currentLevel++;
+        $.ajax({
+            data: {
+                level: currentLevel,
+            },
+            type: "post",
+            url: "../pages/setActiveLevel.php",
+            success: function(response) {
+                console.log(currentLevel);
+                console.log(response);
+            }
+        });
     }
 }
