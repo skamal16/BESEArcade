@@ -234,7 +234,10 @@
                         if (response == "success"){
                             window.location.replace("Profile.html");
                         } 
-                        else console.log(response);
+                        else {
+                            document.getElementById("password").style.borderColor = "red";
+                            document.getElementById('errorpassword').innerHTML = "Invalid password, please type again";
+                            console.log(response); }
                     }
                 });
 
