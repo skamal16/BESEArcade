@@ -18,6 +18,8 @@ class EnemyScript extends Script {
         this.drag = 1;
         this.gravity = 2;
         this.pace = 100;
+        this.timer = 0;
+        this.chase = true;
     }
 
     update() {
@@ -43,9 +45,20 @@ class EnemyScript extends Script {
         var trgt = this.target.transform;
         var transform = this.gameObject.transform;
 
-        this.left = trgt.x < transform.x ? 1 : 0;
-        this.right = trgt.x > transform.x ? 1 : 0;
+        if (this.timer == 0) {
+            this.chase = Math.random() > 0.5;
+        }
+
+        if (this.chase) {
+            this.left = (trgt.x < transform.x) ? 1 : 0;
+            this.right = (trgt.x > transform.x) ? 1 : 0;
+        } else {
+            this.right = (trgt.x < transform.x) ? 1 : 0;
+            this.left = (trgt.x > transform.x) ? 1 : 0;
+        }
         //this.up = trgt.y < transform.y ? 1 : 0;
+
+        this.timer = (this.timer + 1) % 120;
     }
 
     move() {
