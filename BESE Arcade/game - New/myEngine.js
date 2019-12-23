@@ -23,6 +23,10 @@ class MapLoader {
                     var door = new GameObject().addTransform(x, y - player.sprite.height + 20).addSprite(new Sprite().createRectangle("darkgreen", tileWidth * 3, player.sprite.height + 20));
                     var door_script = new LevelDoorScript(door, player, level + 1);
                     door.addScript(door_script);
+                } else if (tile == '4') {
+                    var platform = new GameObject().addTransform(x, y).addSprite(new Sprite().createRectangle("white", tileWidth * 5, tileWidth)).addRigidBody(x, y, tileWidth * 5, tileWidth);
+                    var platform_script = new PlatformScript(platform, 2);
+                    platform.addScript(platform_script);
                 }
                 x += tileWidth;
             });

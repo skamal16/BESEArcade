@@ -17,7 +17,6 @@ class EnemyScript extends Script {
         this.jump = 20;
         this.drag = 1;
         this.gravity = 2;
-        this.pace = 100;
         this.timer = 0;
         this.chase = true;
     }
