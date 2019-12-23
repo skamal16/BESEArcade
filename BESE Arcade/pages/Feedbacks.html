@@ -29,7 +29,6 @@
                     $.ajax({
                         url: "server_scripts/downloadFeedback.php",
                         success: function(response) {
-                            console.log(response);
                             $("#feedbacks").html(response);
                         },
                     });
