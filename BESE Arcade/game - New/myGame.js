@@ -10,6 +10,7 @@ const CTX = canvas.getContext("2d");
 let gameObjects = [];
 let rigidObjects = [];
 let enemies = [];
+
 let currentLevel = 1;
 
 let killCount = 0;
@@ -31,7 +32,13 @@ var game = {
 
     start: function() {
         document.body.append(canvas);
-        game.level = new Level().build();
+        $.ajax({
+            url: "getActiveLevel.php",
+            success: function(response) {
+                currentLevel = response;
+                game.level = new Level().build();
+            }
+        });
     },
 
 

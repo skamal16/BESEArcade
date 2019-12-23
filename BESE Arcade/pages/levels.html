@@ -21,7 +21,39 @@
                     $('#navbar').load("navbar.html", function() {
                         $('#levels').addClass("active");
                     });
+
+                    document.getElementById("denial").onclick = function() {
+                        setLevel(1);
+                    };
+                    document.getElementById("anger").onclick = function() {
+                        setLevel(2);
+                    };
+                    document.getElementById("depression").onclick = function() {
+                        setLevel(3);
+                    };
+                    document.getElementById("bargaining").onclick = function() {
+                        setLevel(4);
+                    };
+                    document.getElementById("acceptance").onclick = function() {
+                        setLevel(5);
+                    };
+                    document.getElementById("redemption").onclick = function() {
+                        setLevel(6);
+                    };
                 });
+
+                function setLevel(lev) {
+                    $.ajax({
+                        data: {
+                            level: lev,
+                        },
+                        type: "post",
+                        url: "setActiveLevel.php",
+                        success: function(response) {
+                            location.replace('denial.html');
+                        }
+                    });
+                }
             </script>
             <div class="container">
                 <h1 style="text-align: center;"> Can you guide Bob through all 6 levels?</h1>
@@ -40,22 +72,22 @@
                     <div class="carousel-inner">
 
                         <div class="item active">
-                            <a href="denial.html"><img src="https://i.imgur.com/iGr29Mn.jpg" alt="" style="width:100%;"></a>
+                            <a id="denial"><img src="https://i.imgur.com/iGr29Mn.jpg" alt="" style="width:100%;"></a>
                         </div>
                         <div class="item">
-                            <img src="https://i.imgur.com/EnoW0Ky.jpg" alt="" style="width:100%;">
+                            <a id="anger"><img src="https://i.imgur.com/EnoW0Ky.jpg" alt="" style="width:100%;"></a>
                         </div>
                         <div class="item">
-                            <img src="https://i.imgur.com/6dyvPQC.jpg" alt="" style="width:100%;">
+                            <a id="depression"><img src="https://i.imgur.com/6dyvPQC.jpg" alt="" style="width:100%;"></a>
                         </div>
                         <div class="item">
-                            <img src="https://i.imgur.com/VXJJO24.jpg" alt="" style="width:100%;">
+                            <a id="bargaining"><img src="https://i.imgur.com/VXJJO24.jpg" alt="" style="width:100%;"></a>
                         </div>
                         <div class="item">
-                            <img src="https://i.imgur.com/BdPghPL.jpg" alt="" style="width:100%;">
+                            <a id="acceptance"><img src="https://i.imgur.com/BdPghPL.jpg" alt="" style="width:100%;"></a>
                         </div>
                         <div class="item">
-                            <img src="https://i.imgur.com/qMsy6sh.jpg" alt="" style="width:100%;">
+                            <a id="redemption"><img src="https://i.imgur.com/qMsy6sh.jpg" alt="" style="width:100%;"></a>
                         </div>
                     </div>
 
