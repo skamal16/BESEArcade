@@ -188,41 +188,6 @@
 
             var user = document.getElementById('user').value;
             var password = document.getElementById('password').value;
-
-            var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-            var usercheck = /^[a-zA-Z0-9_]{4,10}$/;
-
-            var f1 = true;
-            var f2 = true;
-
-            if (usercheck.test(user)) {
-                document.getElementById("user").style.borderColor = "green";
-                document.getElementById('erroruser').innerHTML = "";
-            } else {
-                if (user == "") {
-                    document.getElementById("user").style.borderColor = "red";
-                    document.getElementById('erroruser').innerHTML = "Required field, please enter username";
-                } else {
-                    document.getElementById("user").style.borderColor = "red";
-                    document.getElementById('erroruser').innerHTML = "Invalid username, please type again";
-                }
-                f1 = false;
-            }
-            if (passwordcheck.test(password)) {
-                document.getElementById("password").style.borderColor = "green";
-                document.getElementById('errorpassword').innerHTML = "";
-            } else {
-                if (password == "") {
-                    document.getElementById("password").style.borderColor = "red";
-                    document.getElementById('errorpassword').innerHTML = "Required field, please enter password";
-                } else {
-                    document.getElementById("password").style.borderColor = "red";
-                    document.getElementById('errorpassword').innerHTML = "Invalid password, please type again";
-                }
-                f2 = false;
-            }
-
-            if (f1 && f2) {
                 $.ajax({
                     data: {
                         user: user,
@@ -236,13 +201,14 @@
                         } 
                         else {
                             document.getElementById("password").style.borderColor = "red";
-                            document.getElementById('errorpassword').innerHTML = "Invalid password, please type again";
+                            document.getElementById("user").style.borderColor = "red";
+                            document.getElementById('errorpassword').innerHTML = "User not found or invalid password, try again.";
                             console.log(response); }
                     }
                 });
 
             }
-        }
+        
 
         function viewRegister() {
             document.getElementById('registerhead').setAttribute('style', 'display:block');
