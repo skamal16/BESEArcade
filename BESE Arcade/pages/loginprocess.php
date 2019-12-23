@@ -15,9 +15,9 @@ session_start();
 mysqli_query($db, "SET @success = 0");
 
 $result = mysqli_query($db, "CALL LoginUser('$username', '$password', @success)") or die("DATABASE ERROR");
+$result = mysqli_fetch_assoc($result);
 
-if(mysqli_num_rows($result) > 0){
-	$result = mysqli_fetch_assoc($result);
+if($result["result"]){
 	$_SESSION['login']=$username;
 
 	$cookie_name = "login_details";
