@@ -236,7 +236,7 @@
                 type: "post",
                 url: "googlelogin.php",
                 success: function(response) {
-                    console.log(response);
+                   location.replace('profile.html');
                 }
             });
         }
@@ -246,6 +246,11 @@
             auth2.signOut().then(function() {
                 console.log('User signed out.');
             });
+            $.ajax({
+                url: "server_scripts/signOut.php",
+                success: function() {
+                    window.location.replace("Register.html");
+                } });
         }
     </script>
 </head>
