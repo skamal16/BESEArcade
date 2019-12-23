@@ -1,7 +1,7 @@
 .container {
             width: 100%;
             font-size: 20px;
-            padding: 50px;
+            
             max-width: 100%;
         }
 
@@ -9,20 +9,15 @@
     #map{
          height: 400px; 
         width: 500px; 
+        max-width: 100%;
         text-align: center;
         margin-top: 15%;
-       
 
     }
 
-    #maphead{
-        padding-left: 60%;
-    }
+    
     .col-sm-4{
-        padding-left: 90px;
-        padding-bottom: 30px;
         padding-top: 90px;
-        text-align: center;
     }
 
     .col-sm-12{
@@ -129,3 +124,16 @@ body{
         }
 
     }
+
+    @media screen and (max-width: 1050px) {
+    h3  {
+        font-size: 19px;
+    }
+    @media screen and (max-width: 800px) {
+    h3{
+        font-size: 15px;
+    }
+    legend  {
+        font-size: 25px;
+    }
+}
