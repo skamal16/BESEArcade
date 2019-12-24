@@ -18,6 +18,13 @@
             <div id="navbar"></div>
             <script>
                 $(document).ready(function() {
+                    $.ajax({
+                            url: "server_scripts/check_signedIn.php",
+                            success: function(result) {
+                                if(!result) window.location.replace("Register.html");
+                            }
+                        });
+                    
                     $('#navbar').load("navbar.html", function() {
                         $('#levels').addClass("active");
                     });
